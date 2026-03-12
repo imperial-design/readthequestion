@@ -1,0 +1,156 @@
+// Supabase Edge Function: create-checkout-session
+// Creates a Stripe Checkout Session for a one-time £19.99 payment.
+// Optionally adds the CLEAR Method Crib Sheet (£4.99) as a second line item.
+// Deploy: supabase functions deploy create-checkout-session
+// Required secrets: STRIPE_SECRET_KEY
+//
+// SECURITY: Rate limiting must be configured externally (Cloudflare WAF or
+// Supabase Dashboard → Edge Functions → Rate Limiting) to prevent abuse.
+
+import { serve } from 'https://deno.land/std@0.224.0/http/server.ts';
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+import Stripe from 'https://esm.sh/stripe@14?target=deno';
+
+const stripe = new Stripe(Deno.env.get('STRIPE_SECRET_KEY')!, {
+  apiVersion: '2024-12-18.acacia',
+});
+
+const PROD_ORIGINS = [
+  'https://answerthequestion.co.uk',
+  'https://www.answerthequestion.co.uk',
+];
+
+// localhost is only included when ALLOW_LOCALHOST=true (for local dev with `supabase functions serve`)
+const ALLOWED_ORIGINS = Deno.env.get('ALLOW_LOCALHOST') === 'true'
+  ? [...PROD_ORIGINS, 'http://localhost:5173']
+  : PROD_ORIGINS;
+
+function getCorsHeaders(req: Request) {
+  const origin = req.headers.get('Origin') ?? '';
+  const allowedOrigin = ALLOWED_ORIGINS.includes(origin) ? origin : ALLOWED_ORIGINS[0];
+  return {
+    'Access-Control-Allow-Origin': allowedOrigin,
+    'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
+  };
+}
+
+serve(async (req) => {
+  // CORS preflight
+  if (req.method === 'OPTIONS') {
+    return new Response('ok', { headers: getCorsHeaders(req) });
+  }
+
+  try {
+    // Verify the user is authenticated
+    const authHeader = req.headers.get('Authorization');
+    if (!authHeader) {
+      return new Response(JSON.stringify({ error: 'Missing authorization header' }), {
+        status: 401,
+        headers: { ...getCorsHeaders(req), 'Content-Type': 'application/json' },
+      });
+    }
+
+    const supabaseUrl = Deno.env.get('SUPABASE_URL')!;
+    const supabaseKey = Deno.env.get('SUPABASE_ANON_KEY')!;
+    const supabase = createClient(supabaseUrl, supabaseKey, {
+      global: { headers: { Authorization: authHeader } },
+    });
+
+    const { data: { user }, error: authError } = await supabase.auth.getUser();
+    if (authError || !user) {
+      return new Response(JSON.stringify({ error: 'Unauthorized' }), {
+        status: 401,
+        headers: { ...getCorsHeaders(req), 'Content-Type': 'application/json' },
+      });
+    }
+
+    const { successUrl, cancelUrl, includeCribSheet } = await req.json();
+
+    // Validate redirect URLs against allowed origins to prevent open redirects
+    const isAllowedUrl = (url: string) => {
+      try {
+        const parsed = new URL(url);
+        return ALLOWED_ORIGINS.some(origin => parsed.origin === new URL(origin).origin);
+      } catch {
+        return false;
+      }
+    };
+
+    if (!successUrl || !cancelUrl || !isAllowedUrl(successUrl) || !isAllowedUrl(cancelUrl)) {
+      return new Response(JSON.stringify({ error: 'Invalid redirect URL' }), {
+        status: 400,
+        headers: { ...getCorsHeaders(req), 'Content-Type': 'application/json' },
+      });
+    }
+
+    // Build line items — always include the main programme
+    const lineItems: Stripe.Checkout.SessionCreateParams.LineItem[] = [
+      {
+        price_data: {
+          currency: 'gbp',
+          unit_amount: 1999, // £19.99 in pence
+          product_data: {
+            name: 'Answer The Question — Full Access',
+            description: '12-week 11+ exam technique training programme. One-time payment, access forever.',
+          },
+        },
+        quantity: 1,
+      },
+    ];
+
+    // Add crib sheet as a second line item if selected
+    if (includeCribSheet) {
+      lineItems.push({
+        price_data: {
+          currency: 'gbp',
+          unit_amount: 499, // £4.99 in pence
+          product_data: {
+            name: 'CLEAR Method Crib Sheet (PDF)',
+            description: 'Printable one-page summary of the CLEAR Method exam technique. Available for download after purchase.',
+          },
+        },
+        quantity: 1,
+      });
+    }
+
+    // Create Stripe Checkout Session
+    const session = await stripe.checkout.sessions.create({
+      payment_method_types: ['card'],
+      mode: 'payment',
+      allow_promotion_codes: true,
+      line_items: lineItems,
+      success_url: `${successUrl}?session_id={CHECKOUT_SESSION_ID}${includeCribSheet ? '&crib_sheet=1' : ''}`,
+      cancel_url: cancelUrl,
+      customer_email: user.email,
+      metadata: {
+        parentId: user.id,
+        includeCribSheet: includeCribSheet ? 'true' : 'false',
+      },
+    });
+
+    // Record pending payment in database
+    const supabaseAdmin = createClient(
+      supabaseUrl,
+      Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!
+    );
+
+    await supabaseAdmin.from('payments').insert({
+      parent_id: user.id,
+      stripe_checkout_session_id: session.id,
+      amount_pence: includeCribSheet ? 2498 : 1999,
+      currency: 'gbp',
+      status: 'pending',
+      include_crib_sheet: !!includeCribSheet,
+    });
+
+    return new Response(JSON.stringify({ url: session.url }), {
+      headers: { ...getCorsHeaders(req), 'Content-Type': 'application/json' },
+    });
+  } catch (err) {
+    const message = err instanceof Error ? err.message : 'Unknown error';
+    return new Response(JSON.stringify({ error: message }), {
+      status: 500,
+      headers: { ...getCorsHeaders(req), 'Content-Type': 'application/json' },
+    });
+  }
+});

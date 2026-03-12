@@ -5,6 +5,9 @@ import type { User } from '../types/user';
 import { supabase } from '../lib/supabase';
 
 interface AuthState {
+  // Whether the initial session check has completed
+  authReady: boolean;
+
   // Supabase parent session
   parentSession: Session | null;
   setParentSession: (session: Session | null) => void;
@@ -32,12 +35,13 @@ interface AuthState {
 export const useAuthStore = create<AuthState>()(
   persist(
     (set, get) => ({
+      authReady: false,
       parentSession: null,
       children: [],
       currentChildId: null,
 
       setParentSession: (session) => {
-        set({ parentSession: session });
+        set({ parentSession: session, authReady: true });
         // Clear child selection on logout
         if (!session) {
           set({ children: [], currentChildId: null });
@@ -65,12 +69,14 @@ export const useAuthStore = create<AuthState>()(
             u.id === childId ? { ...u, hasSeenOnboarding: true } : u
           ),
         }));
-        // Also update in Supabase (fire-and-forget)
+        // Also update in Supabase
         supabase
           .from('child_profiles')
           .update({ has_seen_onboarding: true })
           .eq('id', childId)
-          .then(() => {});
+          .then(({ error }) => {
+            if (error) console.warn('Failed to sync onboarding status:', error.message);
+          });
       },
 
       markTutorialSeen: () => {
@@ -85,7 +91,9 @@ export const useAuthStore = create<AuthState>()(
           .from('child_profiles')
           .update({ has_seen_tutorial: true })
           .eq('id', childId)
-          .then(() => {});
+          .then(({ error }) => {
+            if (error) console.warn('Failed to sync tutorial status:', error.message);
+          });
       },
 
       updateChildLocally: (childId, updates) => {

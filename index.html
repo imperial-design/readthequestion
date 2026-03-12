@@ -7,7 +7,10 @@
     <meta name="theme-color" content="#7c3aed" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="apple-mobile-web-app-title" content="ReadTheQ" />
+    <meta name="apple-mobile-web-app-title" content="ATQ!" />
+
+    <!-- Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://api.stripe.com; frame-src https://js.stripe.com https://hooks.stripe.com;" />
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -17,27 +20,21 @@
     <link rel="manifest" href="/manifest.json" />
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Read the Question! - 11+ Exam Technique Trainer" />
+    <meta property="og:title" content="AnswerTheQuestion! - 11+ Exam Technique Trainer" />
     <meta property="og:description" content="Daily practice to master 11+ exam technique. Read twice, highlight key words, eliminate wrong answers." />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://readthequestion.app" />
+    <meta property="og:url" content="https://answerthequestion.co.uk" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 
-    <title>Read the Question! - 11+ Exam Technique</title>
+    <title>AnswerTheQuestion! - 11+ Exam Technique</title>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    <script>
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js').catch(() => {});
-        });
-      }
-    </script>
+    <script src="/register-sw.js"></script>
   </body>
 </html>

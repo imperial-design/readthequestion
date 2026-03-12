@@ -18,14 +18,14 @@ export function BottomNav() {
               `flex flex-col items-center gap-0.5 px-3 py-1.5 rounded-2xl transition-all min-w-[60px] min-h-[48px] justify-center focus-visible:outline-2 focus-visible:outline-rose-500 focus-visible:outline-offset-2 ${
                 isActive
                   ? 'text-rose-600 font-bold bg-rose-100/80 scale-105'
-                  : 'text-gray-400 hover:text-rose-500'
+                  : 'text-gray-500 hover:text-rose-500'
               }`
             }
           >
             {({ isActive }) => (
               <>
                 <span className="text-xl leading-none" aria-hidden="true">{item.emoji}</span>
-                <span className={`text-xs font-display font-bold ${isActive ? 'text-rose-600' : 'text-gray-400'}`}>
+                <span className={`text-xs font-display font-bold ${isActive ? 'text-rose-600' : 'text-gray-500'}`}>
                   {item.label}
                 </span>
               </>

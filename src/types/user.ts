@@ -13,6 +13,8 @@ export interface User {
   programmeStartDate: string;
   hasSeenOnboarding: boolean;
   hasSeenTutorial?: boolean;
+  hasPaid?: boolean;
+  referralCode?: string;
 }
 
 export const AVATAR_CHARACTERS = ['cat', 'owl', 'robot', 'unicorn', 'dragon', 'fox'] as const;

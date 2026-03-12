@@ -52,7 +52,7 @@ export function MistakeReviewPage() {
     return (
       <div className="text-center py-12 space-y-4">
         <ProfessorHoot mood="celebrating" size="lg" message="No mistakes to review! You're doing brilliantly!" showSpeechBubble animate />
-        <button onClick={() => navigate('/')} className="px-6 py-3 rounded-button font-display font-bold text-white rainbow-gradient">
+        <button onClick={() => navigate('/home')} className="px-6 py-3 rounded-button font-display font-bold text-white rainbow-gradient">
           Back to the Nest! 🦉
         </button>
       </div>
@@ -86,7 +86,7 @@ export function MistakeReviewPage() {
         <button onClick={() => navigate(-1)} className="text-white/80 hover:text-white font-display text-sm flex items-center gap-1" aria-label="Go back">
           <ChevronLeft className="w-4 h-4" aria-hidden="true" /> Back
         </button>
-        <span className="text-white/60 font-display text-sm font-bold">
+        <span className="text-white/80 font-display text-sm font-bold">
           Mistake {currentIdx + 1} of {mistakeData.length}
         </span>
       </div>
@@ -195,7 +195,7 @@ export function MistakeReviewPage() {
           </button>
         ) : (
           <button
-            onClick={() => navigate('/')}
+            onClick={() => navigate('/home')}
             className="px-5 py-2.5 rounded-button font-display font-bold text-sm text-white rainbow-gradient"
           >
             Done! 🦉

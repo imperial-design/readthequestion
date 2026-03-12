@@ -1,0 +1,186 @@
+import type { Question } from '../../types/question';
+
+/**
+ * 10 NEW Non-Verbal Reasoning questions — standard 11+ NVR formats.
+ * Difficulty spread: 2 Foundation, 4 Improvers, 4 Exam Mode
+ */
+export const newNonVerbalReasoningQuestions: Question[] = [
+  // ─── DIFFICULTY 1 — Foundation ──────────
+
+  {
+    id: 'nvr-new-1-01',
+    subject: 'non-verbal-reasoning',
+    difficulty: 1,
+    questionText: 'In a code, each shape has a value: circle = 2, triangle = 3, square = 5. What is the total value of: triangle + square + circle?',
+    questionTokens: ['In', 'a', 'code,', 'each', 'shape', 'has', 'a', 'value:', 'circle', '=', '2,', 'triangle', '=', '3,', 'square', '=', '5.', 'What', 'is', 'the', 'total', 'value', 'of:', 'triangle', '+', 'square', '+', 'circle?'],
+    keyWordIndices: [8, 10, 11, 13, 14, 16, 17, 20, 21, 23, 25, 27],
+    options: [
+      { text: '8', isEliminatable: true, eliminationReason: '8 is triangle + square (3 + 5) without adding the circle. A rusher forgets the last item.' },
+      { text: '10', isEliminatable: false },
+      { text: '5', isEliminatable: true, eliminationReason: '5 is just the square. You need to add all three shapes.' },
+      { text: '15', isEliminatable: true, eliminationReason: '15 is 2 + 3 + 5 + 5 — a rusher might count the square twice.' },
+    ],
+    correctOptionIndex: 1,
+    explanation: 'Triangle (3) + Square (5) + Circle (2) = 10. Make sure to add all three, and use the correct value for each shape.',
+    category: 'logic-code',
+  },
+  {
+    id: 'nvr-new-1-02',
+    subject: 'non-verbal-reasoning',
+    difficulty: 1,
+    questionText: 'Look at the pattern: 3, 6, 9, 12, ___. What number comes next?',
+    questionTokens: ['Look', 'at', 'the', 'pattern:', '3,', '6,', '9,', '12,', '___.', 'What', 'number', 'comes', 'next?'],
+    keyWordIndices: [3, 4, 5, 6, 7, 8, 9, 10, 12],
+    options: [
+      { text: '13', isEliminatable: true, eliminationReason: '13 would mean adding 1, but the pattern adds 3 each time.' },
+      { text: '14', isEliminatable: true, eliminationReason: '14 would mean adding 2, but the pattern adds 3 each time.' },
+      { text: '15', isEliminatable: false },
+      { text: '18', isEliminatable: true, eliminationReason: '18 skips ahead — that would be the number after 15 in the pattern.' },
+    ],
+    correctOptionIndex: 2,
+    explanation: 'The pattern adds 3 each time: 3, 6, 9, 12, 15. Each number is in the 3-times table.',
+    category: 'logic-sequence',
+  },
+
+  // ─── DIFFICULTY 2 — Improvers ──────────
+
+  {
+    id: 'nvr-new-2-01',
+    subject: 'non-verbal-reasoning',
+    difficulty: 2,
+    questionText: 'You are facing South. You turn left, then left again. Which direction are you now facing?',
+    questionTokens: ['You', 'are', 'facing', 'South.', 'You', 'turn', 'left,', 'then', 'left', 'again.', 'Which', 'direction', 'are', 'you', 'now', 'facing?'],
+    keyWordIndices: [2, 3, 5, 6, 8, 10, 11, 15],
+    options: [
+      { text: 'North', isEliminatable: false },
+      { text: 'East', isEliminatable: true, eliminationReason: 'East is after ONE left turn from South. You need to turn left TWICE.' },
+      { text: 'West', isEliminatable: true, eliminationReason: 'West would be a right turn from South, not left.' },
+      { text: 'South', isEliminatable: true, eliminationReason: 'You have turned twice, so you are no longer facing South... wait. Two left turns from South: South→East→North. Actually South left = East, East left = North.' },
+    ],
+    correctOptionIndex: 0,
+    explanation: 'Facing South, turn left = East. Turn left again = North. Two left turns (or 180°) from South takes you to North.',
+    category: 'logic-direction',
+  },
+  {
+    id: 'nvr-new-2-02',
+    subject: 'non-verbal-reasoning',
+    difficulty: 2,
+    questionText: 'In a code: A = 3, B = 5, C = 7. The word AB has a value of 3 + 5 = 8. What is the value of the word BAC?',
+    questionTokens: ['In', 'a', 'code:', 'A', '=', '3,', 'B', '=', '5,', 'C', '=', '7.', 'The', 'word', 'AB', 'has', 'a', 'value', 'of', '3', '+', '5', '=', '8.', 'What', 'is', 'the', 'value', 'of', 'the', 'word', 'BAC?'],
+    keyWordIndices: [3, 5, 6, 8, 9, 11, 14, 24, 27, 31],
+    options: [
+      { text: '8', isEliminatable: true, eliminationReason: '8 is the value of AB (from the example). BAC has three letters, so it must be more.' },
+      { text: '12', isEliminatable: true, eliminationReason: '12 could be B + C (5 + 7) — but that misses the A.' },
+      { text: '15', isEliminatable: false },
+      { text: '21', isEliminatable: true, eliminationReason: '21 is 3 × 7, a multiplication. The pattern is addition, not multiplication.' },
+    ],
+    correctOptionIndex: 2,
+    explanation: 'B = 5, A = 3, C = 7. Total: 5 + 3 + 7 = 15. Remember to add ALL the letter values.',
+    category: 'logic-code',
+  },
+  {
+    id: 'nvr-new-2-03',
+    subject: 'non-verbal-reasoning',
+    difficulty: 2,
+    questionText: 'The rule says: "Items with 4 legs go in Set A. Items with no legs go in Set B." Where does a snake belong?',
+    questionTokens: ['The', 'rule', 'says:', '"Items', 'with', '4', 'legs', 'go', 'in', 'Set', 'A.', 'Items', 'with', 'no', 'legs', 'go', 'in', 'Set', 'B."', 'Where', 'does', 'a', 'snake', 'belong?'],
+    keyWordIndices: [1, 5, 6, 10, 13, 14, 18, 19, 22, 23],
+    options: [
+      { text: 'Set A', isEliminatable: true, eliminationReason: 'Set A is for items with 4 legs. A snake has no legs.' },
+      { text: 'Set B', isEliminatable: false },
+      { text: 'Both sets', isEliminatable: true, eliminationReason: 'A snake has either 4 legs or no legs, not both. It has no legs.' },
+      { text: 'Neither set', isEliminatable: true, eliminationReason: 'A snake has no legs, so it fits Set B. Every item fits one of the sets.' },
+    ],
+    correctOptionIndex: 1,
+    explanation: 'A snake has no legs, so it goes in Set B. A rusher who thinks "snake = animal = Set A" doesn\'t read the actual rule.',
+    category: 'logic-venn',
+  },
+  {
+    id: 'nvr-new-2-04',
+    subject: 'non-verbal-reasoning',
+    difficulty: 2,
+    questionText: 'Look at the sequence: 1, 4, 9, 16, ___. What number comes next?',
+    questionTokens: ['Look', 'at', 'the', 'sequence:', '1,', '4,', '9,', '16,', '___.', 'What', 'number', 'comes', 'next?'],
+    keyWordIndices: [3, 4, 5, 6, 7, 8, 9, 12],
+    options: [
+      { text: '20', isEliminatable: true, eliminationReason: '20 would follow a pattern of adding 4 (16 + 4), but the gaps increase each time.' },
+      { text: '25', isEliminatable: false },
+      { text: '23', isEliminatable: true, eliminationReason: '23 adds 7 to 16, but the pattern is square numbers: 1², 2², 3², 4², 5².' },
+      { text: '32', isEliminatable: true, eliminationReason: '32 doubles 16, but the pattern is square numbers, not doubling.' },
+    ],
+    correctOptionIndex: 1,
+    explanation: 'These are square numbers: 1² = 1, 2² = 4, 3² = 9, 4² = 16, 5² = 25. The next number is 25.',
+    category: 'logic-sequence',
+  },
+
+  // ─── DIFFICULTY 3 — Exam Mode ──────────
+
+  {
+    id: 'nvr-new-3-01',
+    subject: 'non-verbal-reasoning',
+    difficulty: 3,
+    questionText: 'Amy is taller than Beth but shorter than Chloe. Daisy is taller than Chloe. Who is the second tallest?',
+    questionTokens: ['Amy', 'is', 'taller', 'than', 'Beth', 'but', 'shorter', 'than', 'Chloe.', 'Daisy', 'is', 'taller', 'than', 'Chloe.', 'Who', 'is', 'the', 'second', 'tallest?'],
+    keyWordIndices: [0, 2, 4, 6, 8, 9, 11, 13, 14, 17, 18],
+    options: [
+      { text: 'Amy', isEliminatable: true, eliminationReason: 'Amy is between Beth and Chloe. She is third, not second.' },
+      { text: 'Beth', isEliminatable: true, eliminationReason: 'Beth is shorter than Amy, making her the shortest of all four.' },
+      { text: 'Chloe', isEliminatable: false },
+      { text: 'Daisy', isEliminatable: true, eliminationReason: 'Daisy is taller than Chloe, so Daisy is the tallest, not the second tallest.' },
+    ],
+    correctOptionIndex: 2,
+    explanation: 'Order: Daisy > Chloe > Amy > Beth. The second tallest is Chloe. A rusher might pick Amy or Daisy without ordering everyone carefully.',
+    category: 'logic-sequence',
+  },
+  {
+    id: 'nvr-new-3-02',
+    subject: 'non-verbal-reasoning',
+    difficulty: 3,
+    questionText: 'A cube has dots on its faces: 1 opposite 6, 2 opposite 5, 3 opposite 4. If the top face shows 3 and the front face shows 2, what number is on the bottom face?',
+    questionTokens: ['A', 'cube', 'has', 'dots', 'on', 'its', 'faces:', '1', 'opposite', '6,', '2', 'opposite', '5,', '3', 'opposite', '4.', 'If', 'the', 'top', 'face', 'shows', '3', 'and', 'the', 'front', 'face', 'shows', '2,', 'what', 'number', 'is', 'on', 'the', 'bottom', 'face?'],
+    keyWordIndices: [8, 11, 14, 18, 21, 24, 27, 28, 33, 34],
+    options: [
+      { text: '3', isEliminatable: true, eliminationReason: '3 is on the top face. The bottom is opposite the top.' },
+      { text: '5', isEliminatable: true, eliminationReason: '5 is opposite 2 (the front face), not opposite 3 (the top face).' },
+      { text: '4', isEliminatable: false },
+      { text: '6', isEliminatable: true, eliminationReason: '6 is opposite 1, not opposite 3.' },
+    ],
+    correctOptionIndex: 2,
+    explanation: '3 is opposite 4. If 3 is on top, then 4 is on the bottom. A rusher might pick 5 (opposite the front face 2) instead of 4 (opposite the top face 3).',
+    category: 'logic-code',
+  },
+  {
+    id: 'nvr-new-3-03',
+    subject: 'non-verbal-reasoning',
+    difficulty: 3,
+    questionText: 'You are facing East. You turn right three times. Which direction are you now facing?',
+    questionTokens: ['You', 'are', 'facing', 'East.', 'You', 'turn', 'right', 'three', 'times.', 'Which', 'direction', 'are', 'you', 'now', 'facing?'],
+    keyWordIndices: [2, 3, 5, 6, 7, 8, 9, 10, 14],
+    options: [
+      { text: 'East', isEliminatable: true, eliminationReason: 'East is where you started. Three right turns don\'t bring you back to the start — that takes four.' },
+      { text: 'South', isEliminatable: true, eliminationReason: 'South is after one right turn from East.' },
+      { text: 'West', isEliminatable: true, eliminationReason: 'West is after two right turns from East.' },
+      { text: 'North', isEliminatable: false },
+    ],
+    correctOptionIndex: 3,
+    explanation: 'East → right = South → right = West → right = North. Three right turns from East = North. A rusher might lose count or confuse directions.',
+    category: 'logic-direction',
+  },
+  {
+    id: 'nvr-new-3-04',
+    subject: 'non-verbal-reasoning',
+    difficulty: 3,
+    questionText: 'The rule says: "Round objects go in Group X. Red objects go in Group Y. Objects that are both round AND red go in Group Z." A red ball is which group?',
+    questionTokens: ['The', 'rule', 'says:', '"Round', 'objects', 'go', 'in', 'Group', 'X.', 'Red', 'objects', 'go', 'in', 'Group', 'Y.', 'Objects', 'that', 'are', 'both', 'round', 'AND', 'red', 'go', 'in', 'Group', 'Z."', 'A', 'red', 'ball', 'is', 'which', 'group?'],
+    keyWordIndices: [1, 3, 8, 9, 14, 18, 19, 20, 21, 25, 26, 27, 28, 31],
+    options: [
+      { text: 'Group X', isEliminatable: true, eliminationReason: 'Group X is for round objects that are not red. The ball is both round and red.' },
+      { text: 'Group Y', isEliminatable: true, eliminationReason: 'Group Y is for red objects that are not round. The ball is both round and red.' },
+      { text: 'Group Z', isEliminatable: false },
+      { text: 'Groups X and Y', isEliminatable: true, eliminationReason: 'Objects that are both go in Group Z specifically, not in both X and Y.' },
+    ],
+    correctOptionIndex: 2,
+    explanation: 'A red ball is both round AND red, so it goes in Group Z. A rusher might put it in X (round) or Y (red) without noticing the "both" rule.',
+    category: 'logic-venn',
+  },
+];

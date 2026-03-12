@@ -1,8 +1,9 @@
 import { useState, useCallback, useEffect, useRef, useMemo } from 'react';
-import { useNavigate, useSearchParams } from 'react-router';
+import { useNavigate, useSearchParams, Navigate } from 'react-router';
 import { useProgressStore } from '../stores/useProgressStore';
 import { useAuthStore } from '../stores/useAuthStore';
 import { useCurrentUser } from '../hooks/useCurrentUser';
+import { usePaywall } from '../hooks/usePaywall';
 import { programmeWeeks } from '../data/programme/weeks';
 import { useDailyQuestions } from '../hooks/useDailyQuestions';
 import { calculateXpFromResult } from '../utils/scoring';
@@ -102,6 +103,7 @@ export function PracticePage() {
   }, [questions.length]);
 
   const markTutorialSeen = useAuthStore(s => s.markTutorialSeen);
+  const { needsPayment } = usePaywall();
 
   if (!currentUser || !progress) return null;
 
@@ -114,6 +116,11 @@ export function PracticePage() {
         }}
       />
     );
+  }
+
+  // Paywall: redirect to upgrade if past week 1 and unpaid
+  if (needsPayment) {
+    return <Navigate to="/upgrade" replace />;
   }
 
   if (sessionComplete) {
@@ -159,7 +166,7 @@ export function PracticePage() {
         totalXp={totalXp}
         sessionStars={sessionStars}
         message={getHootMessage()}
-        onGoHome={() => navigate('/')}
+        onGoHome={() => navigate('/home')}
         previousSession={previousSession}
         focusSubject={focusSubject}
       />
@@ -178,7 +185,7 @@ export function PracticePage() {
             : "You've answered all the questions at this level! Try again tomorrow for new ones."}
         </p>
         <button
-          onClick={() => navigate('/')}
+          onClick={() => navigate('/home')}
           className="mt-4 px-6 py-3 bg-white/90 text-purple-600 font-display font-bold rounded-button shadow-md hover:bg-white transition-colors"
         >
           Back to the Nest 🏠

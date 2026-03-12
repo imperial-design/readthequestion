@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Play, Pause, Volume2, VolumeX, ChevronRight, ChevronLeft, Wind } from 'lucide-react';
 import { visualisationScripts, boxBreathingConfig } from '../data/visualisation-scripts';
@@ -140,7 +140,7 @@ function useBreathingSound() {
 
   useEffect(() => () => { oscRef.current?.stop(); ctxRef.current?.close(); }, []);
 
-  return { inhale, exhale, hold, silence, stopAll };
+  return useMemo(() => ({ inhale, exhale, hold, silence, stopAll }), [inhale, exhale, hold, silence, stopAll]);
 }
 
 /* ------------------------------------------------------------------ */
@@ -463,7 +463,7 @@ export function VisualisationPage() {
             <ChevronLeft className="w-6 h-6" />
           </button>
 
-          <span className="text-sm text-white/40 font-display">
+          <span className="text-sm text-white/70 font-display">
             {currentSectionIndex + 1} / {totalSections}
           </span>
 

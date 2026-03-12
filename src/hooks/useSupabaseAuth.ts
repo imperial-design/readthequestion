@@ -14,6 +14,9 @@ export function useSupabaseAuth() {
     // Get initial session
     supabase.auth.getSession().then(({ data: { session } }) => {
       setParentSession(session);
+    }).catch((err) => {
+      console.warn('Failed to get initial session:', err);
+      setParentSession(null);
     });
 
     // Listen for auth changes
@@ -31,15 +34,16 @@ export function useSupabaseAuth() {
 
 /**
  * Hook for components that need to redirect on auth state changes.
- * Use in pages like ParentAuthPage to redirect when already logged in.
+ * Use in pages like LoginPage / SignupPage to redirect when already logged in.
  */
 export function useRequireNoAuth() {
   const navigate = useNavigate();
   const parentSession = useAuthStore(s => s.parentSession);
+  const currentChildId = useAuthStore(s => s.currentChildId);
 
   useEffect(() => {
     if (parentSession) {
-      navigate('/select-child', { replace: true });
+      navigate(currentChildId ? '/home' : '/select-child', { replace: true });
     }
-  }, [parentSession, navigate]);
+  }, [parentSession, currentChildId, navigate]);
 }

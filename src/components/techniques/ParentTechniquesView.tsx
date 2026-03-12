@@ -17,7 +17,7 @@ export function ParentTechniquesView() {
       {/* Professional header */}
       <div className="text-center space-y-1">
         <h2 className="font-display font-extrabold text-xl text-white drop-shadow-md">
-          The Science Behind Read the Question
+          The Science Behind AnswerTheQuestion!
         </h2>
         <p className="text-white/80 text-sm font-display max-w-md mx-auto">
           A research-backed, 12-week exam technique programme designed to close the gap between what children know and what they score.

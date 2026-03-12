@@ -1,4 +1,4 @@
--- ReadTheQuestion Supabase Schema
+-- AnswerTheQuestion Supabase Schema
 -- Run this in the Supabase SQL Editor to set up the database
 
 -- ============================================
@@ -144,3 +144,109 @@ alter table user_progress add column if not exists daily_challenge jsonb default
 
 -- Mock exam tracking
 alter table user_progress add column if not exists mock_exams jsonb default '{"totalAttempted":0,"bestScore":0,"lastAttemptDate":null}';
+
+-- ============================================
+-- 9. PAYMENTS (Stripe integration)
+-- ============================================
+
+-- Payment status on child profiles
+alter table child_profiles add column if not exists has_paid boolean not null default false;
+
+-- SECURITY: Trigger to prevent authenticated users from setting has_paid directly.
+-- Only the service role (used by the Stripe webhook) can modify has_paid.
+-- See migration 002_protect_has_paid.sql for full details.
+create or replace function public.protect_has_paid_column()
+returns trigger language plpgsql security definer set search_path = public as $$
+begin
+  if new.has_paid is distinct from old.has_paid and auth.uid() is not null then
+    new.has_paid := old.has_paid;
+  end if;
+  return new;
+end;
+$$;
+
+create trigger protect_has_paid
+  before update on child_profiles
+  for each row execute function public.protect_has_paid_column();
+
+-- Payments table
+create table if not exists payments (
+  id uuid primary key default gen_random_uuid(),
+  parent_id uuid not null references auth.users(id) on delete cascade,
+  stripe_checkout_session_id text not null unique,
+  stripe_payment_intent_id text,
+  amount_pence int not null,
+  currency text not null default 'gbp',
+  status text not null default 'pending',
+  completed_at timestamptz,
+  created_at timestamptz not null default now()
+);
+
+alter table payments enable row level security;
+
+create policy "Parents can read own payments"
+  on payments for select
+  using (parent_id = auth.uid());
+
+create index if not exists idx_payments_parent_id on payments(parent_id);
+create index if not exists idx_payments_session_id on payments(stripe_checkout_session_id);
+
+-- ============================================
+-- 10. REFERRALS
+-- ============================================
+
+-- Referral code and referred_by on child profiles
+alter table child_profiles add column if not exists referral_code text unique;
+alter table child_profiles add column if not exists referred_by text;
+
+create index if not exists idx_child_profiles_referral on child_profiles(referral_code);
+
+-- ============================================
+-- 11. FEEDBACK
+-- ============================================
+
+create table if not exists feedback (
+  id uuid primary key default gen_random_uuid(),
+  user_email text,
+  page text,
+  message text not null,
+  created_at timestamptz not null default now()
+);
+
+alter table feedback enable row level security;
+
+-- Authenticated users can insert feedback (must use their own email)
+create policy "Users can insert feedback"
+  on feedback for insert
+  with check (user_email = auth.jwt() ->> 'email');
+
+-- Only the user's own feedback is readable
+create policy "Users can read own feedback"
+  on feedback for select
+  using (user_email = auth.jwt() ->> 'email');
+
+-- ============================================
+-- 12. REVIEWS
+-- ============================================
+
+create table if not exists reviews (
+  id uuid primary key default gen_random_uuid(),
+  user_email text,
+  rating int not null check (rating between 1 and 5),
+  testimonial text,
+  name text,
+  location text,
+  created_at timestamptz not null default now()
+);
+
+alter table reviews enable row level security;
+
+-- Authenticated users can insert reviews (must use their own email)
+create policy "Users can insert reviews"
+  on reviews for insert
+  with check (user_email = auth.jwt() ->> 'email');
+
+-- Only the user's own reviews are readable
+create policy "Users can read own reviews"
+  on reviews for select
+  using (user_email = auth.jwt() ->> 'email');

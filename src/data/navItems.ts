@@ -16,7 +16,7 @@ export interface NavItem {
  * - Visualise: pre-practice tool, accessible from HomePage link
  */
 export const navItems: NavItem[] = [
-  { to: '/', icon: Home, label: 'Home', emoji: '🏠' },
+  { to: '/home', icon: Home, label: 'Home', emoji: '🏠' },
   { to: '/practice', icon: Target, label: 'Practise', emoji: '🎯' },
   { to: '/badges', icon: Trophy, label: 'Badges', emoji: '🏆' },
   { to: '/techniques', icon: BookOpen, label: 'Techniques', emoji: '📖' },

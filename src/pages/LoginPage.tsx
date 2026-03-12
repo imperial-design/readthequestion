@@ -1,18 +1,18 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router';
+import { useNavigate, Link } from 'react-router';
 import { motion } from 'framer-motion';
 import { supabase } from '../lib/supabase';
+import { useRequireNoAuth } from '../hooks/useSupabaseAuth';
 import { ProfessorHoot } from '../components/mascot/ProfessorHoot';
 
-export function ParentAuthPage() {
+export function LoginPage() {
+  useRequireNoAuth();
+
   const navigate = useNavigate();
-  const [isSignUp, setIsSignUp] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
-  const [confirmationSent, setConfirmationSent] = useState(false);
   const [showForgotPassword, setShowForgotPassword] = useState(false);
   const [resetEmailSent, setResetEmailSent] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);
@@ -31,47 +31,23 @@ export function ParentAuthPage() {
     return () => subscription.unsubscribe();
   }, []);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
-
-    if (isSignUp && password !== confirmPassword) {
-      setError("Passwords don't match");
-      return;
-    }
 
     if (password.length < 8) {
       setError('Password must be at least 8 characters');
       return;
     }
-    if (isSignUp && (!/[a-zA-Z]/.test(password) || !/[0-9]/.test(password))) {
-      setError('Password must contain at least one letter and one number');
-      return;
-    }
 
     setLoading(true);
-
     try {
-      if (isSignUp) {
-        const { data, error: signUpError } = await supabase.auth.signUp({
-          email,
-          password,
-        });
-        if (signUpError) throw signUpError;
-        // If session exists, email confirmation is disabled — go straight in
-        if (data.session) {
-          navigate('/select-child');
-        } else {
-          setConfirmationSent(true);
-        }
-      } else {
-        const { error: signInError } = await supabase.auth.signInWithPassword({
-          email,
-          password,
-        });
-        if (signInError) throw signInError;
-        navigate('/select-child');
-      }
+      const { error: signInError } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
+      if (signInError) throw signInError;
+      navigate('/select-child');
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Something went wrong');
     } finally {
@@ -91,7 +67,7 @@ export function ParentAuthPage() {
     setLoading(true);
     try {
       const { error: resetError } = await supabase.auth.resetPasswordForEmail(email, {
-        redirectTo: `${window.location.origin}/auth`,
+        redirectTo: `${window.location.origin}/login`,
       });
       if (resetError) throw resetError;
       setResetEmailSent(true);
@@ -133,7 +109,11 @@ export function ParentAuthPage() {
     }
   };
 
-  if (confirmationSent) {
+  // Floating background emojis
+  const floatingEmojis = ['🦉', '📚', '✏️', '🌟', '🎯', '🧠', '💡', '🏆'];
+
+  // --- Password Updated Success ---
+  if (passwordUpdated) {
     return (
       <div className="min-h-screen flex items-center justify-center p-4">
         <motion.div
@@ -142,24 +122,25 @@ export function ParentAuthPage() {
           className="w-full max-w-md"
         >
           <div className="text-center mb-6">
-            <ProfessorHoot mood="happy" size="xl" animate showSpeechBubble={false} />
+            <ProfessorHoot mood="celebrating" size="xl" animate showSpeechBubble={false} />
           </div>
           <div className="bg-white/90 backdrop-blur-sm rounded-card p-6 shadow-lg border border-white/30 text-center">
             <h2 className="font-display text-xl font-bold text-purple-800 mb-3">
-              Check your email! 📧
+              Password updated! 🎉
             </h2>
             <p className="text-gray-600 font-display mb-4">
-              We've sent a confirmation link to <strong>{email}</strong>.
-              Click the link to activate your account, then come back and sign in.
+              Your password has been changed successfully. You can now sign in with your new password.
             </p>
             <button
               onClick={() => {
-                setConfirmationSent(false);
-                setIsSignUp(false);
+                setPasswordUpdated(false);
+                setShowNewPassword(false);
+                setNewPassword('');
+                setConfirmNewPassword('');
               }}
-              className="py-3 px-6 rounded-button font-display font-bold text-purple-600 border-2 border-purple-300 hover:bg-purple-50 transition-all"
+              className="py-3 px-6 rounded-button font-display font-bold text-white bg-gradient-to-r from-purple-600 to-fuchsia-600 hover:from-purple-700 hover:to-fuchsia-700 transition-all shadow-md"
             >
-              Back to Sign In
+              Sign In Now 🦉
             </button>
           </div>
         </motion.div>
@@ -167,6 +148,7 @@ export function ParentAuthPage() {
     );
   }
 
+  // --- Reset Email Sent ---
   if (resetEmailSent) {
     return (
       <div className="min-h-screen flex items-center justify-center p-4">
@@ -190,7 +172,6 @@ export function ParentAuthPage() {
               onClick={() => {
                 setResetEmailSent(false);
                 setShowForgotPassword(false);
-                setIsSignUp(false);
               }}
               className="py-3 px-6 rounded-button font-display font-bold text-purple-600 border-2 border-purple-300 hover:bg-purple-50 transition-all"
             >
@@ -202,64 +183,18 @@ export function ParentAuthPage() {
     );
   }
 
-  if (passwordUpdated) {
-    return (
-      <div className="min-h-screen flex items-center justify-center p-4">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          className="w-full max-w-md"
-        >
-          <div className="text-center mb-6">
-            <ProfessorHoot mood="celebrating" size="xl" animate showSpeechBubble={false} />
-          </div>
-          <div className="bg-white/90 backdrop-blur-sm rounded-card p-6 shadow-lg border border-white/30 text-center">
-            <h2 className="font-display text-xl font-bold text-purple-800 mb-3">
-              Password updated! 🎉
-            </h2>
-            <p className="text-gray-600 font-display mb-4">
-              Your password has been changed successfully. You can now sign in with your new password.
-            </p>
-            <button
-              onClick={() => {
-                setPasswordUpdated(false);
-                setShowNewPassword(false);
-                setIsSignUp(false);
-                setNewPassword('');
-                setConfirmNewPassword('');
-              }}
-              className="py-3 px-6 rounded-button font-display font-bold text-white bg-gradient-to-r from-purple-600 to-fuchsia-600 hover:from-purple-700 hover:to-fuchsia-700 transition-all shadow-md"
-            >
-              Sign In Now 🦉
-            </button>
-          </div>
-        </motion.div>
-      </div>
-    );
-  }
-
+  // --- Set New Password (after clicking reset link) ---
   if (showNewPassword) {
     return (
       <div className="min-h-screen flex items-center justify-center p-4 relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          {['🦉', '📚', '✏️', '🌟', '🎯', '🧠', '💡', '🏆'].map((emoji, i) => (
+          {floatingEmojis.map((emoji, i) => (
             <motion.div
               key={i}
               className="absolute text-3xl opacity-[0.1]"
-              style={{
-                left: `${10 + (i * 12) % 80}%`,
-                top: `${5 + (i * 17) % 85}%`,
-              }}
-              animate={{
-                y: [0, -15, 0],
-                rotate: [0, i % 2 === 0 ? 10 : -10, 0],
-              }}
-              transition={{
-                duration: 3 + i * 0.5,
-                repeat: Infinity,
-                ease: 'easeInOut',
-                delay: i * 0.3,
-              }}
+              style={{ left: `${10 + (i * 12) % 80}%`, top: `${5 + (i * 17) % 85}%` }}
+              animate={{ y: [0, -15, 0], rotate: [0, i % 2 === 0 ? 10 : -10, 0] }}
+              transition={{ duration: 3 + i * 0.5, repeat: Infinity, ease: 'easeInOut', delay: i * 0.3 }}
             >
               {emoji}
             </motion.div>
@@ -267,20 +202,14 @@ export function ParentAuthPage() {
         </div>
 
         <div className="w-full max-w-md relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-center mb-6"
-          >
+          <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-6">
             <div className="flex justify-center mb-3">
               <ProfessorHoot mood="happy" size="xl" animate showSpeechBubble={false} />
             </div>
             <h1 className="font-display text-3xl md:text-4xl font-extrabold text-white drop-shadow-lg mb-2">
-              Read the Question!
+              AnswerTheQuestion!
             </h1>
-            <p className="text-white/90 font-display">
-              11+ Exam Technique Trainer
-            </p>
+            <p className="text-white/90 font-display">11+ Exam Technique Trainer</p>
           </motion.div>
 
           <motion.div
@@ -297,10 +226,9 @@ export function ParentAuthPage() {
 
             <form onSubmit={handleUpdatePassword} className="space-y-4">
               <div>
-                <label className="block text-sm font-display font-semibold text-gray-600 mb-1.5">
-                  New password
-                </label>
+                <label htmlFor="new-password" className="block text-sm font-display font-semibold text-gray-600 mb-1.5">New password</label>
                 <input
+                  id="new-password"
                   type="password"
                   value={newPassword}
                   onChange={e => setNewPassword(e.target.value)}
@@ -311,12 +239,10 @@ export function ParentAuthPage() {
                   autoFocus
                 />
               </div>
-
               <div>
-                <label className="block text-sm font-display font-semibold text-gray-600 mb-1.5">
-                  Confirm new password
-                </label>
+                <label htmlFor="confirm-new-password" className="block text-sm font-display font-semibold text-gray-600 mb-1.5">Confirm new password</label>
                 <input
+                  id="confirm-new-password"
                   type="password"
                   value={confirmNewPassword}
                   onChange={e => setConfirmNewPassword(e.target.value)}
@@ -328,11 +254,7 @@ export function ParentAuthPage() {
               </div>
 
               {error && (
-                <motion.p
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  className="text-red-600 text-sm font-display font-semibold bg-red-50 p-3 rounded-lg"
-                >
+                <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-red-600 text-sm font-display font-semibold bg-red-50 p-3 rounded-lg">
                   {error}
                 </motion.p>
               )}
@@ -353,28 +275,17 @@ export function ParentAuthPage() {
     );
   }
 
+  // --- Main Login Form ---
   return (
     <div className="min-h-screen flex items-center justify-center p-4 relative overflow-hidden">
-      {/* Floating background emojis */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {['🦉', '📚', '✏️', '🌟', '🎯', '🧠', '💡', '🏆'].map((emoji, i) => (
+        {floatingEmojis.map((emoji, i) => (
           <motion.div
             key={i}
             className="absolute text-3xl opacity-[0.1]"
-            style={{
-              left: `${10 + (i * 12) % 80}%`,
-              top: `${5 + (i * 17) % 85}%`,
-            }}
-            animate={{
-              y: [0, -15, 0],
-              rotate: [0, i % 2 === 0 ? 10 : -10, 0],
-            }}
-            transition={{
-              duration: 3 + i * 0.5,
-              repeat: Infinity,
-              ease: 'easeInOut',
-              delay: i * 0.3,
-            }}
+            style={{ left: `${10 + (i * 12) % 80}%`, top: `${5 + (i * 17) % 85}%` }}
+            animate={{ y: [0, -15, 0], rotate: [0, i % 2 === 0 ? 10 : -10, 0] }}
+            transition={{ duration: 3 + i * 0.5, repeat: Infinity, ease: 'easeInOut', delay: i * 0.3 }}
           >
             {emoji}
           </motion.div>
@@ -382,21 +293,14 @@ export function ParentAuthPage() {
       </div>
 
       <div className="w-full max-w-md relative z-10">
-        {/* Header with Professor Hoot */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-6"
-        >
+        <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-6">
           <div className="flex justify-center mb-3">
             <ProfessorHoot mood="happy" size="xl" animate showSpeechBubble={false} />
           </div>
           <h1 className="font-display text-3xl md:text-4xl font-extrabold text-white drop-shadow-lg mb-2">
-            Read the Question!
+            AnswerTheQuestion!
           </h1>
-          <p className="text-white/90 font-display">
-            11+ Exam Technique Trainer
-          </p>
+          <p className="text-white/90 font-display">11+ Exam Technique Trainer</p>
         </motion.div>
 
         <motion.div
@@ -415,10 +319,9 @@ export function ParentAuthPage() {
 
               <form onSubmit={handleForgotPassword} className="space-y-4">
                 <div>
-                  <label className="block text-sm font-display font-semibold text-gray-600 mb-1.5">
-                    Email address
-                  </label>
+                  <label htmlFor="reset-email" className="block text-sm font-display font-semibold text-gray-600 mb-1.5">Email address</label>
                   <input
+                    id="reset-email"
                     type="email"
                     value={email}
                     onChange={e => setEmail(e.target.value)}
@@ -430,11 +333,7 @@ export function ParentAuthPage() {
                 </div>
 
                 {error && (
-                  <motion.p
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    className="text-red-600 text-sm font-display font-semibold bg-red-50 p-3 rounded-lg"
-                  >
+                  <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-red-600 text-sm font-display font-semibold bg-red-50 p-3 rounded-lg">
                     {error}
                   </motion.p>
                 )}
@@ -451,10 +350,7 @@ export function ParentAuthPage() {
 
                 <button
                   type="button"
-                  onClick={() => {
-                    setShowForgotPassword(false);
-                    setError(null);
-                  }}
+                  onClick={() => { setShowForgotPassword(false); setError(null); }}
                   className="w-full text-center text-sm text-purple-600 hover:text-purple-800 font-display font-semibold"
                 >
                   Back to Sign In
@@ -464,15 +360,14 @@ export function ParentAuthPage() {
           ) : (
             <>
               <h2 className="font-display text-xl font-bold text-purple-800 mb-5 text-center">
-                {isSignUp ? 'Create Parent Account' : 'Welcome Back'}
+                Welcome Back
               </h2>
 
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form onSubmit={handleLogin} className="space-y-4">
                 <div>
-                  <label className="block text-sm font-display font-semibold text-gray-600 mb-1.5">
-                    Email address
-                  </label>
+                  <label htmlFor="login-email" className="block text-sm font-display font-semibold text-gray-600 mb-1.5">Email address</label>
                   <input
+                    id="login-email"
                     type="email"
                     value={email}
                     onChange={e => setEmail(e.target.value)}
@@ -484,10 +379,9 @@ export function ParentAuthPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-display font-semibold text-gray-600 mb-1.5">
-                    Password
-                  </label>
+                  <label htmlFor="login-password" className="block text-sm font-display font-semibold text-gray-600 mb-1.5">Password</label>
                   <input
+                    id="login-password"
                     type="password"
                     value={password}
                     onChange={e => setPassword(e.target.value)}
@@ -498,32 +392,8 @@ export function ParentAuthPage() {
                   />
                 </div>
 
-                {isSignUp && (
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                  >
-                    <label className="block text-sm font-display font-semibold text-gray-600 mb-1.5">
-                      Confirm password
-                    </label>
-                    <input
-                      type="password"
-                      value={confirmPassword}
-                      onChange={e => setConfirmPassword(e.target.value)}
-                      placeholder="Type password again"
-                      required
-                      minLength={8}
-                      className="w-full px-4 py-3 rounded-button border-2 border-purple-200 text-lg font-display focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-purple-400"
-                    />
-                  </motion.div>
-                )}
-
                 {error && (
-                  <motion.p
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    className="text-red-600 text-sm font-display font-semibold bg-red-50 p-3 rounded-lg"
-                  >
+                  <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-red-600 text-sm font-display font-semibold bg-red-50 p-3 rounded-lg">
                     {error}
                   </motion.p>
                 )}
@@ -535,34 +405,23 @@ export function ParentAuthPage() {
                   disabled={loading}
                   className="w-full py-4 rounded-button font-display font-bold text-white text-lg bg-gradient-to-r from-purple-600 to-fuchsia-600 hover:from-purple-700 hover:to-fuchsia-700 transition-opacity disabled:opacity-50 shadow-md"
                 >
-                  {loading ? 'Please wait...' : isSignUp ? "Create Account 🦉" : "Sign In 🦉"}
+                  {loading ? 'Please wait...' : 'Sign In 🦉'}
                 </motion.button>
-
-                {!isSignUp && (
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setShowForgotPassword(true);
-                      setError(null);
-                    }}
-                    className="w-full text-center text-sm text-purple-500 hover:text-purple-700 font-display"
-                  >
-                    Forgot your password?
-                  </button>
-                )}
 
                 <button
                   type="button"
-                  onClick={() => {
-                    setIsSignUp(!isSignUp);
-                    setError(null);
-                  }}
-                  className="w-full text-center text-sm text-purple-600 hover:text-purple-800 font-display font-semibold"
+                  onClick={() => { setShowForgotPassword(true); setError(null); }}
+                  className="w-full text-center text-sm text-purple-500 hover:text-purple-700 font-display"
                 >
-                  {isSignUp
-                    ? 'Already have an account? Sign in'
-                    : "Don't have an account? Create one"}
+                  Forgot your password?
                 </button>
+
+                <Link
+                  to="/signup"
+                  className="block w-full text-center text-sm text-purple-600 hover:text-purple-800 font-display font-semibold"
+                >
+                  Don't have an account? Create one
+                </Link>
               </form>
             </>
           )}

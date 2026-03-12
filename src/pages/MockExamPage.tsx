@@ -1,9 +1,10 @@
 import { useState, useCallback, useEffect, useMemo } from 'react';
-import { useNavigate } from 'react-router';
+import { useNavigate, Navigate } from 'react-router';
 import { motion } from 'framer-motion';
 import { Clock, BarChart3 } from 'lucide-react';
 import { useProgressStore } from '../stores/useProgressStore';
 import { useCurrentUser } from '../hooks/useCurrentUser';
+import { usePaywall } from '../hooks/usePaywall';
 import { programmeWeeks } from '../data/programme/weeks';
 import { useDailyQuestions } from '../hooks/useDailyQuestions';
 import { calculateXpFromResult } from '../utils/scoring';
@@ -21,6 +22,7 @@ export function MockExamPage() {
   const { getProgress, addXp, saveMockExam } = useProgressStore();
   const navigate = useNavigate();
   const { play } = useSoundEffects();
+  const { needsPayment } = usePaywall();
 
   const progress = currentUser ? getProgress(currentUser.id) : null;
   const isUnlocked = (progress?.currentWeek ?? 1) >= 6;
@@ -76,6 +78,11 @@ export function MockExamPage() {
 
   if (!currentUser || !progress) return null;
 
+  // Paywall: redirect to upgrade if past week 1 and unpaid
+  if (needsPayment) {
+    return <Navigate to="/upgrade" replace />;
+  }
+
   if (!isUnlocked) {
     return (
       <div className="text-center py-12 space-y-4">
@@ -86,7 +93,7 @@ export function MockExamPage() {
           showSpeechBubble
           animate
         />
-        <button onClick={() => navigate('/')} className="px-6 py-3 rounded-button font-display font-bold text-white rainbow-gradient">
+        <button onClick={() => navigate('/home')} className="px-6 py-3 rounded-button font-display font-bold text-white rainbow-gradient">
           Back to the Nest! 🦉
         </button>
       </div>
@@ -128,7 +135,7 @@ export function MockExamPage() {
         totalSeconds={totalSeconds}
         subjectResults={subjectResults}
         message={getMessage()}
-        onGoHome={() => navigate('/')}
+        onGoHome={() => navigate('/home')}
         onTryAgain={() => { setResults([]); setCurrentIndex(0); setExamComplete(false); }}
         play={play}
       />

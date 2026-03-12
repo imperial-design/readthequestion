@@ -114,7 +114,7 @@ export function OnboardingFlow({ onComplete }: OnboardingFlowProps) {
       {/* Skip button */}
       <button
         onClick={onComplete}
-        className="absolute top-4 right-4 text-sm text-white/60 hover:text-white font-display font-semibold px-3 py-1.5 rounded-lg hover:bg-white/10 transition-colors"
+        className="absolute top-4 right-4 text-sm text-white/80 hover:text-white font-display font-semibold px-3 py-1.5 rounded-lg hover:bg-white/10 transition-colors"
       >
         Skip
       </button>

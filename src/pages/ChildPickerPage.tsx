@@ -32,7 +32,19 @@ interface ChildProfile {
   avatar: AvatarConfig;
   programme_start_date: string;
   has_seen_onboarding: boolean;
+  has_seen_tutorial?: boolean;
+  has_paid?: boolean;
+  referral_code?: string;
   created_at: string;
+}
+
+function generateReferralCode(): string {
+  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'; // no I, O, 0, 1 for readability
+  let code = '';
+  for (let i = 0; i < 6; i++) {
+    code += chars[Math.floor(Math.random() * chars.length)];
+  }
+  return code;
 }
 
 export function ChildPickerPage() {
@@ -57,9 +69,13 @@ export function ChildPickerPage() {
     setLoading(true);
     setError(null);
     try {
+      const { data: { user } } = await supabase.auth.getUser();
+      if (!user) throw new Error('Not authenticated');
+
       const { data, error: fetchError } = await supabase
         .from('child_profiles')
         .select('*')
+        .eq('parent_id', user.id)
         .order('created_at', { ascending: true });
 
       if (fetchError) throw fetchError;
@@ -73,6 +89,9 @@ export function ChildPickerPage() {
         createdAt: p.created_at,
         programmeStartDate: p.programme_start_date,
         hasSeenOnboarding: p.has_seen_onboarding,
+        hasSeenTutorial: p.has_seen_tutorial ?? false,
+        hasPaid: p.has_paid ?? false,
+        referralCode: p.referral_code ?? undefined,
       })));
 
       // Auto-show add form if no children yet
@@ -88,7 +107,7 @@ export function ChildPickerPage() {
 
   const handleSelectChild = (childId: string) => {
     selectChild(childId);
-    navigate('/');
+    navigate('/home');
   };
 
   const handleAddChild = async () => {
@@ -107,6 +126,12 @@ export function ChildPickerPage() {
       const { data: { user } } = await supabase.auth.getUser();
       if (!user) throw new Error('Not authenticated');
 
+      // Generate a unique referral code for this child
+      const referralCode = generateReferralCode();
+
+      // Check if this signup was referred by another user
+      const referredBy = localStorage.getItem('atq_referral_code') ?? undefined;
+
       const { data, error: insertError } = await supabase
         .from('child_profiles')
         .insert({
@@ -114,9 +139,16 @@ export function ChildPickerPage() {
           name: name.trim(),
           avatar,
           programme_start_date: new Date().toISOString().split('T')[0],
+          referral_code: referralCode,
+          ...(referredBy ? { referred_by: referredBy } : {}),
         })
         .select()
         .single();
+
+      // Clear the referral code from localStorage after use
+      if (referredBy) {
+        localStorage.removeItem('atq_referral_code');
+      }
 
       if (insertError) throw insertError;
 
@@ -131,6 +163,9 @@ export function ChildPickerPage() {
         createdAt: p.created_at,
         programmeStartDate: p.programme_start_date,
         hasSeenOnboarding: p.has_seen_onboarding,
+        hasSeenTutorial: p.has_seen_tutorial ?? false,
+        hasPaid: p.has_paid ?? false,
+        referralCode: p.referral_code ?? undefined,
       })), {
         id: newChild.id,
         name: newChild.name,
@@ -138,11 +173,14 @@ export function ChildPickerPage() {
         createdAt: newChild.created_at,
         programmeStartDate: newChild.programme_start_date,
         hasSeenOnboarding: newChild.has_seen_onboarding,
+        hasSeenTutorial: newChild.has_seen_tutorial ?? false,
+        hasPaid: newChild.has_paid ?? false,
+        referralCode: newChild.referral_code ?? undefined,
       }]);
 
       // Auto-select the new child
       selectChild(newChild.id);
-      navigate('/');
+      navigate('/home');
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to create profile');
     } finally {
@@ -153,7 +191,7 @@ export function ChildPickerPage() {
   const handleLogout = async () => {
     await supabase.auth.signOut();
     logout();
-    navigate('/auth');
+    navigate('/login');
   };
 
   if (loading) {
@@ -292,10 +330,11 @@ export function ChildPickerPage() {
             <div className="space-y-5">
               {/* Name input */}
               <div>
-                <label className="block text-sm font-display font-semibold text-gray-600 mb-1.5">
+                <label htmlFor="child-name" className="block text-sm font-display font-semibold text-gray-600 mb-1.5">
                   What's your name?
                 </label>
                 <input
+                  id="child-name"
                   type="text"
                   value={name}
                   onChange={e => setName(e.target.value)}
@@ -354,6 +393,8 @@ export function ChildPickerPage() {
                       whileHover={{ scale: 1.15 }}
                       whileTap={{ scale: 0.9 }}
                       onClick={() => setSelectedColour(colour)}
+                      aria-label={`Select colour ${colour}`}
+                      aria-pressed={selectedColour === colour}
                       className={`w-11 h-11 rounded-full transition-all shadow-sm ${
                         selectedColour === colour
                           ? 'ring-3 ring-offset-2 ring-purple-400 scale-110'

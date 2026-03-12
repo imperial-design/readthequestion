@@ -29,7 +29,22 @@
       "Bash(ls -lh src/pages/*.tsx)",
       "Bash(grep \"from ''lucide-react''\" src/pages/TipsPage.tsx)",
       "Bash(npm ls lucide-react)",
-      "Bash(wc -l \"/Users/rebeccaeverton/11+ Read the Question/src/data/questions\"/*.ts)"
+      "Bash(wc -l \"/Users/rebeccaeverton/11+ Read the Question/src/data/questions\"/*.ts)",
+      "Bash(grep \"trickType:\" \"/Users/rebeccaeverton/11+ Read the Question/src/data/questions\"/*.ts)",
+      "Bash(grep -n \"markOnboardingSeen\\\\|markTutorialSeen\" src/**/*.tsx)",
+      "Bash(grep -c \"id:\" \"/Users/rebeccaeverton/11+ Read the Question/src/data/questions\"/*.ts)",
+      "Bash(grep -o \"id: ''[^'']*''\" \"/Users/rebeccaeverton/11+ Read the Question/src/data/questions/english.ts\")",
+      "Bash(pip3 install reportlab)",
+      "Bash(open \"/Users/rebeccaeverton/11+ Read the Question/CLEAR-Method-Crib-Sheet.pdf\")",
+      "Bash(open CLEAR-Method-Crib-Sheet.pdf)",
+      "WebSearch",
+      "Bash(lsof -i -P -n)",
+      "Bash(open -a \"Google Chrome\" \"http://localhost:5173/\")",
+      "Bash(open \"http://localhost:5173/\")",
+      "Bash(npm install jspdf)",
+      "Bash(npm audit)",
+      "Bash(npm outdated)",
+      "Bash(open \"/Users/rebeccaeverton/11+ Read the Question/clear-method-crib-sheet.pdf\")"
     ]
   }
 }

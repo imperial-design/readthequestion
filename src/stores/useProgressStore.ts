@@ -6,7 +6,7 @@ import type { EarnedBadge } from '../types/badge';
 import { supabase } from '../lib/supabase';
 import { showSyncToast } from '../components/SyncToast';
 
-const syncError = () => showSyncToast('Progress saved locally — cloud sync will retry', 'error');
+const syncError = () => showSyncToast('Progress saved locally — cloud sync failed', 'error');
 
 const createEmptySubjectProgress = (): SubjectProgress => ({
   questionsAttempted: 0,

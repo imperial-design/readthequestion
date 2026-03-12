@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "prebuild": "npm audit --audit-level=high || echo 'npm audit found issues — review before deploying'",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
@@ -13,6 +14,7 @@
     "@supabase/supabase-js": "^2.98.0",
     "date-fns": "^4.1.0",
     "framer-motion": "^12.34.3",
+    "jspdf": "^4.2.0",
     "lucide-react": "^0.575.0",
     "nanoid": "^5.1.6",
     "react": "^19.2.0",

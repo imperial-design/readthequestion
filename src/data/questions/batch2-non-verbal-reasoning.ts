@@ -1,0 +1,187 @@
+import type { Question } from '../../types/question';
+
+/**
+ * Batch 2: 10 NEW Non-Verbal Reasoning questions — standard 11+ NVR formats.
+ * Difficulty spread: 2 Foundation, 3 Improvers, 5 Exam Mode
+ */
+export const batch2NonVerbalReasoningQuestions: Question[] = [
+  // ─── DIFFICULTY 1 — Foundation (Year 4-5, Weeks 1-4) ──────────
+
+  {
+    id: 'nvr-b2-1-01',
+    subject: 'non-verbal-reasoning',
+    difficulty: 1,
+    questionText: 'Look at the sequence: 2, 5, 8, 11, ___. What number comes next?',
+    questionTokens: ['Look', 'at', 'the', 'sequence:', '2,', '5,', '8,', '11,', '___.', 'What', 'number', 'comes', 'next?'],
+    keyWordIndices: [3, 4, 5, 6, 7, 8, 9, 10, 12],
+    options: [
+      { text: '12', isEliminatable: true, eliminationReason: '12 adds only 1 to 11, but the pattern adds 3 each time.' },
+      { text: '13', isEliminatable: true, eliminationReason: '13 adds 2 to 11, but the pattern adds 3 each time: 2(+3)5(+3)8(+3)11.' },
+      { text: '14', isEliminatable: false },
+      { text: '15', isEliminatable: true, eliminationReason: '15 adds 4 to 11, but the pattern adds 3 each time.' },
+    ],
+    correctOptionIndex: 2,
+    explanation: 'The pattern adds 3 each time: 2, 5, 8, 11, 14. Check the gap between each pair of numbers.',
+    category: 'logic-sequence',
+  },
+  {
+    id: 'nvr-b2-1-02',
+    subject: 'non-verbal-reasoning',
+    difficulty: 1,
+    questionText: 'Each shape has a value: star = 4, heart = 6, diamond = 2. What is the total value of: heart + diamond + star?',
+    questionTokens: ['Each', 'shape', 'has', 'a', 'value:', 'star', '=', '4,', 'heart', '=', '6,', 'diamond', '=', '2.', 'What', 'is', 'the', 'total', 'value', 'of:', 'heart', '+', 'diamond', '+', 'star?'],
+    keyWordIndices: [5, 7, 8, 10, 11, 13, 14, 17, 18, 20, 22, 24],
+    options: [
+      { text: '10', isEliminatable: true, eliminationReason: '10 is heart + star (6+4) but forgets the diamond.' },
+      { text: '12', isEliminatable: false },
+      { text: '8', isEliminatable: true, eliminationReason: '8 is diamond + heart (2+6) but forgets the star. A rusher only adds two shapes.' },
+      { text: '14', isEliminatable: true, eliminationReason: '14 could come from adding a shape twice.' },
+    ],
+    correctOptionIndex: 1,
+    explanation: 'Heart (6) + Diamond (2) + Star (4) = 12. Make sure you add all three shapes and use the correct value for each.',
+    category: 'logic-code',
+  },
+
+  // ─── DIFFICULTY 2 — Improvers (Year 5-6, Weeks 5-8) ──────────
+
+  {
+    id: 'nvr-b2-2-01',
+    subject: 'non-verbal-reasoning',
+    difficulty: 2,
+    questionText: 'You are facing East. You turn right twice and then turn left once. Which direction are you now facing?',
+    questionTokens: ['You', 'are', 'facing', 'East.', 'You', 'turn', 'right', 'twice', 'and', 'then', 'turn', 'left', 'once.', 'Which', 'direction', 'are', 'you', 'now', 'facing?'],
+    keyWordIndices: [2, 3, 5, 6, 7, 10, 11, 13, 14, 18],
+    options: [
+      { text: 'South', isEliminatable: false },
+      { text: 'West', isEliminatable: true, eliminationReason: 'West is where you would be after two right turns only. The final left turn changes your direction again.' },
+      { text: 'North', isEliminatable: true, eliminationReason: 'North is not correct. East→right=South→right=West→left=South.' },
+      { text: 'East', isEliminatable: true, eliminationReason: 'You have turned three times, so you are no longer facing East.' },
+    ],
+    correctOptionIndex: 0,
+    explanation: 'Facing East, turn right = South. Turn right again = West. Turn left = South. Follow each turn step by step.',
+    category: 'logic-direction',
+  },
+  {
+    id: 'nvr-b2-2-02',
+    subject: 'non-verbal-reasoning',
+    difficulty: 2,
+    questionText: 'In a 3\u00d73 grid, each row follows a pattern. Row 1: 2, 4, 6. Row 2: 3, 6, 9. Row 3: 5, 10, ___. What number completes the grid?',
+    questionTokens: ['In', 'a', '3\u00d73', 'grid,', 'each', 'row', 'follows', 'a', 'pattern.', 'Row', '1:', '2,', '4,', '6.', 'Row', '2:', '3,', '6,', '9.', 'Row', '3:', '5,', '10,', '___.', 'What', 'number', 'completes', 'the', 'grid?'],
+    keyWordIndices: [4, 5, 6, 8, 21, 22, 23, 24, 25, 26],
+    options: [
+      { text: '12', isEliminatable: true, eliminationReason: '12 adds 2 to 10, following Row 1\'s pattern. But Row 3 has a different pattern.' },
+      { text: '15', isEliminatable: false },
+      { text: '20', isEliminatable: true, eliminationReason: '20 doubles 10, but the pattern is multiplying the first number by 1, 2, 3.' },
+      { text: '14', isEliminatable: true, eliminationReason: '14 adds 4 to 10, but the pattern multiplies by 3.' },
+    ],
+    correctOptionIndex: 1,
+    explanation: 'Each row multiplies: Row 1: 2\u00d71, 2\u00d72, 2\u00d73. Row 2: 3\u00d71, 3\u00d72, 3\u00d73. Row 3: 5\u00d71, 5\u00d72, 5\u00d73=15.',
+    category: 'logic-sequence',
+  },
+  {
+    id: 'nvr-b2-2-03',
+    subject: 'non-verbal-reasoning',
+    difficulty: 2,
+    questionText: 'The rule says: "Numbers that are multiples of 3 go in Set P. Numbers that are even go in Set Q." Where does the number 6 belong?',
+    questionTokens: ['The', 'rule', 'says:', '"Numbers', 'that', 'are', 'multiples', 'of', '3', 'go', 'in', 'Set', 'P.', 'Numbers', 'that', 'are', 'even', 'go', 'in', 'Set', 'Q."', 'Where', 'does', 'the', 'number', '6', 'belong?'],
+    keyWordIndices: [1, 6, 8, 12, 16, 20, 21, 25, 26],
+    options: [
+      { text: 'Set P only', isEliminatable: true, eliminationReason: '6 is a multiple of 3, but it is also even. Both rules apply.' },
+      { text: 'Set Q only', isEliminatable: true, eliminationReason: '6 is even, but it is also a multiple of 3. Both rules apply.' },
+      { text: 'Both sets', isEliminatable: false },
+      { text: 'Neither set', isEliminatable: true, eliminationReason: '6 is both a multiple of 3 and an even number, so it belongs in both sets.' },
+    ],
+    correctOptionIndex: 2,
+    explanation: '6 \u00f7 3 = 2, so it is a multiple of 3 (Set P). 6 \u00f7 2 = 3, so it is even (Set Q). It belongs in BOTH sets.',
+    category: 'logic-venn',
+  },
+
+  // ─── DIFFICULTY 3 — Exam Mode (Year 6, Weeks 9-12) ──────────
+
+  {
+    id: 'nvr-b2-3-01',
+    subject: 'non-verbal-reasoning',
+    difficulty: 3,
+    questionText: 'Look at the sequence: 1, 1, 2, 3, 5, 8, ___. What number comes next?',
+    questionTokens: ['Look', 'at', 'the', 'sequence:', '1,', '1,', '2,', '3,', '5,', '8,', '___.', 'What', 'number', 'comes', 'next?'],
+    keyWordIndices: [3, 4, 5, 6, 7, 8, 9, 10, 11, 14],
+    options: [
+      { text: '10', isEliminatable: true, eliminationReason: '10 adds 2 to 8, but the pattern adds the previous two numbers together.' },
+      { text: '11', isEliminatable: true, eliminationReason: '11 adds 3 to 8, but 5 + 8 = 13, not 11.' },
+      { text: '13', isEliminatable: false },
+      { text: '15', isEliminatable: true, eliminationReason: '15 adds 7 to 8. The correct pattern is: each number is the sum of the two before it.' },
+    ],
+    correctOptionIndex: 2,
+    explanation: 'This is the Fibonacci sequence: each number is the sum of the two before it. 5 + 8 = 13.',
+    category: 'logic-sequence',
+  },
+  {
+    id: 'nvr-b2-3-02',
+    subject: 'non-verbal-reasoning',
+    difficulty: 3,
+    questionText: 'A cube has 6 faces. If you paint three faces that all share one corner, how many faces remain unpainted?',
+    questionTokens: ['A', 'cube', 'has', '6', 'faces.', 'If', 'you', 'paint', 'three', 'faces', 'that', 'all', 'share', 'one', 'corner,', 'how', 'many', 'faces', 'remain', 'unpainted?'],
+    keyWordIndices: [3, 7, 8, 9, 15, 16, 17, 18, 19],
+    options: [
+      { text: '2', isEliminatable: true, eliminationReason: '2 would mean 4 faces were painted. Only 3 faces are painted.' },
+      { text: '3', isEliminatable: false },
+      { text: '4', isEliminatable: true, eliminationReason: '4 would mean only 2 faces were painted.' },
+      { text: '1', isEliminatable: true, eliminationReason: '1 would mean 5 faces were painted. Only 3 faces are painted.' },
+    ],
+    correctOptionIndex: 1,
+    explanation: 'A cube has 6 faces. If 3 are painted, then 6 \u2212 3 = 3 remain unpainted. The "share one corner" detail is extra information to check you read carefully.',
+    category: 'logic-code',
+    trickType: 'irrelevant-info',
+  },
+  {
+    id: 'nvr-b2-3-03',
+    subject: 'non-verbal-reasoning',
+    difficulty: 3,
+    questionText: 'At a party, there are 5 children. Each child shakes hands with every other child exactly once. How many handshakes are there in total?',
+    questionTokens: ['At', 'a', 'party,', 'there', 'are', '5', 'children.', 'Each', 'child', 'shakes', 'hands', 'with', 'every', 'other', 'child', 'exactly', 'once.', 'How', 'many', 'handshakes', 'are', 'there', 'in', 'total?'],
+    keyWordIndices: [5, 7, 9, 12, 13, 15, 16, 17, 18, 19],
+    options: [
+      { text: '20', isEliminatable: true, eliminationReason: '20 counts each handshake twice (5\u00d74=20). But when A shakes with B, that is ONE handshake, not two.' },
+      { text: '10', isEliminatable: false },
+      { text: '25', isEliminatable: true, eliminationReason: '25 is 5\u00d75 \u2014 this counts children shaking hands with themselves.' },
+      { text: '5', isEliminatable: true, eliminationReason: '5 is just the number of children, not the handshakes.' },
+    ],
+    correctOptionIndex: 1,
+    explanation: 'Each child shakes with 4 others: 5\u00d74 = 20, but each handshake is shared by two people, so 20\u00f72 = 10. The common mistake is forgetting to divide by 2.',
+    category: 'logic-code',
+  },
+  {
+    id: 'nvr-b2-3-04',
+    subject: 'non-verbal-reasoning',
+    difficulty: 3,
+    questionText: 'In a code, each shape equals its number of sides: triangle = 3, square = 4, pentagon = 5, hexagon = 6. What is the value of two hexagons plus one triangle?',
+    questionTokens: ['In', 'a', 'code,', 'each', 'shape', 'equals', 'its', 'number', 'of', 'sides:', 'triangle', '=', '3,', 'square', '=', '4,', 'pentagon', '=', '5,', 'hexagon', '=', '6.', 'What', 'is', 'the', 'value', 'of', 'two', 'hexagons', 'plus', 'one', 'triangle?'],
+    keyWordIndices: [7, 9, 10, 12, 19, 21, 22, 25, 27, 28, 29, 30, 31],
+    options: [
+      { text: '12', isEliminatable: true, eliminationReason: '12 is just two hexagons (6+6). You also need to add the triangle.' },
+      { text: '15', isEliminatable: false },
+      { text: '9', isEliminatable: true, eliminationReason: '9 is one hexagon plus one triangle (6+3). The question says TWO hexagons.' },
+      { text: '18', isEliminatable: true, eliminationReason: '18 is 3\u00d76. The question asks for addition, not multiplication.' },
+    ],
+    correctOptionIndex: 1,
+    explanation: 'Two hexagons = 6 + 6 = 12. One triangle = 3. Total = 12 + 3 = 15. Read carefully: it says TWO hexagons.',
+    category: 'logic-code',
+  },
+  {
+    id: 'nvr-b2-3-05',
+    subject: 'non-verbal-reasoning',
+    difficulty: 3,
+    questionText: 'In a number wall, each brick is the sum of the two bricks directly below it. The bottom row is: 3, 7, 2. The middle row is: 10, 9. What number goes on top?',
+    questionTokens: ['In', 'a', 'number', 'wall,', 'each', 'brick', 'is', 'the', 'sum', 'of', 'the', 'two', 'bricks', 'directly', 'below', 'it.', 'The', 'bottom', 'row', 'is:', '3,', '7,', '2.', 'The', 'middle', 'row', 'is:', '10,', '9.', 'What', 'number', 'goes', 'on', 'top?'],
+    keyWordIndices: [4, 5, 8, 11, 12, 20, 21, 22, 27, 28, 29, 30, 33],
+    options: [
+      { text: '11', isEliminatable: true, eliminationReason: '11 adds the wrong pair. The top brick is the sum of the middle row: 10+9.' },
+      { text: '19', isEliminatable: false },
+      { text: '12', isEliminatable: true, eliminationReason: '12 adds bottom row numbers (3+7+2). The top brick is the sum of the two MIDDLE bricks.' },
+      { text: '21', isEliminatable: true, eliminationReason: '21 adds all five bricks (3+7+2+10+9\u221211). The rule is: each brick = sum of the two below it.' },
+    ],
+    correctOptionIndex: 1,
+    explanation: 'Bottom row: 3, 7, 2. Middle row: 3+7=10, 7+2=9. Top: 10+9 = 19. Follow the rule: each brick is the sum of the two directly below.',
+    category: 'logic-code',
+  },
+];

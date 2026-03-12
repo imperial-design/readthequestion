@@ -1,9 +1,10 @@
 import { useState, useEffect, useMemo, useCallback } from 'react';
-import { useNavigate } from 'react-router';
+import { useNavigate, Navigate } from 'react-router';
 import { motion } from 'framer-motion';
 import { Star, Zap } from 'lucide-react';
 import { useProgressStore } from '../stores/useProgressStore';
 import { useCurrentUser } from '../hooks/useCurrentUser';
+import { usePaywall } from '../hooks/usePaywall';
 import { programmeWeeks } from '../data/programme/weeks';
 import { allQuestions } from '../data/questions';
 import { QuestionScreen } from '../components/question/QuestionScreen';
@@ -38,6 +39,7 @@ export function DailyChallengePage() {
   const { getProgress, completeDailyChallenge } = useProgressStore();
   const navigate = useNavigate();
   const { play } = useSoundEffects();
+  const { needsPayment } = usePaywall();
 
   const progress = currentUser ? getProgress(currentUser.id) : null;
   const todayStr = new Date().toISOString().split('T')[0];
@@ -93,11 +95,16 @@ export function DailyChallengePage() {
 
   if (!currentUser || !progress) return null;
 
+  // Paywall: redirect to upgrade if past week 1 and unpaid
+  if (needsPayment) {
+    return <Navigate to="/upgrade" replace />;
+  }
+
   if (alreadyCompleted && !result) {
     return (
       <div className="text-center py-12 space-y-4">
         <ProfessorHoot mood="celebrating" size="lg" message="You've already completed today's challenge! Come back tomorrow for a new one!" showSpeechBubble animate />
-        <button onClick={() => navigate('/')} className="px-6 py-3 rounded-button font-display font-bold text-white rainbow-gradient">
+        <button onClick={() => navigate('/home')} className="px-6 py-3 rounded-button font-display font-bold text-white rainbow-gradient">
           Back to the Nest! 🦉
         </button>
       </div>
@@ -145,7 +152,7 @@ export function DailyChallengePage() {
         />
 
         <button
-          onClick={() => navigate('/')}
+          onClick={() => navigate('/home')}
           className="w-full py-4 rounded-button font-display font-bold text-white text-lg rainbow-gradient hover:opacity-90 transition-opacity"
         >
           Back to the Nest! 🦉

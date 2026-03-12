@@ -37,7 +37,7 @@ export function DashboardPage() {
         </button>
         <div>
           <h2 className="font-display text-xl font-bold text-white">{currentUser.name}'s Progress</h2>
-          <p className="text-white/60 text-xs font-display">
+          <p className="text-white/80 text-xs font-display">
             Week {progress.currentWeek} · {PHASE_LABELS[weekConfig.phase]}
           </p>
         </div>

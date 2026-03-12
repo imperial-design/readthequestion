@@ -38,7 +38,7 @@ export function Header() {
     setShowMenu(false);
     await supabase.auth.signOut();
     logout();
-    navigate('/auth');
+    navigate('/login');
   };
 
   return (
@@ -47,7 +47,7 @@ export function Header() {
         <div className="flex items-center gap-1.5 shrink-0">
           <HootInline size="sm" />
           <h1 className="font-display font-bold text-lg text-white drop-shadow-sm whitespace-nowrap">
-            Read the Question!
+            AnswerTheQuestion!
           </h1>
         </div>
 

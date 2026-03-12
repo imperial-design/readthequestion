@@ -1,16 +1,21 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router';
 import { motion } from 'framer-motion';
+import { Download } from 'lucide-react';
 import { useAuthStore } from '../stores/useAuthStore';
 import { useProgressStore } from '../stores/useProgressStore';
 import { useSettingsStore } from '../stores/useSettingsStore';
 import { useCurrentUser } from '../hooks/useCurrentUser';
+import { usePaywall } from '../hooks/usePaywall';
 import { PHASE_LABELS } from '../types/programme';
 import { programmeWeeks } from '../data/programme/weeks';
 import { OnboardingFlow } from '../components/onboarding/OnboardingFlow';
 import { ProfessorHoot } from '../components/mascot/ProfessorHoot';
 import { ExamCountdown } from '../components/home/ExamCountdown';
 import { ExamDatePicker } from '../components/home/ExamDatePicker';
+import { ReferralModal } from '../components/ReferralModal';
+import { ReviewPrompt } from '../components/ReviewPrompt';
+import { supabase } from '../lib/supabase';
 // MockExamCard unlocks automatically at week 6 in the practice flow
 
 const SUBJECT_CHIPS = [
@@ -27,6 +32,55 @@ export function HomePage() {
   const getProgress = useProgressStore(s => s.getProgress);
   const examDate = useSettingsStore(s => s.examDate);
   const setExamDate = useSettingsStore(s => s.setExamDate);
+  const [selectedSubject, setSelectedSubject] = useState<string | null>(null);
+  const [showReferral, setShowReferral] = useState(false);
+  const [showReview, setShowReview] = useState(false);
+  const { needsPayment } = usePaywall();
+  const hasCribSheet = localStorage.getItem('atq-crib-sheet-purchased') === 'true';
+  const [downloadingCribSheet, setDownloadingCribSheet] = useState(false);
+
+  const handleDownloadCribSheet = async () => {
+    setDownloadingCribSheet(true);
+    try {
+      const { data } = supabase.storage
+        .from('assets')
+        .getPublicUrl('crib-sheet/clear-method-crib-sheet.pdf');
+      const response = await fetch(data.publicUrl);
+      if (!response.ok) throw new Error('Download failed');
+      const blob = await response.blob();
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'CLEAR-Method-Crib-Sheet.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+    } catch {
+      const { data } = supabase.storage
+        .from('assets')
+        .getPublicUrl('crib-sheet/clear-method-crib-sheet.pdf');
+      window.open(data.publicUrl, '_blank');
+    } finally {
+      setDownloadingCribSheet(false);
+    }
+  };
+
+  // Show review prompt after 7th completed session (once per child)
+  useEffect(() => {
+    if (!currentUser) return;
+    const progress = getProgress(currentUser.id);
+    const completedSessions = progress.sessions.filter(s => s.completed).length;
+    const reviewKey = `atq_review_prompted_${currentUser.id}`;
+    if (completedSessions >= 7 && !localStorage.getItem(reviewKey)) {
+      // Small delay so the page loads first
+      const timer = setTimeout(() => {
+        setShowReview(true);
+        localStorage.setItem(reviewKey, 'true');
+      }, 1500);
+      return () => clearTimeout(timer);
+    }
+  }, [currentUser, getProgress]);
 
   if (!currentUser) return null;
 
@@ -39,8 +93,6 @@ export function HomePage() {
       />
     );
   }
-
-  const [selectedSubject, setSelectedSubject] = useState<string | null>(null);
   const progress = getProgress(currentUser.id);
   const weekConfig = programmeWeeks[Math.min(progress.currentWeek - 1, 11)];
   const todayStr = new Date().toISOString().split('T')[0];
@@ -120,7 +172,7 @@ export function HomePage() {
         </div>
         <div className="flex-1 min-w-0">
           <h2 className="font-display font-extrabold text-xl md:text-2xl text-white drop-shadow-md">
-            🎯 Read the Question!
+            🎯 AnswerTheQuestion!
           </h2>
           <p className="text-white/90 font-display text-sm mt-0.5">{getHootGreeting()}</p>
         </div>
@@ -140,7 +192,7 @@ export function HomePage() {
           >
             <span className="text-xl">🧘</span>
             <span className="font-display font-bold text-white text-sm">Calm & Focus First</span>
-            <span className="ml-auto text-white/60 text-xs font-display">▶</span>
+            <span className="ml-auto text-white/80 text-xs font-display">▶</span>
           </Link>
         </motion.div>
       )}
@@ -213,14 +265,25 @@ export function HomePage() {
                 </div>
 
                 {/* Big start button */}
-                <Link
-                  to={selectedSubject ? `/practice?subject=${selectedSubject}` : '/practice'}
-                  className="block bg-white rounded-button py-2.5 text-center hover:shadow-lg transition-all hover:scale-[1.01] active:scale-[0.98]"
-                >
-                  <span className="font-display font-extrabold text-base text-purple-600">
-                    {progress.totalQuestionsAnswered === 0 ? "LET'S GO! 🚀" : "START SESSION ▶"}
-                  </span>
-                </Link>
+                {needsPayment ? (
+                  <Link
+                    to="/upgrade"
+                    className="block bg-gradient-to-r from-amber-400 to-orange-400 rounded-button py-2.5 text-center hover:shadow-lg transition-all hover:scale-[1.01] active:scale-[0.98]"
+                  >
+                    <span className="font-display font-extrabold text-base text-white">
+                      Unlock Full Access 🔓
+                    </span>
+                  </Link>
+                ) : (
+                  <Link
+                    to={selectedSubject ? `/practice?subject=${selectedSubject}` : '/practice'}
+                    className="block bg-white rounded-button py-2.5 text-center hover:shadow-lg transition-all hover:scale-[1.01] active:scale-[0.98]"
+                  >
+                    <span className="font-display font-extrabold text-base text-purple-600">
+                      {progress.totalQuestionsAnswered === 0 ? "LET'S GO! 🚀" : "START SESSION ▶"}
+                    </span>
+                  </Link>
+                )}
               </>
             )}
           </div>
@@ -285,7 +348,7 @@ export function HomePage() {
                       )}
                     </div>
                     <p className={`text-center text-[10px] mt-1 font-display font-bold ${
-                      isCurrent ? 'text-white' : 'text-white/60'
+                      isCurrent ? 'text-white' : 'text-white/80'
                     }`}>{weekNum}</p>
                   </div>
                 );
@@ -318,7 +381,7 @@ export function HomePage() {
                       )}
                     </div>
                     <p className={`text-center text-[10px] mt-1 font-display font-bold ${
-                      isCurrent ? 'text-white' : 'text-white/60'
+                      isCurrent ? 'text-white' : 'text-white/80'
                     }`}>{weekNum}</p>
                   </div>
                 );
@@ -351,7 +414,7 @@ export function HomePage() {
                       )}
                     </div>
                     <p className={`text-center text-[10px] mt-1 font-display font-bold ${
-                      isCurrent ? 'text-white' : 'text-white/60'
+                      isCurrent ? 'text-white' : 'text-white/80'
                     }`}>{weekNum}</p>
                   </div>
                 );
@@ -360,6 +423,52 @@ export function HomePage() {
           </div>
         </div>
       </motion.div>
+
+      {/* ========== CERTIFICATE CARD (programme complete) ========== */}
+      {progress.currentWeek > 12 && (
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="relative z-10"
+        >
+          <Link
+            to="/certificate"
+            className="block rounded-card overflow-hidden shadow-lg bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 p-4 text-center hover:shadow-xl transition-all hover:scale-[1.01] active:scale-[0.98]"
+          >
+            <p className="text-2xl mb-1">🎓</p>
+            <p className="font-display font-extrabold text-lg text-white drop-shadow-sm">
+              You completed the programme!
+            </p>
+            <p className="font-display text-sm text-white/90 mt-1">
+              Tap to download your Certificate of Achievement
+            </p>
+          </Link>
+        </motion.div>
+      )}
+
+      {/* ========== CRIB SHEET DOWNLOAD (if purchased) ========== */}
+      {hasCribSheet && (
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.22 }}
+          className="relative z-10"
+        >
+          <button
+            onClick={handleDownloadCribSheet}
+            disabled={downloadingCribSheet}
+            className="w-full flex items-center gap-3 py-3 px-4 rounded-card bg-white/20 backdrop-blur-sm border border-white/30 hover:bg-white/30 transition-all hover:shadow-lg hover:scale-[1.01] active:scale-[0.98] disabled:opacity-50"
+          >
+            <span className="text-xl">📋</span>
+            <div className="flex-1 text-left">
+              <p className="font-display font-bold text-white text-sm">CLEAR Method Crib Sheet</p>
+              <p className="font-display text-white/70 text-xs">Tap to download your printable one-pager</p>
+            </div>
+            <Download className="w-4 h-4 text-white/80" />
+          </button>
+        </motion.div>
+      )}
 
       {/* ========== STATS ROW ========== */}
       <motion.div
@@ -381,6 +490,30 @@ export function HomePage() {
           <p className="text-white/90 text-sm font-display">🎯 Technique</p>
         </div>
       </motion.div>
+
+      {/* ========== REFER A FRIEND ========== */}
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.3 }}
+        className="relative z-10"
+      >
+        <button
+          onClick={() => setShowReferral(true)}
+          className="w-full flex items-center gap-3 py-3 px-4 rounded-card bg-white/20 backdrop-blur-sm border border-white/30 hover:bg-white/30 transition-all hover:shadow-lg hover:scale-[1.01] active:scale-[0.98]"
+        >
+          <span className="text-xl">🤝</span>
+          <div className="flex-1 text-left">
+            <p className="font-display font-bold text-white text-sm">Refer a Friend</p>
+            <p className="font-display text-white/70 text-xs">The best outcome is they both get in.</p>
+          </div>
+          <span className="text-white/80 text-xs font-display">▶</span>
+        </button>
+      </motion.div>
+
+      {/* ========== MODALS ========== */}
+      <ReferralModal isOpen={showReferral} onClose={() => setShowReferral(false)} />
+      <ReviewPrompt isOpen={showReview} onClose={() => setShowReview(false)} />
 
     </div>
   );

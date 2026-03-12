@@ -3,12 +3,15 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router';
 import { useAuthStore } from './stores/useAuthStore';
 import { useProgressStore } from './stores/useProgressStore';
 import { useSupabaseAuth } from './hooks/useSupabaseAuth';
+import { MotionConfig } from 'framer-motion';
 import { AppShell } from './components/layout/AppShell';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { SyncToast } from './components/SyncToast';
 
-// Eagerly loaded (auth flow)
-import { ParentAuthPage } from './pages/ParentAuthPage';
+// Eagerly loaded (auth + landing)
+import { LandingPage } from './pages/LandingPage';
+import { LoginPage } from './pages/LoginPage';
+import { SignupPage } from './pages/SignupPage';
 import { ChildPickerPage } from './pages/ChildPickerPage';
 
 // Lazy loaded (after login)
@@ -21,6 +24,13 @@ const DailyChallengePage = lazy(() => import('./pages/DailyChallengePage').then(
 const MockExamPage = lazy(() => import('./pages/MockExamPage').then(m => ({ default: m.MockExamPage })));
 const MistakeReviewPage = lazy(() => import('./pages/MistakeReviewPage').then(m => ({ default: m.MistakeReviewPage })));
 const DashboardPage = lazy(() => import('./pages/DashboardPage').then(m => ({ default: m.DashboardPage })));
+const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage').then(m => ({ default: m.PrivacyPolicyPage })));
+const TermsPage = lazy(() => import('./pages/TermsPage').then(m => ({ default: m.TermsPage })));
+const RefundPolicyPage = lazy(() => import('./pages/RefundPolicyPage').then(m => ({ default: m.RefundPolicyPage })));
+const UpgradePage = lazy(() => import('./pages/UpgradePage').then(m => ({ default: m.UpgradePage })));
+const PaymentSuccessPage = lazy(() => import('./pages/PaymentSuccessPage').then(m => ({ default: m.PaymentSuccessPage })));
+const CertificatePage = lazy(() => import('./pages/CertificatePage').then(m => ({ default: m.CertificatePage })));
+const ResearchPage = lazy(() => import('./pages/ResearchPage').then(m => ({ default: m.ResearchPage })));
 
 function PageLoader() {
   return (
@@ -34,11 +44,31 @@ function PageLoader() {
 }
 
 /**
- * Requires a Supabase parent session. Redirects to /auth if not logged in.
+ * Landing page guard: redirects logged-in users to the dashboard.
+ */
+function PublicLandingRoute({ children }: { children: React.ReactNode }) {
+  const parentSession = useAuthStore(s => s.parentSession);
+  const currentChildId = useAuthStore(s => s.currentChildId);
+  const children_ = useAuthStore(s => s.children);
+
+  if (parentSession && currentChildId && children_.find(c => c.id === currentChildId)) {
+    return <Navigate to="/home" replace />;
+  }
+  if (parentSession) {
+    return <Navigate to="/select-child" replace />;
+  }
+  return <>{children}</>;
+}
+
+/**
+ * Requires a Supabase parent session. Redirects to /login if not logged in.
+ * Shows a loading spinner while the initial session is being restored.
  */
 function ParentProtectedRoute({ children }: { children: React.ReactNode }) {
+  const authReady = useAuthStore(s => s.authReady);
   const parentSession = useAuthStore(s => s.parentSession);
-  if (!parentSession) return <Navigate to="/auth" replace />;
+  if (!authReady) return <PageLoader />;
+  if (!parentSession) return <Navigate to="/login" replace />;
   return <>{children}</>;
 }
 
@@ -77,13 +107,21 @@ function App() {
   useSupabaseAuth();
 
   return (
+    <MotionConfig reducedMotion="user">
     <ErrorBoundary>
       <BrowserRouter>
         <SyncToast />
         <Suspense fallback={<PageLoader />}>
           <Routes>
             {/* Public routes */}
-            <Route path="/auth" element={<ParentAuthPage />} />
+            <Route path="/" element={<PublicLandingRoute><LandingPage /></PublicLandingRoute>} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/signup" element={<SignupPage />} />
+            <Route path="/auth" element={<Navigate to="/login" replace />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+            <Route path="/terms" element={<TermsPage />} />
+            <Route path="/refunds" element={<RefundPolicyPage />} />
+            <Route path="/research" element={<ResearchPage />} />
 
             {/* Parent-only routes */}
             <Route
@@ -107,7 +145,7 @@ function App() {
                 </ParentProtectedRoute>
               }
             >
-              <Route path="/" element={<HomePage />} />
+              <Route path="/home" element={<HomePage />} />
               <Route path="/practice" element={<PracticePage />} />
               <Route path="/badges" element={<BadgesPage />} />
               <Route path="/visualise" element={<VisualisationPage />} />
@@ -117,6 +155,9 @@ function App() {
               <Route path="/mock-exam" element={<MockExamPage />} />
               <Route path="/review-mistakes" element={<MistakeReviewPage />} />
               <Route path="/parent-dashboard" element={<DashboardPage />} />
+              <Route path="/upgrade" element={<UpgradePage />} />
+              <Route path="/payment-success" element={<PaymentSuccessPage />} />
+              <Route path="/certificate" element={<CertificatePage />} />
             </Route>
 
             {/* Fallback */}
@@ -125,6 +166,7 @@ function App() {
         </Suspense>
       </BrowserRouter>
     </ErrorBoundary>
+    </MotionConfig>
   );
 }
 

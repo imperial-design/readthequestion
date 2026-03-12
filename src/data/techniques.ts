@@ -439,7 +439,7 @@ export const RESEARCH_POINTS: ResearchPoint[] = [
     stat: '7 months',
     context: 'extra progress',
     source: 'EEF Teaching & Learning Toolkit',
-    detail: 'Children who read questions carefully before answering gain the equivalent of 7 extra months of academic progress. This is the foundation of the Read the Question method.',
+    detail: 'Children who read questions carefully before answering gain the equivalent of 7 extra months of academic progress. This is the foundation of the AnswerTheQuestion! method.',
   },
   {
     stat: '3 months',

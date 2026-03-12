@@ -167,7 +167,7 @@ export function GuidedTutorial({ onComplete }: GuidedTutorialProps) {
       {!isLast && (
         <button
           onClick={onComplete}
-          className="block mx-auto text-white/50 text-xs font-display hover:text-white/70 transition-colors"
+          className="block mx-auto text-white/75 text-xs font-display hover:text-white/70 transition-colors"
         >
           Skip tutorial
         </button>
