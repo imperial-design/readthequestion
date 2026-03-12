@@ -583,7 +583,12 @@ function BoxBreathingExercise({ config }: { config: BoxBreathingConfig }) {
           }}
           className={`w-20 h-20 rounded-full ${meta.innerBg} flex items-center justify-center`}
         >
-          <span className="font-display font-black text-3xl text-white">{countdown}</span>
+          <span className="font-display font-black text-3xl text-white">
+            {(phase === 'inhale' ? config.inhaleSeconds :
+              phase === 'hold-in' ? config.holdInSeconds :
+              phase === 'exhale' ? config.exhaleSeconds :
+              config.holdOutSeconds) - countdown + 1}
+          </span>
         </motion.div>
       </motion.div>
 

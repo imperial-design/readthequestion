@@ -38,18 +38,18 @@ export function StickyCtaBar() {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 100, opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className="fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-t border-gray-200 shadow-lg safe-area-bottom"
+          className="fixed bottom-0 left-0 right-0 z-50 bg-white/98 backdrop-blur-md border-t border-gray-200 shadow-2xl safe-area-bottom"
         >
-          <div className="max-w-2xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
+          <div className="max-w-3xl mx-auto px-5 py-3.5 flex items-center justify-between gap-4">
             <div>
-              <p className="font-display font-bold text-sm text-gray-800">
-                &pound;19.99 <span className="font-normal text-gray-500">one time</span>
+              <p className="font-display font-extrabold text-base text-gray-800">
+                &pound;19.99 <span className="font-medium text-gray-400 text-sm">one time</span>
               </p>
-              <p className="font-display text-xs text-gray-500">Full programme &middot; Whole family</p>
+              <p className="font-display text-xs text-gray-400">Full programme &middot; Whole family</p>
             </div>
             <Link
               to="/signup"
-              className="shrink-0 px-6 py-2.5 rounded-button font-display font-bold text-white text-sm bg-gradient-to-r from-purple-600 via-fuchsia-600 to-pink-500 hover:from-purple-700 hover:via-fuchsia-700 hover:to-pink-600 transition-all shadow-md"
+              className="shrink-0 px-7 py-3 rounded-xl font-display font-extrabold text-white text-sm bg-gradient-to-r from-fuchsia-500 via-purple-600 to-indigo-600 hover:from-fuchsia-600 hover:via-purple-700 hover:to-indigo-700 transition-all shadow-lg hover:shadow-xl"
             >
               Get started
             </Link>

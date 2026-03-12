@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { SectionWrapper } from './SectionWrapper';
+import { motion } from 'framer-motion';
 
 const FAQ_ITEMS = [
   {
@@ -48,50 +48,62 @@ export function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <SectionWrapper>
-      <div className="space-y-4">
-        <h2 className="font-display font-extrabold text-xl text-gray-800 text-center">
-          Parents ask&hellip;
-        </h2>
+    <section className="bg-white/95 backdrop-blur-sm">
+      <div className="max-w-3xl mx-auto px-5 py-14">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="font-display font-extrabold text-2xl md:text-3xl text-gray-900 text-center mb-8 leading-tight">
+            Parents ask&hellip;
+          </h2>
 
-        <div className="space-y-2">
-          {FAQ_ITEMS.map((item, i) => {
-            const isOpen = openIndex === i;
-            return (
-              <div
-                key={i}
-                className="rounded-card border border-gray-200/80 bg-white overflow-hidden"
-              >
-                <button
-                  onClick={() => setOpenIndex(isOpen ? null : i)}
-                  aria-expanded={isOpen}
-                  aria-controls={`faq-panel-${i}`}
-                  id={`faq-button-${i}`}
-                  className="w-full flex items-center justify-between p-4 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-400"
+          <div className="space-y-2.5 max-w-xl mx-auto">
+            {FAQ_ITEMS.map((item, i) => {
+              const isOpen = openIndex === i;
+              return (
+                <div
+                  key={i}
+                  className="rounded-xl border border-gray-200/80 bg-white overflow-hidden"
                 >
-                  <span className="font-display font-bold text-sm text-gray-800 pr-4">
-                    {item.question}
-                  </span>
-                  <span
-                    className={`text-gray-400 shrink-0 transition-transform duration-200 ${
-                      isOpen ? 'rotate-180' : ''
-                    }`}
+                  <button
+                    onClick={() => setOpenIndex(isOpen ? null : i)}
+                    aria-expanded={isOpen}
+                    aria-controls={`faq-panel-${i}`}
+                    id={`faq-button-${i}`}
+                    className="w-full flex items-center justify-between p-4 md:p-5 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-400"
                   >
-                    {'\u25bc'}
-                  </span>
-                </button>
-                {isOpen && (
-                  <div id={`faq-panel-${i}`} role="region" aria-labelledby={`faq-button-${i}`} className="px-4 pb-4">
-                    <p className="font-display text-sm text-gray-600 leading-relaxed">
-                      {item.answer}
-                    </p>
-                  </div>
-                )}
-              </div>
-            );
-          })}
-        </div>
+                    <span className="font-display font-bold text-sm md:text-base text-gray-800 pr-4">
+                      {item.question}
+                    </span>
+                    <span
+                      className={`text-purple-400 shrink-0 transition-transform duration-200 text-sm ${
+                        isOpen ? 'rotate-180' : ''
+                      }`}
+                    >
+                      ▼
+                    </span>
+                  </button>
+                  {isOpen && (
+                    <div
+                      id={`faq-panel-${i}`}
+                      role="region"
+                      aria-labelledby={`faq-button-${i}`}
+                      className="px-4 md:px-5 pb-4 md:pb-5"
+                    >
+                      <p className="font-display text-sm md:text-base text-gray-500 leading-relaxed">
+                        {item.answer}
+                      </p>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </motion.div>
       </div>
-    </SectionWrapper>
+    </section>
   );
 }

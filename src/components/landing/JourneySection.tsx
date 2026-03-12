@@ -1,118 +1,128 @@
 import { Link } from 'react-router';
-import { SectionWrapper } from './SectionWrapper';
+import { motion } from 'framer-motion';
 
 const PHASES = [
   {
     name: 'Foundation',
-    emoji: '\ud83c\udf31',
-    weeks: '1\u20134',
+    emoji: '🌱',
+    weeks: '1–4',
     description: 'Learn the CLEAR Method. Build the habit of reading carefully.',
-    color: 'border-amber-400/60 bg-amber-50',
-    badgeColor: 'bg-amber-100 text-amber-700',
+    bg: 'bg-amber-500',
+    tint: 'bg-amber-50 border-amber-200/60',
   },
   {
     name: 'Improvers',
-    emoji: '\ud83d\udd25',
-    weeks: '5\u20138',
+    emoji: '🔥',
+    weeks: '5–8',
     description: 'Faster pace, trickier questions. Sharpen under time pressure.',
-    color: 'border-orange-400/60 bg-orange-50',
-    badgeColor: 'bg-orange-100 text-orange-700',
+    bg: 'bg-orange-500',
+    tint: 'bg-orange-50 border-orange-200/60',
   },
   {
     name: 'Exam Ready',
-    emoji: '\ud83d\ude80',
-    weeks: '9\u201312',
+    emoji: '🚀',
+    weeks: '9–12',
     description: 'Embedded habits. Real confidence. Exam ready.',
-    color: 'border-rose-400/60 bg-rose-50',
-    badgeColor: 'bg-rose-100 text-rose-700',
+    bg: 'bg-rose-500',
+    tint: 'bg-rose-50 border-rose-200/60',
   },
+];
+
+const FEATURES = [
+  { emoji: '🧘', title: 'Calm tools', desc: 'Breathing exercises before every session' },
+  { emoji: '👨‍👩‍👧‍👦', title: 'Multi-child', desc: 'One purchase, the whole family' },
+  { emoji: '🏆', title: 'Certificate', desc: 'Personalised on completion' },
+  { emoji: '🦉', title: 'Professor Hoot', desc: 'Your child\u2019s study companion' },
 ];
 
 export function JourneySection() {
   return (
-    <SectionWrapper>
-      <div className="space-y-4">
-        <h2 className="font-display font-extrabold text-xl text-gray-800 text-center">
-          The 12-Week Journey
-        </h2>
+    <section className="bg-white/95 backdrop-blur-sm">
+      <div className="max-w-3xl mx-auto px-5 py-14">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="font-display font-extrabold text-2xl md:text-3xl text-gray-900 text-center mb-3 leading-tight">
+            The 12-Week Journey
+          </h2>
+          <p className="text-gray-500 font-display text-base md:text-lg text-center max-w-xl mx-auto mb-10">
+            A structured programme that builds real exam technique &mdash;
+            week by week, step by step.
+          </p>
 
-        <p className="text-gray-600 font-display text-sm text-center leading-relaxed">
-          A structured programme that builds real exam technique &mdash; week by week, step by step.
-        </p>
+          {/* Phases */}
+          <div className="space-y-4 mb-10">
+            {PHASES.map((phase, i) => (
+              <motion.div
+                key={phase.name}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className={`rounded-2xl border ${phase.tint} p-5 md:p-6 flex items-center gap-4`}
+              >
+                <div className={`shrink-0 w-12 h-12 rounded-xl ${phase.bg} flex items-center justify-center shadow-sm`}>
+                  <span className="text-xl">{phase.emoji}</span>
+                </div>
+                <div className="flex-1">
+                  <div className="flex items-center gap-2 mb-0.5">
+                    <span className="font-display font-extrabold text-base text-gray-800">
+                      {phase.name}
+                    </span>
+                    <span className="text-xs font-display font-bold text-gray-400">
+                      Weeks {phase.weeks}
+                    </span>
+                  </div>
+                  <p className="font-display text-sm md:text-base text-gray-500 leading-relaxed">
+                    {phase.description}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
 
-        <div className="space-y-3 mt-4">
-          {PHASES.map((phase) => (
-            <div
-              key={phase.name}
-              className={`rounded-card border-2 ${phase.color} p-4`}
+          {/* Session format */}
+          <div className="bg-gradient-to-r from-purple-50 to-fuchsia-50 rounded-2xl p-6 md:p-8 border border-purple-200/50 text-center mb-8">
+            <p className="font-display font-extrabold text-xl md:text-2xl text-purple-800">
+              10 questions. 15 minutes. Done.
+            </p>
+            <p className="font-display text-sm md:text-base text-purple-600 mt-2">
+              Short enough to fit around homework &mdash; powerful enough to build a lasting habit.
+            </p>
+          </div>
+
+          {/* Features grid */}
+          <div className="grid grid-cols-2 gap-3">
+            {FEATURES.map((f, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.06 }}
+                className="bg-gray-50 rounded-xl p-4 border border-gray-100 text-center"
+              >
+                <span className="text-2xl block mb-1.5">{f.emoji}</span>
+                <p className="font-display font-bold text-sm text-gray-800">{f.title}</p>
+                <p className="font-display text-xs text-gray-500 mt-0.5">{f.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* CTA */}
+          <div className="text-center mt-10">
+            <Link
+              to="/signup"
+              className="inline-block w-full max-w-md py-4 rounded-2xl font-display font-extrabold text-white text-lg bg-gradient-to-r from-fuchsia-500 via-purple-600 to-indigo-600 hover:from-fuchsia-600 hover:via-purple-700 hover:to-indigo-700 transition-all shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98]"
             >
-              <div className="flex items-center gap-2 mb-1">
-                <span className={`${phase.badgeColor} px-2 py-0.5 rounded-full text-xs font-display font-bold`}>
-                  Weeks {phase.weeks}
-                </span>
-                <span className="font-display font-bold text-sm text-gray-800">
-                  {phase.emoji} {phase.name}
-                </span>
-              </div>
-              <p className="font-display text-sm text-gray-600 leading-relaxed">
-                {phase.description}
-              </p>
-            </div>
-          ))}
-        </div>
-
-        {/* Session format — prominent */}
-        <div className="bg-purple-50 rounded-card p-5 mt-4 border border-purple-200/50 text-center">
-          <p className="font-display font-extrabold text-base text-purple-800">
-            10 questions. 15 minutes. Done.
-          </p>
-          <p className="font-display text-sm text-purple-600 mt-1">
-            Short enough to fit around homework &mdash; powerful enough to build a lasting habit.
-          </p>
-        </div>
-
-        {/* Key features grid */}
-        <div className="grid grid-cols-2 gap-2 mt-2">
-          <div className="bg-blue-50 rounded-card p-3 border border-blue-200/50 text-center">
-            <p className="font-display text-sm text-gray-700">
-              <span className="font-bold">{'\ud83e\uddd8'} Calm tools</span>
-              <br />
-              <span className="text-xs text-gray-500">Breathing exercises before every session</span>
-            </p>
+              Get started &mdash; &pound;19.99
+            </Link>
           </div>
-          <div className="bg-green-50 rounded-card p-3 border border-green-200/50 text-center">
-            <p className="font-display text-sm text-gray-700">
-              <span className="font-bold">{'\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d\udc66'} Multi-child</span>
-              <br />
-              <span className="text-xs text-gray-500">One purchase, the whole family</span>
-            </p>
-          </div>
-          <div className="bg-amber-50 rounded-card p-3 border border-amber-200/50 text-center">
-            <p className="font-display text-sm text-gray-700">
-              <span className="font-bold">{'\ud83c\udfc6'} Certificate</span>
-              <br />
-              <span className="text-xs text-gray-500">Personalised on completion</span>
-            </p>
-          </div>
-          <div className="bg-fuchsia-50 rounded-card p-3 border border-fuchsia-200/50 text-center">
-            <p className="font-display text-sm text-gray-700">
-              <span className="font-bold">{'\ud83e\udd89'} Professor Hoot</span>
-              <br />
-              <span className="text-xs text-gray-500">Your child&rsquo;s study companion</span>
-            </p>
-          </div>
-        </div>
-
-        {/* CTA */}
-        <div className="text-center mt-4">
-          <Link
-            to="/signup"
-            className="inline-block w-full py-3.5 rounded-button font-display font-bold text-white text-base bg-gradient-to-r from-purple-600 via-fuchsia-600 to-pink-500 hover:from-purple-700 hover:via-fuchsia-700 hover:to-pink-600 transition-all shadow-md"
-          >
-            Get started &mdash; &pound;19.99
-          </Link>
-        </div>
+        </motion.div>
       </div>
-    </SectionWrapper>
+    </section>
   );
 }
