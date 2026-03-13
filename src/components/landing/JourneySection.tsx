@@ -87,7 +87,7 @@ export function JourneySection() {
           {/* Session format */}
           <div className="bg-gradient-to-r from-purple-50 to-fuchsia-50 rounded-2xl p-6 md:p-8 border border-purple-200/50 text-center mb-8">
             <p className="font-display font-extrabold text-xl md:text-2xl text-purple-800">
-              10 questions. 15 minutes. Done.
+              10 questions. 10 minutes. Done.
             </p>
             <p className="font-display text-sm md:text-base text-purple-600 mt-2">
               Short enough to fit around homework &mdash; powerful enough to build a lasting habit.

@@ -5,17 +5,17 @@ const FAQ_ITEMS = [
   {
     question: 'Which subjects does it cover?',
     answer:
-      'AnswerTheQuestion! covers English, Maths, Verbal Reasoning and Non-Verbal Reasoning \u2014 the core 11+ and independent school exam subjects. The CLEAR Method works across all of them because it teaches how to approach any question, not just specific content.',
+      'AnswerTheQuestion! isn\u2019t about teaching the curriculum \u2014 it\u2019s about teaching exam technique. The questions are in the style of English, Maths, Verbal Reasoning and Non-Verbal Reasoning, so your child practises the CLEAR Method across all the core 11+ and independent school exam subjects. It works because it teaches how to approach any question, not just specific content.',
   },
   {
     question: 'How is this different from doing more practice papers?',
     answer:
-      'Practice papers test your child. AnswerTheQuestion! trains them. Most children already know the material \u2014 they lose marks because they rush, misread, or panic. The CLEAR Method builds the exam-technique habit that practice papers assume your child already has.',
+      'Practice papers test your child. AnswerTheQuestion! trains them. Even when children already know the material, they lose marks because they rush, misread, or panic. The CLEAR Method builds the exam-technique habit that practice papers assume your child already has.',
   },
   {
     question: 'How long is each session?',
     answer:
-      'Each daily session is 10 questions and takes around 10\u201315 minutes. It\u2019s designed to be short enough to fit alongside homework and other activities, but focused enough to build real exam technique.',
+      'Each daily session is 10 questions and takes around 10 minutes. The timing gets shorter as your child moves through the programme, building speed and confidence under pressure. It\u2019s designed to be short enough to fit alongside homework and other activities, but focused enough to build real exam technique.',
   },
   {
     question: 'Which schools and exams is this for?',
@@ -25,7 +25,7 @@ const FAQ_ITEMS = [
   {
     question: 'What year group is it best for?',
     answer:
-      'It\u2019s ideal for children in Year 4 and Year 5 who are preparing for entrance exams. Some families start in late Year 3. The programme works well alongside existing tutoring or self-study.',
+      'It\u2019s ideal for children in Year 4 and Year 5 who are preparing for entrance exams. Some families start in late Year 3. It\u2019s also useful for Year 6 children preparing to go to any secondary school \u2014 the exam-technique habits transfer to SATs, school tests, and beyond. The programme works well alongside existing tutoring or self-study.',
   },
   {
     question: 'Can I use it for more than one child?',

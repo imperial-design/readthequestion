@@ -18,6 +18,11 @@ export function ProblemSection() {
           viewport={{ once: true, margin: '-50px' }}
           transition={{ duration: 0.6 }}
         >
+          {/* Emotional hook */}
+          <p className="font-display font-extrabold text-xl md:text-2xl text-gray-900 text-center mb-6 leading-snug max-w-xl mx-auto">
+            Tearing your hair out watching your child lose easy marks&hellip; because they misread the question?
+          </p>
+
           {/* Age badge */}
           <div className="flex justify-center mb-4">
             <span className="inline-block bg-purple-100 text-purple-700 font-display font-bold text-sm px-4 py-1.5 rounded-full">

@@ -40,7 +40,7 @@ export function StorySection() {
           </p>
 
           <p className="font-display font-extrabold text-lg text-gray-900 text-center mb-4">
-            So I built one.
+            So, I did the research and created AnswerTheQuestion!
           </p>
 
           <p className="text-gray-500 font-display text-sm leading-relaxed mb-5">
