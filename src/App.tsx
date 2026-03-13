@@ -119,6 +119,7 @@ function App() {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
             <Route path="/checkout" element={<CheckoutPage />} />
+            <Route path="/payment-success" element={<PaymentSuccessPage />} />
             <Route path="/auth" element={<Navigate to="/login" replace />} />
             <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
             <Route path="/terms" element={<TermsPage />} />
@@ -158,7 +159,6 @@ function App() {
               <Route path="/review-mistakes" element={<MistakeReviewPage />} />
               <Route path="/parent-dashboard" element={<DashboardPage />} />
               <Route path="/upgrade" element={<UpgradePage />} />
-              <Route path="/payment-success" element={<PaymentSuccessPage />} />
               <Route path="/certificate" element={<CertificatePage />} />
             </Route>
 

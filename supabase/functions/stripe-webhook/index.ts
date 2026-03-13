@@ -178,13 +178,9 @@ serve(async (req) => {
     // Handle the event
     if (event.type === 'checkout.session.completed') {
       const session = event.data.object as Stripe.Checkout.Session;
-      const parentId = session.metadata?.parentId;
+      const parentId = session.metadata?.parentId; // null for guest checkout
       const includeCribSheet = session.metadata?.includeCribSheet === 'true';
-
-      if (!parentId) {
-        console.error('No parentId in session metadata');
-        return new Response('Missing parentId', { status: 400 });
-      }
+      const customerEmail = session.customer_email || session.customer_details?.email;
 
       // Use service role to bypass RLS
       const supabase = createClient(
@@ -200,20 +196,25 @@ serve(async (req) => {
           completed_at: new Date().toISOString(),
           stripe_payment_intent_id: session.payment_intent as string,
           include_crib_sheet: includeCribSheet,
+          customer_email: customerEmail,
+          ...(parentId ? { parent_id: parentId } : {}),
         })
         .eq('stripe_checkout_session_id', session.id);
 
-      // Mark ALL child profiles for this parent as paid
-      await supabase
-        .from('child_profiles')
-        .update({ has_paid: true })
-        .eq('parent_id', parentId);
+      // If an authenticated user paid, mark ALL their child profiles as paid.
+      // For guest checkout (no parentId), the claim-payment function handles this
+      // after the user creates an account and links their payment.
+      if (parentId) {
+        await supabase
+          .from('child_profiles')
+          .update({ has_paid: true })
+          .eq('parent_id', parentId);
+      }
 
-      console.log(`Payment completed for session ${session.id}, crib_sheet=${includeCribSheet}`);
+      console.log(`Payment completed for session ${session.id}, parentId=${parentId ?? 'guest'}, crib_sheet=${includeCribSheet}`);
 
       // Send crib sheet email if purchased (non-blocking — failures are logged)
       if (includeCribSheet) {
-        const customerEmail = session.customer_email || session.customer_details?.email;
         if (customerEmail) {
           await sendCribSheetEmail(customerEmail);
         } else {

@@ -154,6 +154,24 @@ export function ChildPickerPage() {
 
       const newChild = data as ChildProfile;
 
+      // Try to claim any guest checkout payment for this email.
+      // This links unclaimed payments and marks child profiles as paid.
+      let claimedPayment = false;
+      try {
+        const { data: claimData } = await supabase.functions.invoke('claim-payment');
+        if (claimData?.claimed) {
+          claimedPayment = true;
+          newChild.has_paid = true;
+          // Persist crib sheet flag if it was part of the claimed payment
+          if (claimData.includeCribSheet) {
+            localStorage.setItem('atq-crib-sheet-purchased', 'true');
+          }
+        }
+      } catch {
+        // Non-critical — if claim fails, the user can still use the app (just not paid)
+        console.warn('claim-payment call failed (non-critical)');
+      }
+
       // Update local state
       setLocalChildren(prev => [...prev, newChild]);
       setChildren([...children.map(p => ({
@@ -164,7 +182,7 @@ export function ChildPickerPage() {
         programmeStartDate: p.programme_start_date,
         hasSeenOnboarding: p.has_seen_onboarding,
         hasSeenTutorial: p.has_seen_tutorial ?? false,
-        hasPaid: p.has_paid ?? false,
+        hasPaid: claimedPayment || (p.has_paid ?? false),
         referralCode: p.referral_code ?? undefined,
       })), {
         id: newChild.id,

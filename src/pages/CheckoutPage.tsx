@@ -6,10 +6,10 @@ import { supabase } from '../lib/supabase';
 
 export function CheckoutPage() {
   const parentSession = useAuthStore(s => s.parentSession);
-  const authReady = useAuthStore(s => s.authReady);
 
   const [includeCribSheet, setIncludeCribSheet] = useState(false);
   const [promoCode, setPromoCode] = useState('');
+  const [guestEmail, setGuestEmail] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -17,20 +17,33 @@ export function CheckoutPage() {
   const cribSheetPrice = 4.99;
   const total = basePrice + (includeCribSheet ? cribSheetPrice : 0);
 
+  const isValidEmail = (email: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+  const canProceed = parentSession
+    ? true
+    : guestEmail.trim() !== '' && isValidEmail(guestEmail.trim());
+
   const handleCheckout = async () => {
-    if (!parentSession?.user?.id) return;
+    if (!canProceed) return;
 
     setLoading(true);
     setError(null);
 
     try {
+      const body: Record<string, unknown> = {
+        successUrl: `${window.location.origin}/payment-success`,
+        cancelUrl: `${window.location.origin}/checkout`,
+        includeCribSheet,
+        promoCode: promoCode.trim() || undefined,
+      };
+
+      // For guest checkout, send email in the body
+      if (!parentSession) {
+        body.email = guestEmail.trim().toLowerCase();
+      }
+
       const { data, error: fnError } = await supabase.functions.invoke('create-checkout-session', {
-        body: {
-          successUrl: `${window.location.origin}/payment-success`,
-          cancelUrl: `${window.location.origin}/checkout`,
-          includeCribSheet,
-          promoCode: promoCode.trim() || undefined,
-        },
+        body,
       });
 
       if (fnError) throw fnError;
@@ -59,7 +72,7 @@ export function CheckoutPage() {
           </span>
         ) : (
           <Link
-            to="/login?redirect=/checkout"
+            to="/login"
             className="text-sm text-white/70 font-display font-semibold hover:text-white transition-colors"
           >
             Sign in
@@ -137,6 +150,25 @@ export function CheckoutPage() {
               )}
             </div>
 
+            {/* Email — only shown for guests */}
+            {!parentSession && (
+              <div className="mb-6">
+                <label className="block text-sm font-display font-semibold text-gray-600 mb-1.5">
+                  Your email address
+                </label>
+                <input
+                  type="email"
+                  value={guestEmail}
+                  onChange={e => setGuestEmail(e.target.value)}
+                  placeholder="parent@example.com"
+                  className="w-full px-4 py-2.5 rounded-lg border-2 border-gray-200 font-display text-sm focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-purple-400 placeholder:text-gray-400"
+                />
+                <p className="font-display text-xs text-gray-400 mt-1.5">
+                  You&rsquo;ll create your account after payment &mdash; use the same email
+                </p>
+              </div>
+            )}
+
             {/* Total */}
             <div className="flex items-center justify-between pt-4 border-t border-gray-200 mb-6">
               <p className="font-display font-extrabold text-lg text-gray-900">Total</p>
@@ -152,34 +184,24 @@ export function CheckoutPage() {
               </div>
             </div>
 
-            {/* CTA — auth-dependent */}
-            {!authReady ? (
-              <div className="w-full py-4 rounded-2xl bg-gray-200 animate-pulse" />
-            ) : parentSession ? (
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.97 }}
-                onClick={handleCheckout}
-                disabled={loading}
-                className="w-full py-4 rounded-2xl font-display font-extrabold text-white text-lg bg-gradient-to-r from-fuchsia-500 via-purple-600 to-indigo-600 hover:from-fuchsia-600 hover:via-purple-700 hover:to-indigo-700 transition-all shadow-xl disabled:opacity-50"
-              >
-                {loading ? 'Redirecting to payment\u2026' : `Pay \u00A3${total.toFixed(2)} \u2014 Secure Checkout`}
-              </motion.button>
-            ) : (
-              <div className="space-y-3">
-                <Link
-                  to="/signup?redirect=/checkout"
-                  className="block w-full py-4 rounded-2xl font-display font-extrabold text-white text-lg text-center bg-gradient-to-r from-fuchsia-500 via-purple-600 to-indigo-600 hover:from-fuchsia-600 hover:via-purple-700 hover:to-indigo-700 transition-all shadow-xl"
-                >
-                  Create Account &amp; Pay
+            {/* CTA — always show Pay button */}
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.97 }}
+              onClick={handleCheckout}
+              disabled={loading || !canProceed}
+              className="w-full py-4 rounded-2xl font-display font-extrabold text-white text-lg bg-gradient-to-r from-fuchsia-500 via-purple-600 to-indigo-600 hover:from-fuchsia-600 hover:via-purple-700 hover:to-indigo-700 transition-all shadow-xl disabled:opacity-50"
+            >
+              {loading ? 'Redirecting to payment\u2026' : `Pay \u00A3${total.toFixed(2)} \u2014 Secure Checkout`}
+            </motion.button>
+
+            {!parentSession && (
+              <p className="text-center text-sm text-gray-500 font-display mt-3">
+                Already have an account?{' '}
+                <Link to="/login" className="text-purple-600 font-semibold hover:text-purple-800">
+                  Sign in first
                 </Link>
-                <Link
-                  to="/login?redirect=/checkout"
-                  className="block w-full text-center text-sm text-purple-600 hover:text-purple-800 font-display font-semibold"
-                >
-                  Already have an account? Sign in
-                </Link>
-              </div>
+              </p>
             )}
 
             {error && (

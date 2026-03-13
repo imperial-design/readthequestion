@@ -1,6 +1,7 @@
 // Supabase Edge Function: create-checkout-session
 // Creates a Stripe Checkout Session for a one-time £19.99 payment.
 // Optionally adds the CLEAR Method Crib Sheet (£4.99) as a second line item.
+// Supports both authenticated users and guest checkout (pay first, create account after).
 // Deploy: supabase functions deploy create-checkout-session
 // Required secrets: STRIPE_SECRET_KEY
 //
@@ -41,30 +42,39 @@ serve(async (req) => {
   }
 
   try {
-    // Verify the user is authenticated
-    const authHeader = req.headers.get('Authorization');
-    if (!authHeader) {
-      return new Response(JSON.stringify({ error: 'Missing authorization header' }), {
-        status: 401,
-        headers: { ...getCorsHeaders(req), 'Content-Type': 'application/json' },
-      });
-    }
-
     const supabaseUrl = Deno.env.get('SUPABASE_URL')!;
     const supabaseKey = Deno.env.get('SUPABASE_ANON_KEY')!;
-    const supabase = createClient(supabaseUrl, supabaseKey, {
-      global: { headers: { Authorization: authHeader } },
-    });
 
-    const { data: { user }, error: authError } = await supabase.auth.getUser();
-    if (authError || !user) {
-      return new Response(JSON.stringify({ error: 'Unauthorized' }), {
-        status: 401,
-        headers: { ...getCorsHeaders(req), 'Content-Type': 'application/json' },
+    // ── Try to authenticate (optional — guest checkout is allowed) ──
+    let userId: string | null = null;
+    let customerEmail: string | null = null;
+
+    const authHeader = req.headers.get('Authorization');
+    if (authHeader) {
+      const supabase = createClient(supabaseUrl, supabaseKey, {
+        global: { headers: { Authorization: authHeader } },
       });
+
+      const { data: { user }, error: authError } = await supabase.auth.getUser();
+      if (!authError && user) {
+        userId = user.id;
+        customerEmail = user.email ?? null;
+      }
+      // If getUser fails, treat as guest checkout (anon key was sent)
     }
 
-    const { successUrl, cancelUrl, includeCribSheet, promoCode } = await req.json();
+    const { successUrl, cancelUrl, includeCribSheet, promoCode, email } = await req.json();
+
+    // For guest checkout, require an email address
+    if (!userId) {
+      if (!email || typeof email !== 'string' || !email.includes('@')) {
+        return new Response(JSON.stringify({ error: 'Email is required for checkout' }), {
+          status: 400,
+          headers: { ...getCorsHeaders(req), 'Content-Type': 'application/json' },
+        });
+      }
+      customerEmail = email.trim().toLowerCase();
+    }
 
     // Validate redirect URLs against allowed origins to prevent open redirects
     const isAllowedUrl = (url: string) => {
@@ -140,9 +150,10 @@ serve(async (req) => {
       line_items: lineItems,
       success_url: `${successUrl}?session_id={CHECKOUT_SESSION_ID}${includeCribSheet ? '&crib_sheet=1' : ''}`,
       cancel_url: cancelUrl,
-      customer_email: user.email,
+      customer_email: customerEmail,
       metadata: {
-        parentId: user.id,
+        // parentId is only set for authenticated users; null for guests
+        ...(userId ? { parentId: userId } : {}),
         includeCribSheet: includeCribSheet ? 'true' : 'false',
       },
     });
@@ -154,7 +165,9 @@ serve(async (req) => {
     );
 
     await supabaseAdmin.from('payments').insert({
-      parent_id: user.id,
+      // parent_id is null for guest checkout — will be linked via claim-payment later
+      ...(userId ? { parent_id: userId } : {}),
+      customer_email: customerEmail,
       stripe_checkout_session_id: session.id,
       amount_pence: includeCribSheet ? 2498 : 1999,
       currency: 'gbp',
