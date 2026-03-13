@@ -64,7 +64,7 @@ serve(async (req) => {
       });
     }
 
-    const { successUrl, cancelUrl, includeCribSheet } = await req.json();
+    const { successUrl, cancelUrl, includeCribSheet, promoCode } = await req.json();
 
     // Validate redirect URLs against allowed origins to prevent open redirects
     const isAllowedUrl = (url: string) => {
@@ -113,11 +113,30 @@ serve(async (req) => {
       });
     }
 
+    // Handle promotion code — if the user entered one on our checkout page,
+    // look it up and pre-apply it. Otherwise let Stripe show its own promo field.
+    let discountConfig: Record<string, unknown> = { allow_promotion_codes: true };
+    if (promoCode && typeof promoCode === 'string') {
+      const promoCodes = await stripe.promotionCodes.list({
+        code: promoCode.trim(),
+        active: true,
+        limit: 1,
+      });
+      if (promoCodes.data.length > 0) {
+        discountConfig = { discounts: [{ promotion_code: promoCodes.data[0].id }] };
+      } else {
+        return new Response(JSON.stringify({ error: 'Invalid or expired discount code' }), {
+          status: 400,
+          headers: { ...getCorsHeaders(req), 'Content-Type': 'application/json' },
+        });
+      }
+    }
+
     // Create Stripe Checkout Session
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
       mode: 'payment',
-      allow_promotion_codes: true,
+      ...discountConfig,
       line_items: lineItems,
       success_url: `${successUrl}?session_id={CHECKOUT_SESSION_ID}${includeCribSheet ? '&crib_sheet=1' : ''}`,
       cancel_url: cancelUrl,

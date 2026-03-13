@@ -48,7 +48,7 @@ export function StickyCtaBar() {
               <p className="font-display text-xs text-gray-400">Full programme &middot; Whole family</p>
             </div>
             <Link
-              to="/signup"
+              to="/checkout"
               className="shrink-0 px-7 py-3 rounded-xl font-display font-extrabold text-white text-sm bg-gradient-to-r from-fuchsia-500 via-purple-600 to-indigo-600 hover:from-fuchsia-600 hover:via-purple-700 hover:to-indigo-700 transition-all shadow-lg hover:shadow-xl"
             >
               Get started

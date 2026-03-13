@@ -12,6 +12,7 @@ import { SyncToast } from './components/SyncToast';
 import { LandingPage } from './pages/LandingPage';
 import { LoginPage } from './pages/LoginPage';
 import { SignupPage } from './pages/SignupPage';
+import { CheckoutPage } from './pages/CheckoutPage';
 import { ChildPickerPage } from './pages/ChildPickerPage';
 
 // Lazy loaded (after login)
@@ -117,6 +118,7 @@ function App() {
             <Route path="/" element={<PublicLandingRoute><LandingPage /></PublicLandingRoute>} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
+            <Route path="/checkout" element={<CheckoutPage />} />
             <Route path="/auth" element={<Navigate to="/login" replace />} />
             <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
             <Route path="/terms" element={<TermsPage />} />

@@ -115,7 +115,7 @@ export function JourneySection() {
           {/* CTA */}
           <div className="text-center mt-10">
             <Link
-              to="/signup"
+              to="/checkout"
               className="inline-block w-full max-w-md py-4 rounded-2xl font-display font-extrabold text-white text-lg bg-gradient-to-r from-fuchsia-500 via-purple-600 to-indigo-600 hover:from-fuchsia-600 hover:via-purple-700 hover:to-indigo-700 transition-all shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98]"
             >
               Get started &mdash; &pound;19.99

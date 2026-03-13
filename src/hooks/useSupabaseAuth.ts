@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useNavigate } from 'react-router';
+import { useNavigate, useSearchParams } from 'react-router';
 import { supabase } from '../lib/supabase';
 import { useAuthStore } from '../stores/useAuthStore';
 
@@ -43,6 +43,7 @@ export function useSupabaseAuth() {
  */
 export function useRequireNoAuth() {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const parentSession = useAuthStore(s => s.parentSession);
   const currentChildId = useAuthStore(s => s.currentChildId);
   const isPasswordRecovery = useAuthStore(s => s.isPasswordRecovery);
@@ -51,7 +52,13 @@ export function useRequireNoAuth() {
     // Don't redirect during password recovery — the user needs to stay on the
     // login page to set a new password even though Supabase gives them a session.
     if (parentSession && !isPasswordRecovery) {
-      navigate(currentChildId ? '/home' : '/select-child', { replace: true });
+      // Respect ?redirect= param (e.g. /checkout) so users return after auth
+      const redirect = searchParams.get('redirect');
+      if (redirect && redirect.startsWith('/')) {
+        navigate(redirect, { replace: true });
+      } else {
+        navigate(currentChildId ? '/home' : '/select-child', { replace: true });
+      }
     }
-  }, [parentSession, currentChildId, isPasswordRecovery, navigate]);
+  }, [parentSession, currentChildId, isPasswordRecovery, navigate, searchParams]);
 }

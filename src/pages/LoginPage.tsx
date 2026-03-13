@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate, Link } from 'react-router';
+import { useNavigate, Link, useSearchParams } from 'react-router';
 import { motion } from 'framer-motion';
 import { supabase } from '../lib/supabase';
 import { useRequireNoAuth } from '../hooks/useSupabaseAuth';
@@ -10,6 +10,7 @@ export function LoginPage() {
   useRequireNoAuth();
 
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
@@ -48,7 +49,8 @@ export function LoginPage() {
         password,
       });
       if (signInError) throw signInError;
-      navigate('/select-child');
+      const redirect = searchParams.get('redirect');
+      navigate(redirect && redirect.startsWith('/') ? redirect : '/select-child');
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Something went wrong');
     } finally {
@@ -420,7 +422,7 @@ export function LoginPage() {
                 </button>
 
                 <Link
-                  to="/signup"
+                  to={`/signup${searchParams.get('redirect') ? `?redirect=${searchParams.get('redirect')}` : ''}`}
                   className="block w-full text-center text-sm text-purple-600 hover:text-purple-800 font-display font-semibold"
                 >
                   Don't have an account? Create one

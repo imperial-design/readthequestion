@@ -62,7 +62,8 @@ export function SignupPage() {
       if (signUpError) throw signUpError;
       // If session exists, email confirmation is disabled — go straight in
       if (data.session) {
-        navigate('/select-child');
+        const redirect = searchParams.get('redirect');
+        navigate(redirect && redirect.startsWith('/') ? redirect : '/select-child');
       } else {
         setConfirmationSent(true);
       }
