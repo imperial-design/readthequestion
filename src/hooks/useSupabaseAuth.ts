@@ -9,6 +9,7 @@ import { useAuthStore } from '../stores/useAuthStore';
  */
 export function useSupabaseAuth() {
   const setParentSession = useAuthStore(s => s.setParentSession);
+  const setPasswordRecovery = useAuthStore(s => s.setPasswordRecovery);
 
   useEffect(() => {
     // Get initial session
@@ -21,7 +22,11 @@ export function useSupabaseAuth() {
 
     // Listen for auth changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      (_event, session) => {
+      (event, session) => {
+        // Flag password recovery so useRequireNoAuth doesn't redirect
+        if (event === 'PASSWORD_RECOVERY') {
+          setPasswordRecovery(true);
+        }
         setParentSession(session);
       }
     );
@@ -29,7 +34,7 @@ export function useSupabaseAuth() {
     return () => {
       subscription.unsubscribe();
     };
-  }, [setParentSession]);
+  }, [setParentSession, setPasswordRecovery]);
 }
 
 /**
@@ -40,10 +45,13 @@ export function useRequireNoAuth() {
   const navigate = useNavigate();
   const parentSession = useAuthStore(s => s.parentSession);
   const currentChildId = useAuthStore(s => s.currentChildId);
+  const isPasswordRecovery = useAuthStore(s => s.isPasswordRecovery);
 
   useEffect(() => {
-    if (parentSession) {
+    // Don't redirect during password recovery — the user needs to stay on the
+    // login page to set a new password even though Supabase gives them a session.
+    if (parentSession && !isPasswordRecovery) {
       navigate(currentChildId ? '/home' : '/select-child', { replace: true });
     }
-  }, [parentSession, currentChildId, navigate]);
+  }, [parentSession, currentChildId, isPasswordRecovery, navigate]);
 }

@@ -3,6 +3,7 @@ import { useNavigate, Link } from 'react-router';
 import { motion } from 'framer-motion';
 import { supabase } from '../lib/supabase';
 import { useRequireNoAuth } from '../hooks/useSupabaseAuth';
+import { useAuthStore } from '../stores/useAuthStore';
 import { ProfessorHoot } from '../components/mascot/ProfessorHoot';
 
 export function LoginPage() {
@@ -101,6 +102,8 @@ export function LoginPage() {
         password: newPassword,
       });
       if (updateError) throw updateError;
+      // Clear the recovery flag so useRequireNoAuth can redirect normally again
+      useAuthStore.getState().setPasswordRecovery(false);
       setPasswordUpdated(true);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Something went wrong');

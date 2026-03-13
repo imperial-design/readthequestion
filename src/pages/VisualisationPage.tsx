@@ -326,12 +326,16 @@ export function VisualisationPage() {
 
           <div className="bg-purple-50 rounded-2xl p-5 max-w-sm space-y-3 text-left">
             <p className="font-display text-gray-700 text-base leading-relaxed">
-              This short guided exercise will help your child imagine exam day going well &mdash;
-              arriving calm, reading carefully, and using their technique with confidence.
+              This short guided exercise will help you imagine exam day going well &mdash;
+              arriving calm, reading carefully, and using your technique with confidence.
             </p>
             <p className="font-display text-gray-700 text-base leading-relaxed">
-              Practising this regularly helps the brain rehearse success, so when the real day comes it
-              already feels familiar.
+              Athletes, musicians and top performers all use visualisation to prepare for big moments.
+              When you rehearse something vividly in your mind, your brain treats it almost like real
+              practice &mdash; so the real day already feels familiar.
+            </p>
+            <p className="font-display text-sm text-purple-600 font-semibold leading-relaxed mt-1">
+              ✨ Try to do this 2&ndash;3 times a week, and every day in the week before your exam.
             </p>
           </div>
 
@@ -394,12 +398,18 @@ export function VisualisationPage() {
 
           <div className="bg-purple-50 rounded-2xl p-5 max-w-sm space-y-3 text-left">
             <p className="font-display text-gray-700 text-base leading-relaxed">
-              Box breathing is a simple technique used by athletes and astronauts to calm nerves and
-              sharpen focus. Breathe in, hold, breathe out, hold &mdash; each for 4 seconds.
+              Box breathing is a simple technique used by athletes, astronauts and even Navy SEALs to
+              calm nerves and sharpen focus. Breathe in, hold, breathe out, hold &mdash; each for 4 seconds.
             </p>
             <p className="font-display text-gray-700 text-base leading-relaxed">
-              Even a minute or two makes a real difference. It&rsquo;s a brilliant tool to use just
-              before an exam &mdash; or any time you feel the wobbles.
+              Slow, steady breathing tells your nervous system that everything is OK &mdash; it lowers
+              your heart rate and clears your mind so you can think properly. Even a minute or two makes
+              a real difference. It&rsquo;s a brilliant tool to use just before an exam, before a practice
+              paper, or any time you feel the wobbles.
+            </p>
+            <p className="font-display text-sm text-purple-600 font-semibold leading-relaxed mt-1">
+              ✨ Practise a little every day &mdash; even just 4 or 5 cycles. The more you do it,
+              the quicker it works when you need it most.
             </p>
           </div>
 

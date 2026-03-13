@@ -28,7 +28,7 @@ export function ProblemSection() {
           <h2 className="font-display font-extrabold text-2xl md:text-3xl text-gray-900 text-center mb-3 leading-tight">
             Tutors teach the curriculum.
             <br />
-            But who teaches them how to <span className="text-purple-700">use&nbsp;it</span> under pressure?
+            But how are you building the <span className="text-purple-700">focus&nbsp;habits</span> they need to remember it under pressure?
           </h2>
 
           <p className="text-gray-500 font-display text-base md:text-lg text-center max-w-xl mx-auto mb-4 leading-relaxed">

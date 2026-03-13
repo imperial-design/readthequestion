@@ -12,6 +12,10 @@ interface AuthState {
   parentSession: Session | null;
   setParentSession: (session: Session | null) => void;
 
+  // Password recovery mode — prevents redirect while resetting password
+  isPasswordRecovery: boolean;
+  setPasswordRecovery: (value: boolean) => void;
+
   // Child profiles (fetched from Supabase)
   children: User[];
   setChildren: (children: User[]) => void;
@@ -37,13 +41,21 @@ export const useAuthStore = create<AuthState>()(
     (set, get) => ({
       authReady: false,
       parentSession: null,
+      isPasswordRecovery: false,
       children: [],
       currentChildId: null,
 
+      setPasswordRecovery: (value) => set({ isPasswordRecovery: value }),
+
       setParentSession: (session) => {
+        const prev = get().parentSession;
         set({ parentSession: session, authReady: true });
-        // Clear child selection on logout
+
         if (!session) {
+          // Logged out — clear child selection
+          set({ children: [], currentChildId: null });
+        } else if (prev && prev.user.id !== session.user.id) {
+          // Different user logged in — clear stale child selection from previous account
           set({ children: [], currentChildId: null });
         }
       },
@@ -109,7 +121,26 @@ export const useAuthStore = create<AuthState>()(
           parentSession: null,
           children: [],
           currentChildId: null,
+          isPasswordRecovery: false,
         });
+
+        // Clear all app-specific localStorage keys for privacy on shared devices
+        try {
+          localStorage.removeItem('rtq-progress');
+          localStorage.removeItem('rtq-settings');
+          localStorage.removeItem('atq-crib-sheet-purchased');
+          // Remove any review-prompted flags (atq_review_prompted_week_*)
+          const keysToRemove: string[] = [];
+          for (let i = 0; i < localStorage.length; i++) {
+            const key = localStorage.key(i);
+            if (key?.startsWith('atq_review_prompted_')) {
+              keysToRemove.push(key);
+            }
+          }
+          keysToRemove.forEach(k => localStorage.removeItem(k));
+        } catch {
+          // localStorage may be unavailable in some environments
+        }
       },
 
     }),
