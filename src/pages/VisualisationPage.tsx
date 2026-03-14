@@ -8,14 +8,16 @@ import type { VisualisationScript, VisualisationSection, BoxBreathingConfig } fr
 /*  Hooks                                                              */
 /* ------------------------------------------------------------------ */
 
-/** Browser speech synthesis */
+/** Browser speech synthesis with onEnd callback for syncing */
 function useSpeech() {
   const utteranceRef = useRef<SpeechSynthesisUtterance | null>(null);
+  const onEndRef = useRef<(() => void) | null>(null);
   const [isSpeaking, setIsSpeaking] = useState(false);
 
-  const speak = useCallback((text: string) => {
+  const speak = useCallback((text: string, onEnd?: () => void) => {
     if (!('speechSynthesis' in window)) return;
     window.speechSynthesis.cancel();
+    onEndRef.current = onEnd ?? null;
 
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.rate = 0.7;
@@ -32,7 +34,15 @@ function useSpeech() {
     if (preferred) utterance.voice = preferred;
 
     utterance.onstart = () => setIsSpeaking(true);
-    utterance.onend = () => setIsSpeaking(false);
+    utterance.onend = () => {
+      setIsSpeaking(false);
+      // Small pause after speech ends before advancing
+      if (onEndRef.current) {
+        const cb = onEndRef.current;
+        onEndRef.current = null;
+        setTimeout(cb, 1500);
+      }
+    };
     utterance.onerror = () => setIsSpeaking(false);
 
     utteranceRef.current = utterance;
@@ -40,6 +50,7 @@ function useSpeech() {
   }, []);
 
   const stop = useCallback(() => {
+    onEndRef.current = null;
     window.speechSynthesis.cancel();
     setIsSpeaking(false);
   }, []);
@@ -173,21 +184,28 @@ export function VisualisationPage() {
   // Does this script have a single full audio file?
   const hasFullAudio = selectedScript?.audioSrc != null;
 
-  const speakSection = useCallback((section: VisualisationSection) => {
+  const speakSection = useCallback((section: VisualisationSection, onEnd?: () => void) => {
     if (!audioEnabled || hasFullAudio) return; // skip per-section TTS if full audio exists
     stopAllAudio();
     if (section.audioSrc) { playAudio(section.audioSrc); return; }
-    if (section.type === 'text' && section.content) speak(section.content);
+    if (section.type === 'text' && section.content) speak(section.content, onEnd);
+    else if (section.type === 'pause' && onEnd) {
+      // For pause sections, wait the displayDuration then advance
+      setTimeout(onEnd, section.displayDurationMs);
+    }
   }, [audioEnabled, hasFullAudio, speak, playAudio, stopAllAudio]);
 
-  // Per-section TTS (only when no full audio)
+  // Per-section TTS with auto-advance when speech ends (only when no full audio)
   useEffect(() => {
-    if (selectedScript && audioEnabled && !hasFullAudio) {
-      const section = selectedScript.sections[currentSectionIndex];
-      speakSection(section);
-    }
-    return () => { if (!hasFullAudio) stopAllAudio(); };
-  }, [currentSectionIndex, selectedScript, audioEnabled, hasFullAudio, speakSection, stopAllAudio]);
+    if (mode !== 'script' || !selectedScript || !audioEnabled || hasFullAudio) return;
+    const section = selectedScript.sections[currentSectionIndex];
+    const isLast = currentSectionIndex === selectedScript.sections.length - 1;
+    const advanceNext = isLast ? undefined : () => {
+      setCurrentSectionIndex(i => Math.min(selectedScript.sections.length - 1, i + 1));
+    };
+    speakSection(section, advanceNext);
+    return () => { stopAllAudio(); };
+  }, [mode, currentSectionIndex, selectedScript, audioEnabled, hasFullAudio, speakSection, stopAllAudio]);
 
   // Start full audio when script mode begins
   useEffect(() => {
