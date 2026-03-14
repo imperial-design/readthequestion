@@ -12,6 +12,14 @@ export function useSupabaseAuth() {
   const setPasswordRecovery = useAuthStore(s => s.setPasswordRecovery);
 
   useEffect(() => {
+    // Detect password recovery from URL hash BEFORE getSession resolves.
+    // Without this, the session loads first and useRequireNoAuth redirects
+    // the user away from the login page before they can set a new password.
+    const hash = window.location.hash;
+    if (hash.includes('type=recovery')) {
+      setPasswordRecovery(true);
+    }
+
     // Get initial session
     supabase.auth.getSession().then(({ data: { session } }) => {
       setParentSession(session);

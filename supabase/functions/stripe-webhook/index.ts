@@ -150,6 +150,100 @@ async function sendCribSheetEmail(customerEmail: string): Promise<void> {
   }
 }
 
+// ─── Payment Confirmation Email ─────────────────────────────────
+
+const PAYMENT_CONFIRMATION_HTML = `<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body style="margin:0;padding:0;font-family:'Nunito',Arial,sans-serif;background-color:#f3e8ff;color:#1f2937;">
+  <div style="max-width:560px;margin:0 auto;padding:32px 20px;">
+    <div style="text-align:center;margin-bottom:24px;">
+      <p style="font-size:48px;margin:0;">🦉</p>
+      <h1 style="font-size:24px;font-weight:800;color:#7c3aed;margin:8px 0 4px;">
+        Payment Confirmed!
+      </h1>
+      <p style="font-size:14px;color:#6b7280;margin:0;">
+        From Professor Hoot at AnswerTheQuestion!
+      </p>
+    </div>
+    <div style="background:white;border-radius:16px;padding:28px;box-shadow:0 1px 3px rgba(0,0,0,0.1);">
+      <p style="font-size:16px;line-height:1.6;margin:0 0 16px;">
+        Thank you for your purchase! 🎉
+      </p>
+      <p style="font-size:15px;line-height:1.6;margin:0 0 16px;">
+        You now have <strong>full access</strong> to the AnswerTheQuestion! 11+ exam technique
+        training programme. Your child can start practising straight away.
+      </p>
+      <div style="background:#faf5ff;border-radius:12px;padding:16px;margin:0 0 16px;">
+        <p style="margin:0 0 8px;font-size:14px;font-weight:700;color:#7c3aed;">What&rsquo;s included:</p>
+        <p style="margin:0 0 4px;font-size:14px;">&#10003; 12-week exam technique training programme</p>
+        <p style="margin:0 0 4px;font-size:14px;">&#10003; The CLEAR Method &mdash; a step-by-step exam strategy</p>
+        <p style="margin:0 0 4px;font-size:14px;">&#10003; Hundreds of practice questions across all subjects</p>
+        <p style="margin:0;font-size:14px;">&#10003; Progress tracking and performance insights</p>
+      </div>
+      <div style="text-align:center;margin:20px 0;">
+        <a href="https://answerthequestion.co.uk/login" style="display:inline-block;padding:14px 28px;background:linear-gradient(to right,#7c3aed,#c026d3);color:white;font-weight:700;font-size:16px;text-decoration:none;border-radius:12px;">
+          Start Practising &rarr;
+        </a>
+      </div>
+      <p style="font-size:15px;line-height:1.6;margin:0 0 4px;">
+        Good luck with the preparation &mdash; you&rsquo;ve got this! 💪
+      </p>
+      <p style="font-size:15px;font-weight:700;color:#7c3aed;margin:0;">
+        &mdash; Professor Hoot 🦉
+      </p>
+    </div>
+    <div style="text-align:center;margin-top:24px;font-size:12px;color:#9ca3af;">
+      <p style="margin:0 0 4px;">AnswerTheQuestion! &mdash; 11+ Exam Technique Training</p>
+      <p style="margin:0;">
+        <a href="https://answerthequestion.co.uk" style="color:#7c3aed;text-decoration:none;">answerthequestion.co.uk</a>
+      </p>
+    </div>
+  </div>
+</body>
+</html>`;
+
+/**
+ * Send a payment confirmation email via Resend.
+ * Non-critical: failures are logged but do not block payment processing.
+ */
+async function sendPaymentConfirmationEmail(customerEmail: string): Promise<void> {
+  const resendApiKey = Deno.env.get('RESEND_API_KEY');
+  if (!resendApiKey) {
+    console.error('RESEND_API_KEY not set — skipping payment confirmation email');
+    return;
+  }
+
+  try {
+    const resendResponse = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${resendApiKey}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        from: 'Professor Hoot <hoot@answerthequestion.co.uk>',
+        to: [customerEmail],
+        subject: 'Your AnswerTheQuestion! access is confirmed 🎉',
+        html: PAYMENT_CONFIRMATION_HTML,
+      }),
+    });
+
+    if (resendResponse.ok) {
+      const result = await resendResponse.json();
+      console.log(`Payment confirmation email sent — Resend ID: ${result.id}`);
+    } else {
+      const errorBody = await resendResponse.text();
+      console.error(`Resend API error (${resendResponse.status}):`, errorBody);
+    }
+  } catch (err) {
+    console.error('Failed to send payment confirmation email:', err);
+  }
+}
+
 // ─── Main Webhook Handler ───────────────────────────────────────
 
 serve(async (req) => {
@@ -213,13 +307,14 @@ serve(async (req) => {
 
       console.log(`Payment completed for session ${session.id}, parentId=${parentId ?? 'guest'}, crib_sheet=${includeCribSheet}`);
 
-      // Send crib sheet email if purchased (non-blocking — failures are logged)
-      if (includeCribSheet) {
-        if (customerEmail) {
+      // Send emails (non-blocking — failures are logged)
+      if (customerEmail) {
+        await sendPaymentConfirmationEmail(customerEmail);
+        if (includeCribSheet) {
           await sendCribSheetEmail(customerEmail);
-        } else {
-          console.error('Crib sheet purchased but no customer email found on session');
         }
+      } else {
+        console.error('No customer email found on session — skipping emails');
       }
     }
 
