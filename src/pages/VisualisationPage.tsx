@@ -18,7 +18,7 @@ function useSpeech() {
     window.speechSynthesis.cancel();
 
     const utterance = new SpeechSynthesisUtterance(text);
-    utterance.rate = 0.85;
+    utterance.rate = 0.7;
     utterance.pitch = 1.0;
     utterance.volume = 1;
 
@@ -324,7 +324,7 @@ export function VisualisationPage() {
             {script.durationMinutes} minutes
           </p>
 
-          <div className="bg-purple-50 rounded-2xl p-5 max-w-sm space-y-3 text-left">
+          <div className="bg-white rounded-2xl p-5 w-full space-y-3 text-left shadow-sm">
             <p className="font-display text-gray-700 text-base leading-relaxed">
               This short guided exercise will help you imagine exam day going well &mdash;
               arriving calm, reading carefully, and using your technique with confidence.
@@ -339,9 +339,9 @@ export function VisualisationPage() {
             </p>
           </div>
 
-          <div className="bg-amber-50 rounded-2xl p-5 max-w-sm mt-4 text-left">
-            <p className="font-display font-semibold text-gray-800 text-sm mb-2">Before you start:</p>
-            <ul className="space-y-1.5 text-sm text-gray-600 font-display">
+          <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-5 w-full mt-4 text-left border border-white/30">
+            <p className="font-display font-semibold text-white text-sm mb-2">Before you start:</p>
+            <ul className="space-y-1.5 text-sm text-white/80 font-display">
               <li className="flex items-start gap-2">
                 <span className="mt-0.5">🪑</span> Find a comfortable place to sit
               </li>
@@ -359,7 +359,7 @@ export function VisualisationPage() {
 
           <button
             onClick={() => setMode('script')}
-            className="mt-8 w-full max-w-sm py-4 rounded-2xl font-display font-extrabold text-white text-lg bg-gradient-to-r from-indigo-500 via-purple-600 to-indigo-600 hover:from-indigo-600 hover:via-purple-700 hover:to-indigo-700 transition-all shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2"
+            className="mt-8 w-full py-4 rounded-2xl font-display font-extrabold text-white text-lg bg-gradient-to-r from-indigo-500 via-purple-600 to-indigo-600 hover:from-indigo-600 hover:via-purple-700 hover:to-indigo-700 transition-all shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2"
           >
             <Play className="w-5 h-5" />
             I&rsquo;m ready &mdash; play
@@ -396,7 +396,7 @@ export function VisualisationPage() {
             Go for as long as you like
           </p>
 
-          <div className="bg-purple-50 rounded-2xl p-5 max-w-sm space-y-3 text-left">
+          <div className="bg-white rounded-2xl p-5 w-full space-y-3 text-left shadow-sm">
             <p className="font-display text-gray-700 text-base leading-relaxed">
               Box breathing is a simple technique used by athletes, astronauts and even Navy SEALs to
               calm nerves and sharpen focus. Breathe in, hold, breathe out, hold &mdash; each for 4 seconds.
@@ -413,9 +413,9 @@ export function VisualisationPage() {
             </p>
           </div>
 
-          <div className="bg-amber-50 rounded-2xl p-5 max-w-sm mt-4 text-left">
-            <p className="font-display font-semibold text-gray-800 text-sm mb-2">Before you start:</p>
-            <ul className="space-y-1.5 text-sm text-gray-600 font-display">
+          <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-5 w-full mt-4 text-left border border-white/30">
+            <p className="font-display font-semibold text-white text-sm mb-2">Before you start:</p>
+            <ul className="space-y-1.5 text-sm text-white/80 font-display">
               <li className="flex items-start gap-2">
                 <span className="mt-0.5">🪑</span> Sit comfortably with both feet on the floor
               </li>
@@ -433,7 +433,7 @@ export function VisualisationPage() {
 
           <button
             onClick={() => setMode('breathing')}
-            className="mt-8 w-full max-w-sm py-4 rounded-2xl font-display font-extrabold text-white text-lg bg-gradient-to-r from-violet-500 via-purple-600 to-indigo-600 hover:from-violet-600 hover:via-purple-700 hover:to-indigo-700 transition-all shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2"
+            className="mt-8 w-full py-4 rounded-2xl font-display font-extrabold text-white text-lg bg-gradient-to-r from-violet-500 via-purple-600 to-indigo-600 hover:from-violet-600 hover:via-purple-700 hover:to-indigo-700 transition-all shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2"
           >
             <Play className="w-5 h-5" />
             I&rsquo;m ready &mdash; let&rsquo;s breathe

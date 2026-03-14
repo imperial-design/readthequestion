@@ -242,10 +242,10 @@ export function HomePage() {
                     <button
                       key={label}
                       onClick={() => setSelectedSubject(key)}
-                      className={`flex-1 py-1.5 rounded-full text-xs font-display font-bold transition-all ${
+                      className={`flex-1 py-1.5 rounded-full text-xs font-display font-bold transition-all backdrop-blur-sm border ${
                         selectedSubject === key
-                          ? 'bg-white text-purple-600 shadow-sm'
-                          : 'bg-white/20 text-white hover:bg-white/30'
+                          ? 'bg-purple-700/80 text-white shadow-lg border-purple-400/60 ring-2 ring-purple-300/50'
+                          : 'bg-white/15 text-white/90 border-white/20 hover:bg-white/25'
                       }`}
                     >
                       {emoji} {label}
@@ -299,7 +299,7 @@ export function HomePage() {
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.15 }}
-        className="relative z-10 bg-white/20 backdrop-blur-sm rounded-card p-4 border border-white/30"
+        className="relative z-10 bg-gradient-to-br from-orange-300/25 via-pink-300/20 to-rose-300/25 backdrop-blur-sm rounded-card p-4 border border-orange-200/30"
       >
         <div className="text-center mb-3">
           <p className="font-display font-bold text-sm text-white">
@@ -313,7 +313,7 @@ export function HomePage() {
         {/* Phase segments */}
         <div className="grid grid-cols-3 gap-2">
           {/* Foundation — Weeks 1-4 */}
-          <div className="rounded-xl border-2 border-amber-400/60 bg-amber-900/30 p-2">
+          <div className="rounded-xl border-2 border-amber-300/50 bg-amber-400/20 backdrop-blur-sm p-2">
             <p className="text-center text-[11px] font-display font-extrabold text-white mb-1.5">
               🌱 Foundation
             </p>
@@ -346,7 +346,7 @@ export function HomePage() {
           </div>
 
           {/* Improvers — Weeks 5-8 */}
-          <div className="rounded-xl border-2 border-orange-400/60 bg-orange-900/30 p-2">
+          <div className="rounded-xl border-2 border-orange-300/50 bg-orange-400/20 backdrop-blur-sm p-2">
             <p className="text-center text-[11px] font-display font-extrabold text-white mb-1.5">
               🔥 Improvers
             </p>
@@ -379,7 +379,7 @@ export function HomePage() {
           </div>
 
           {/* Exam Mode — Weeks 9-12 */}
-          <div className="rounded-xl border-2 border-red-500/60 bg-red-900/30 p-2">
+          <div className="rounded-xl border-2 border-rose-400/50 bg-rose-400/20 backdrop-blur-sm p-2">
             <p className="text-center text-[11px] font-display font-extrabold text-white mb-1.5">
               🚀 Exam Mode
             </p>
