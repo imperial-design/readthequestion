@@ -62,6 +62,10 @@ export function SignupPage() {
       if (signUpError) throw signUpError;
       // If session exists, email confirmation is disabled — go straight in
       if (data.session) {
+        // Send welcome email (non-blocking)
+        supabase.functions.invoke('send-welcome-email').catch(() => {
+          // Non-critical — don't block signup flow
+        });
         const redirect = searchParams.get('redirect');
         navigate(redirect && redirect.startsWith('/') ? redirect : '/select-child');
       } else {

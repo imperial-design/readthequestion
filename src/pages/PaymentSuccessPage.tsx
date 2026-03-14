@@ -318,11 +318,44 @@ export function PaymentSuccessPage() {
           </motion.p>
         </div>
 
+        {/* Crib Sheet Download — shown prominently BEFORE the CTA */}
+        {hasCribSheet && verified && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8 }}
+            className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-lg border-2 border-purple-300"
+          >
+            <div className="text-center space-y-3">
+              <span className="text-4xl block">📋</span>
+              <h3 className="font-display font-bold text-lg text-purple-800">
+                Your CLEAR Method Crib Sheet
+              </h3>
+              <p className="font-display text-sm text-gray-600">
+                Print it out and stick it on the fridge, the desk, or inside a homework folder!
+              </p>
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.97 }}
+                onClick={handleDownloadCribSheet}
+                disabled={downloading}
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl font-display font-bold text-white text-lg bg-gradient-to-r from-purple-600 to-fuchsia-600 shadow-lg disabled:opacity-50"
+              >
+                <Download className="w-5 h-5" />
+                {downloading ? 'Downloading\u2026' : 'Download Crib Sheet'}
+              </motion.button>
+              <p className="font-display text-xs text-gray-400">
+                You can also re-download this anytime from your parent dashboard
+              </p>
+            </div>
+          </motion.div>
+        )}
+
         {/* Status / CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8 }}
+          transition={{ delay: hasCribSheet ? 1.0 : 0.8 }}
           className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/30 text-center"
         >
           {!verified ? (
@@ -376,39 +409,6 @@ export function PaymentSuccessPage() {
             </div>
           )}
         </motion.div>
-
-        {/* Crib Sheet Download */}
-        {hasCribSheet && verified && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.0 }}
-            className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/30"
-          >
-            <div className="text-center space-y-3">
-              <span className="text-3xl block">📋</span>
-              <h3 className="font-display font-bold text-gray-800">
-                Your CLEAR Method Crib Sheet
-              </h3>
-              <p className="font-display text-sm text-gray-500">
-                Print it out and stick it on the fridge, the desk, or inside a homework folder!
-              </p>
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.97 }}
-                onClick={handleDownloadCribSheet}
-                disabled={downloading}
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl font-display font-bold text-white bg-gradient-to-r from-purple-600 to-fuchsia-600 shadow-lg disabled:opacity-50"
-              >
-                <Download className="w-5 h-5" />
-                {downloading ? 'Downloading\u2026' : 'Download Crib Sheet'}
-              </motion.button>
-              <p className="font-display text-xs text-gray-400">
-                You can re-download this anytime from your dashboard
-              </p>
-            </div>
-          </motion.div>
-        )}
 
         {/* Back link */}
         <div className="text-center">
