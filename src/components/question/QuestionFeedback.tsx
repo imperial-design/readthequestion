@@ -106,6 +106,14 @@ const TRICK_TYPE_LABELS: Record<string, { label: string; tip: string }> = {
   },
 };
 
+// Check whether a question is an inference / "most likely" question
+function isInferenceQuestion(question: Question): boolean {
+  return (
+    (question.category?.includes('inference') ?? false) ||
+    question.questionText.toLowerCase().includes('most likely')
+  );
+}
+
 interface QuestionFeedbackProps {
   isCorrect: boolean;
   techniqueScore: TechniqueScore;
@@ -245,6 +253,29 @@ export function QuestionFeedback({ isCorrect, techniqueScore, question, selected
           <p className="text-sm text-gray-700">{wrongInsight}</p>
           <p className="text-xs text-gray-500 mt-2 font-display italic">
             {getTrapTip(wrongInsight)}
+          </p>
+        </motion.div>
+      )}
+
+      {/* Inference / "most likely" question tip */}
+      {isInferenceQuestion(question) && (
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.35 }}
+          className="rounded-card p-4 bg-blue-50 border-2 border-blue-200"
+        >
+          <div className="flex items-start gap-2 mb-1">
+            <span className="text-lg">🔍</span>
+            <p className="font-display font-bold text-sm text-blue-700">
+              Inference Tip
+            </p>
+          </div>
+          <p className="text-sm text-gray-600">
+            When a question says &ldquo;most likely&rdquo;, the answer won&rsquo;t be written
+            word-for-word in the text. Look for clues and think about what makes the most sense.
+            Eliminate answers that are definitely wrong first &mdash; the right answer is the one
+            with the most evidence.
           </p>
         </motion.div>
       )}

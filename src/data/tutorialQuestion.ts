@@ -47,6 +47,11 @@ export const TUTORIAL_QUESTION: Question = {
       isEliminatable: true,
       eliminationReason: 'She had "nobody to talk to" only on Monday — that is a trap! The question asks about her normal routine.',
     },
+    {
+      text: 'Her older sister',
+      isEliminatable: true,
+      eliminationReason: 'A sister is never mentioned in the passage. A rusher might guess a family member, but the passage says she walks with her best friend.',
+    },
   ],
   correctOptionIndex: 2,
   explanation:
@@ -94,10 +99,10 @@ export const TUTORIAL_STEPS = [
     id: 'show-answers',
     hootMood: 'warning' as const,
     title: 'E — Eliminate!',
-    message: "Here are the answers. Let's cross out the wrong ones! \"Her teacher\" is never mentioned. \"Her mum\" only drove her on Monday. \"Nobody\" is a trap — she only had nobody to talk to on that one day! Important: you won't be able to select the right answer until you've eliminated all the wrong ones first. This helps you build the habit!",
+    message: "Here are the answers. Let's cross out the wrong ones! \"Her teacher\" is never mentioned. \"Her mum\" only drove her on Monday. \"Nobody\" is a trap — she only had nobody to talk to on that one day! \"Her older sister\" is made up — no sister is mentioned. Important: you won't be able to select the right answer until you've eliminated all the wrong ones first. This helps you build the habit!",
     showQuestion: true,
     showAnswers: true,
-    eliminateIndices: [0, 1, 3],
+    eliminateIndices: [0, 1, 3, 4],
   },
   {
     id: 'lock-in',
@@ -106,7 +111,7 @@ export const TUTORIAL_STEPS = [
     message: "Only \"Her best friend\" is left — and the passage says she always walks with her best friend. That is your answer! In the app, you'll hit the Lock In button.",
     showQuestion: true,
     showAnswers: true,
-    eliminateIndices: [0, 1, 3],
+    eliminateIndices: [0, 1, 3, 4],
     correctIndex: 2,
   },
   {
