@@ -67,7 +67,7 @@ export function SignupPage() {
           // Non-critical — don't block signup flow
         });
         const redirect = searchParams.get('redirect');
-        navigate(redirect && redirect.startsWith('/') ? redirect : '/select-child');
+        navigate(redirect && redirect.startsWith('/') && !redirect.startsWith('//') ? redirect : '/select-child');
       } else {
         setConfirmationSent(true);
       }

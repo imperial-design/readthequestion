@@ -8,6 +8,10 @@ export default defineConfig({
     host: true,
     port: 5173,
   },
+  esbuild: {
+    drop: ['debugger'],
+    pure: ['console.log', 'console.debug'],
+  },
   build: {
     rollupOptions: {
       output: {

@@ -73,7 +73,7 @@ export function useRequireNoAuth() {
     if (parentSession && !isPasswordRecovery) {
       // Respect ?redirect= param (e.g. /checkout) so users return after auth
       const redirect = searchParams.get('redirect');
-      if (redirect && redirect.startsWith('/')) {
+      if (redirect && redirect.startsWith('/') && !redirect.startsWith('//')) {
         navigate(redirect, { replace: true });
       } else {
         navigate(currentChildId ? '/home' : '/select-child', { replace: true });

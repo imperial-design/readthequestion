@@ -50,7 +50,7 @@ export function LoginPage() {
       });
       if (signInError) throw signInError;
       const redirect = searchParams.get('redirect');
-      navigate(redirect && redirect.startsWith('/') ? redirect : '/select-child');
+      navigate(redirect && redirect.startsWith('/') && !redirect.startsWith('//') ? redirect : '/select-child');
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Something went wrong');
     } finally {
