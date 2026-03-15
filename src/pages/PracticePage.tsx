@@ -10,6 +10,7 @@ import { calculateXpFromResult } from '../utils/scoring';
 import { QuestionScreen } from '../components/question/QuestionScreen';
 import { SessionCompleteScreen } from '../components/session/SessionCompleteScreen';
 import { GuidedTutorial } from '../components/tutorial/GuidedTutorial';
+import { PreSessionBreathing } from '../components/session/PreSessionBreathing';
 import type { QuestionResult } from '../types/progress';
 import type { DailySession } from '../types/progress';
 import type { Subject } from '../types/question';
@@ -45,6 +46,7 @@ export function PracticePage() {
 
   const questions = useDailyQuestions(weekConfig, answeredIds, focusSubject ?? undefined, mistakeQuestionIds);
 
+  const [showBreathing, setShowBreathing] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [results, setResults] = useState<QuestionResult[]>([]);
   const [sessionComplete, setSessionComplete] = useState(false);
@@ -121,6 +123,11 @@ export function PracticePage() {
   // Paywall: redirect to upgrade if past week 1 and unpaid
   if (needsPayment) {
     return <Navigate to="/upgrade" replace />;
+  }
+
+  // Pre-session breathing exercise (skip if session already complete)
+  if (showBreathing && !sessionComplete) {
+    return <PreSessionBreathing onComplete={() => setShowBreathing(false)} />;
   }
 
   if (sessionComplete) {

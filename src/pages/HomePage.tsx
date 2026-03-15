@@ -35,6 +35,10 @@ export function HomePage() {
   const [selectedSubject, setSelectedSubject] = useState<string | null>(null);
   const [showReferral, setShowReferral] = useState(false);
   const [showReview, setShowReview] = useState(false);
+  const [visualiseDismissed, setVisualiseDismissed] = useState(() => {
+    const today = new Date().toISOString().split('T')[0];
+    return localStorage.getItem('atq-visualise-dismissed') === today;
+  });
   const { needsPayment } = usePaywall();
   const hasCribSheet = localStorage.getItem('atq-crib-sheet-purchased') === 'true';
   const [downloadingCribSheet, setDownloadingCribSheet] = useState(false);
@@ -128,6 +132,17 @@ export function HomePage() {
     return 'encouraging' as const;
   };
 
+  // Show full visualisation reminder every 3rd day (by day-of-year)
+  const dayOfYear = Math.floor((now.getTime() - new Date(now.getFullYear(), 0, 0).getTime()) / 86400000);
+  const isVisualiseReminderDay = dayOfYear % 3 === 0;
+  const showVisualiseReminder = isVisualiseReminderDay && !visualiseDismissed && !hasPractisedToday;
+
+  const dismissVisualiseReminder = () => {
+    const today = new Date().toISOString().split('T')[0];
+    localStorage.setItem('atq-visualise-dismissed', today);
+    setVisualiseDismissed(true);
+  };
+
   return (
     <div className="space-y-4">
       {/* Floating background decorations — CSS-only for performance */}
@@ -183,6 +198,39 @@ export function HomePage() {
             <span className="font-display font-bold text-white text-sm">Calm & Focus First</span>
             <span className="ml-auto text-white/80 text-xs font-display">▶</span>
           </Link>
+        </motion.div>
+      )}
+
+      {/* ========== VISUALISATION REMINDER (every 3rd day) ========== */}
+      {showVisualiseReminder && (
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.07, duration: 0.5 }}
+          className="relative z-10"
+        >
+          <div className="rounded-card overflow-hidden shadow-lg bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-600 p-4">
+            <p className="font-display font-extrabold text-lg text-white text-center mb-1">
+              Time for a Calm &amp; Focus session! 🧘
+            </p>
+            <p className="font-display text-sm text-white/90 text-center mb-3 leading-relaxed">
+              Taking a few minutes to visualise success helps build real exam confidence. You've got this!
+            </p>
+            <Link
+              to="/visualise"
+              className="block bg-white rounded-button py-2.5 text-center hover:shadow-lg transition-all hover:scale-[1.01] active:scale-[0.98] mb-2"
+            >
+              <span className="font-display font-extrabold text-base text-indigo-600">
+                Let's Go 🌟
+              </span>
+            </Link>
+            <button
+              onClick={dismissVisualiseReminder}
+              className="w-full text-center text-white/60 text-xs font-display hover:text-white/80 transition-colors py-1"
+            >
+              Not now
+            </button>
+          </div>
         </motion.div>
       )}
 

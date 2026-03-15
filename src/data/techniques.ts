@@ -50,8 +50,8 @@ export const CORE_STEPS: CoreStep[] = [
       "I call this being a Word Detective! The key words are like clues — they tell you exactly what treasure to find.",
     inYourExam: [
       'Underline or circle the key words with your pencil',
-      'Watch out for danger words like NOT, except, least, most',
-      'Circle any words in CAPITALS — they are there for a reason',
+      'Watch out for danger words like not, except, least, most',
+      'Circle any words that stand out — they are there for a reason',
     ],
     inTheApp:
       'Tap the key words to highlight them. The app shows you which ones you found and which you missed.',

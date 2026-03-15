@@ -185,7 +185,7 @@ export function HighlightableText({
             Look for <span className="font-bold text-rainbow-red">who</span>, <span className="font-bold text-rainbow-blue">what</span>, <span className="font-bold text-rainbow-green">when</span> and <span className="font-bold text-rainbow-violet">where</span>
           </p>
           <p className="text-xs text-rainbow-red font-semibold">
-            Watch out for <span className="border-b-2 border-dotted border-rainbow-red/50 px-0.5">danger words</span> like NOT, never, except, only, although, however!
+            Watch out for <span className="border-b-2 border-dotted border-rainbow-red/50 px-0.5">danger words</span> like not, never, except, only, although, however!
           </p>
         </motion.div>
       )}
