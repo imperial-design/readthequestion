@@ -32,8 +32,7 @@ const createEmptyProgress = (userId: string): UserProgress => ({
   subjectScores: {
     'english': createEmptySubjectProgress(),
     'maths': createEmptySubjectProgress(),
-    'verbal-reasoning': createEmptySubjectProgress(),
-    'non-verbal-reasoning': createEmptySubjectProgress(),
+    'reasoning': createEmptySubjectProgress(),
   },
   level: 1,
   xp: 0,

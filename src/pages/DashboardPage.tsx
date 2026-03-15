@@ -12,12 +12,11 @@ import { PHASE_LABELS } from '../types/programme';
 import { analyzeWeeklyProgress } from '../utils/dashboardAnalytics';
 import { supabase } from '../lib/supabase';
 
-const subjects: Subject[] = ['english', 'maths', 'verbal-reasoning', 'non-verbal-reasoning'];
+const subjects: Subject[] = ['english', 'maths', 'reasoning'];
 const subjectBarColours: Record<Subject, string> = {
   'english': 'bg-rainbow-red',
   'maths': 'bg-rainbow-blue',
-  'verbal-reasoning': 'bg-rainbow-green',
-  'non-verbal-reasoning': 'bg-rainbow-violet',
+  'reasoning': 'bg-rainbow-green',
 };
 
 export function DashboardPage() {

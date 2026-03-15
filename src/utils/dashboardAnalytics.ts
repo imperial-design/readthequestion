@@ -46,7 +46,7 @@ export function analyzeWeeklyProgress(
     : techniqueThisWeek < techniqueLastWeek - 2 ? 'down' : 'same';
 
   // Subject analysis
-  const subjects: Subject[] = ['english', 'maths', 'verbal-reasoning', 'non-verbal-reasoning'];
+  const subjects: Subject[] = ['english', 'maths', 'reasoning'];
   let weakest: Subject | null = null;
   let weakestScore = Infinity;
   let strongest: Subject | null = null;
@@ -71,7 +71,7 @@ export function analyzeWeeklyProgress(
   if (weakest && weakestScore < 0.6) {
     const labels: Record<Subject, string> = {
       'english': 'English', 'maths': 'Maths',
-      'verbal-reasoning': 'Verbal Reasoning', 'non-verbal-reasoning': 'Non-Verbal Reasoning'
+      'reasoning': 'Reasoning'
     };
     recommendations.push(`${labels[weakest]} needs attention (${Math.round(weakestScore * 100)}% accuracy). Try a focused session!`);
   }

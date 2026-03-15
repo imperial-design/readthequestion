@@ -9,7 +9,7 @@ export const newNonVerbalReasoningQuestions: Question[] = [
 
   {
     id: 'nvr-new-1-01',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'In a code, each shape has a value: circle = 2, triangle = 3, square = 5. What is the total value of: triangle + square + circle?',
     questionTokens: ['In', 'a', 'code,', 'each', 'shape', 'has', 'a', 'value:', 'circle', '=', '2,', 'triangle', '=', '3,', 'square', '=', '5.', 'What', 'is', 'the', 'total', 'value', 'of:', 'triangle', '+', 'square', '+', 'circle?'],
@@ -27,7 +27,7 @@ export const newNonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-new-1-02',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'Look at the pattern: 3, 6, 9, 12, ___. What number comes next?',
     questionTokens: ['Look', 'at', 'the', 'pattern:', '3,', '6,', '9,', '12,', '___.', 'What', 'number', 'comes', 'next?'],
@@ -48,7 +48,7 @@ export const newNonVerbalReasoningQuestions: Question[] = [
 
   {
     id: 'nvr-new-2-01',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'You are facing South. You turn left, then left again. Which direction are you now facing?',
     questionTokens: ['You', 'are', 'facing', 'South.', 'You', 'turn', 'left,', 'then', 'left', 'again.', 'Which', 'direction', 'are', 'you', 'now', 'facing?'],
@@ -66,7 +66,7 @@ export const newNonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-new-2-02',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'In a code: A = 3, B = 5, C = 7. The word AB has a value of 3 + 5 = 8. What is the value of the word BAC?',
     questionTokens: ['In', 'a', 'code:', 'A', '=', '3,', 'B', '=', '5,', 'C', '=', '7.', 'The', 'word', 'AB', 'has', 'a', 'value', 'of', '3', '+', '5', '=', '8.', 'What', 'is', 'the', 'value', 'of', 'the', 'word', 'BAC?'],
@@ -84,7 +84,7 @@ export const newNonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-new-2-03',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'The rule says: "Items with 4 legs go in Set A. Items with no legs go in Set B." Where does a snake belong?',
     questionTokens: ['The', 'rule', 'says:', '"Items', 'with', '4', 'legs', 'go', 'in', 'Set', 'A.', 'Items', 'with', 'no', 'legs', 'go', 'in', 'Set', 'B."', 'Where', 'does', 'a', 'snake', 'belong?'],
@@ -102,7 +102,7 @@ export const newNonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-new-2-04',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'Look at the sequence: 1, 4, 9, 16, ___. What number comes next?',
     questionTokens: ['Look', 'at', 'the', 'sequence:', '1,', '4,', '9,', '16,', '___.', 'What', 'number', 'comes', 'next?'],
@@ -123,7 +123,7 @@ export const newNonVerbalReasoningQuestions: Question[] = [
 
   {
     id: 'nvr-new-3-01',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'Amy is taller than Beth but shorter than Chloe. Daisy is taller than Chloe. Who is the second tallest?',
     questionTokens: ['Amy', 'is', 'taller', 'than', 'Beth', 'but', 'shorter', 'than', 'Chloe.', 'Daisy', 'is', 'taller', 'than', 'Chloe.', 'Who', 'is', 'the', 'second', 'tallest?'],
@@ -141,7 +141,7 @@ export const newNonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-new-3-02',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'A cube has dots on its faces: 1 opposite 6, 2 opposite 5, 3 opposite 4. If the top face shows 3 and the front face shows 2, what number is on the bottom face?',
     questionTokens: ['A', 'cube', 'has', 'dots', 'on', 'its', 'faces:', '1', 'opposite', '6,', '2', 'opposite', '5,', '3', 'opposite', '4.', 'If', 'the', 'top', 'face', 'shows', '3', 'and', 'the', 'front', 'face', 'shows', '2,', 'what', 'number', 'is', 'on', 'the', 'bottom', 'face?'],
@@ -159,7 +159,7 @@ export const newNonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-new-3-03',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'You are facing East. You turn right three times. Which direction are you now facing?',
     questionTokens: ['You', 'are', 'facing', 'East.', 'You', 'turn', 'right', 'three', 'times.', 'Which', 'direction', 'are', 'you', 'now', 'facing?'],
@@ -177,7 +177,7 @@ export const newNonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-new-3-04',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'The rule says: "Round objects go in Group X. Red objects go in Group Y. Objects that are both round and red go in Group Z." A red ball is which group?',
     questionTokens: ['The', 'rule', 'says:', '"Round', 'objects', 'go', 'in', 'Group', 'X.', 'Red', 'objects', 'go', 'in', 'Group', 'Y.', 'Objects', 'that', 'are', 'both', 'round', 'and', 'red', 'go', 'in', 'Group', 'Z."', 'A', 'red', 'ball', 'is', 'which', 'group?'],

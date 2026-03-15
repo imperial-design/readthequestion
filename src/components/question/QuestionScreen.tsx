@@ -107,8 +107,7 @@ export function QuestionScreen({
   const subjectColours: Record<string, string> = {
     'english': 'bg-red-100 text-rainbow-red',
     'maths': 'bg-blue-100 text-rainbow-blue',
-    'verbal-reasoning': 'bg-green-100 text-rainbow-green',
-    'non-verbal-reasoning': 'bg-purple-100 text-rainbow-violet',
+    'reasoning': 'bg-green-100 text-rainbow-green',
   };
 
   const getReadingPrompt = () => {

@@ -87,20 +87,12 @@ export const badgeDefinitions: BadgeDefinition[] = [
     condition: { type: 'subject_mastery', threshold: 20, subject: 'maths' },
   },
   {
-    id: 'vr-champion',
-    name: 'VR Champion',
-    description: 'Get 20 Verbal Reasoning questions correct',
+    id: 'reasoning-champion',
+    name: 'Reasoning Champion',
+    description: 'Get 20 Reasoning questions correct',
     category: 'mastery',
     emoji: '\uD83E\udDE0',
-    condition: { type: 'subject_mastery', threshold: 20, subject: 'verbal-reasoning' },
-  },
-  {
-    id: 'nvr-ninja',
-    name: 'NVR Ninja',
-    description: 'Get 20 Non-verbal Reasoning questions correct',
-    category: 'mastery',
-    emoji: '\uD83C\uDFAF',
-    condition: { type: 'subject_mastery', threshold: 20, subject: 'non-verbal-reasoning' },
+    condition: { type: 'subject_mastery', threshold: 20, subject: 'reasoning' },
   },
 
   // Milestones

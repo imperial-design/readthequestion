@@ -36,10 +36,9 @@ export function MockExamPage() {
       timePerQuestionMs: 60_000,
       dailyQuestionCount: 20,
       subjectDistribution: {
-        'english': 5,
-        'maths': 5,
-        'verbal-reasoning': 5,
-        'non-verbal-reasoning': 5,
+        'english': 7,
+        'maths': 7,
+        'reasoning': 6,
       },
     };
   }, [progress?.currentWeek]);
@@ -111,8 +110,7 @@ export function MockExamPage() {
     const subjectResults: Record<Subject, { correct: number; total: number }> = {
       'english': { correct: 0, total: 0 },
       'maths': { correct: 0, total: 0 },
-      'verbal-reasoning': { correct: 0, total: 0 },
-      'non-verbal-reasoning': { correct: 0, total: 0 },
+      'reasoning': { correct: 0, total: 0 },
     };
     for (const r of results) {
       subjectResults[r.subject].total++;

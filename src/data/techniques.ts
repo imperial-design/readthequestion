@@ -211,7 +211,7 @@ export const SUBJECT_TECHNIQUES: Record<Subject, SubjectTechnique[]> = {
         'Multi-step problems test procedural fluency and planning. The most common error is providing the intermediate result as the final answer. Training children to ask "have I answered the actual question?" prevents premature termination.',
     },
   ],
-  'verbal-reasoning': [
+  'reasoning': [
     {
       id: 'vr-alphabet-numbers',
       title: 'Number Your Alphabet',
@@ -248,8 +248,6 @@ export const SUBJECT_TECHNIQUES: Record<Subject, SubjectTechnique[]> = {
       parentExplanation:
         'Hidden word questions test visual scanning and orthographic awareness. Training children to segment words systematically (sliding a window across the string) is more reliable than holistic recognition.',
     },
-  ],
-  'non-verbal-reasoning': [
     {
       id: 'nvr-count-systematically',
       title: 'Count Everything',

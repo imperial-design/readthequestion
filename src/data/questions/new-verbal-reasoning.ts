@@ -9,7 +9,7 @@ export const newVerbalReasoningQuestions: Question[] = [
 
   {
     id: 'vr-new-1-01',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'Hot is to cold as day is to ___.',
     questionTokens: ['Hot', 'is', 'to', 'cold', 'as', 'day', 'is', 'to', '___.'],
@@ -27,7 +27,7 @@ export const newVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-new-1-02',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'Which word is the odd one out? Cat, Dog, Fish, Table',
     questionTokens: ['Which', 'word', 'is', 'the', 'odd', 'one', 'out?', 'Cat,', 'Dog,', 'Fish,', 'Table'],
@@ -45,7 +45,7 @@ export const newVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-new-1-03',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'Complete the sentence: The boy was so tired that he could _____ keep his eyes open.',
     questionTokens: ['Complete', 'the', 'sentence:', 'The', 'boy', 'was', 'so', 'tired', 'that', 'he', 'could', '_____', 'keep', 'his', 'eyes', 'open.'],
@@ -63,7 +63,7 @@ export const newVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-new-1-04',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'If the code for "cat" is "dbu", what is the code for "dog"?',
     questionTokens: ['If', 'the', 'code', 'for', '"cat"', 'is', '"dbu",', 'what', 'is', 'the', 'code', 'for', '"dog"?'],
@@ -84,7 +84,7 @@ export const newVerbalReasoningQuestions: Question[] = [
 
   {
     id: 'vr-new-2-01',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'Which word means the same as "brave"? Fierce, Courageous, Loud, Strong',
     questionTokens: ['Which', 'word', 'means', 'the', 'same', 'as', '"brave"?', 'Fierce,', 'Courageous,', 'Loud,', 'Strong'],
@@ -102,7 +102,7 @@ export const newVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-new-2-02',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'In a secret language, "mip bop" means "red car" and "bop tun" means "car park." What does "bop" mean?',
     questionTokens: ['In', 'a', 'secret', 'language,', '"mip', 'bop"', 'means', '"red', 'car"', 'and', '"bop', 'tun"', 'means', '"car', 'park."', 'What', 'does', '"bop"', 'mean?'],
@@ -120,7 +120,7 @@ export const newVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-new-2-03',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'Rearrange the letters "plaep" to make a word. What is that word?',
     questionTokens: ['Rearrange', 'the', 'letters', '"plaep"', 'to', 'make', 'a', 'word.', 'What', 'is', 'that', 'word?'],
@@ -138,7 +138,7 @@ export const newVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-new-2-04',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'Choose the pair that goes together in the same way. Pen is to write as knife is to ___.',
     questionTokens: ['Choose', 'the', 'pair', 'that', 'goes', 'together', 'in', 'the', 'same', 'way.', 'Pen', 'is', 'to', 'write', 'as', 'knife', 'is', 'to', '___.'],
@@ -156,7 +156,7 @@ export const newVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-new-2-05',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'Find the word hidden inside this sentence: "She came late to the concert." What is the hidden word?',
     questionTokens: ['Find', 'the', 'word', 'hidden', 'inside', 'this', 'sentence:', '"She', 'came', 'late', 'to', 'the', 'concert."', 'What', 'is', 'the', 'hidden', 'word?'],
@@ -174,7 +174,7 @@ export const newVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-new-2-06',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'Which of these words is the opposite of "ancient"? Old, Historic, Modern, Dusty',
     questionTokens: ['Which', 'of', 'these', 'words', 'is', 'the', 'opposite', 'of', '"ancient"?', 'Old,', 'Historic,', 'Modern,', 'Dusty'],
@@ -192,7 +192,7 @@ export const newVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-new-2-07',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'Sam is older than Will. Will is older than Erin but younger than Jo. Who is the youngest?',
     questionTokens: ['Sam', 'is', 'older', 'than', 'Will.', 'Will', 'is', 'older', 'than', 'Erin', 'but', 'younger', 'than', 'Jo.', 'Who', 'is', 'the', 'youngest?'],
@@ -210,7 +210,7 @@ export const newVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-new-2-08',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'Move one letter from the first word to the second word to make two new words: "bland" "_oon". Which letter should you move?',
     questionTokens: ['Move', 'one', 'letter', 'from', 'the', 'first', 'word', 'to', 'the', 'second', 'word', 'to', 'make', 'two', 'new', 'words:', '"bland"', '"_oon".', 'Which', 'letter', 'should', 'you', 'move?'],
@@ -231,7 +231,7 @@ export const newVerbalReasoningQuestions: Question[] = [
 
   {
     id: 'vr-new-3-01',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'Complete the analogy: Doctor is to hospital as teacher is to ___.',
     questionTokens: ['Complete', 'the', 'analogy:', 'Doctor', 'is', 'to', 'hospital', 'as', 'teacher', 'is', 'to', '___.'],
@@ -249,7 +249,7 @@ export const newVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-new-3-02',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'The word "listen" contains the same letters as another word. Which word can be made from the letters in "listen"?',
     questionTokens: ['The', 'word', '"listen"', 'contains', 'the', 'same', 'letters', 'as', 'another', 'word.', 'Which', 'word', 'can', 'be', 'made', 'from', 'the', 'letters', 'in', '"listen"?'],
@@ -267,7 +267,7 @@ export const newVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-new-3-03',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'If all Bloops are Razzies and all Razzies are Lazzies, which statement must be true?',
     questionTokens: ['If', 'all', 'Bloops', 'are', 'Razzies', 'and', 'all', 'Razzies', 'are', 'Lazzies,', 'which', 'statement', 'must', 'be', 'true?'],
@@ -285,7 +285,7 @@ export const newVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-new-3-04',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'Which word completes both sentences? "She had a ___ in her stocking." and "He went for a ___ in the park."',
     questionTokens: ['Which', 'word', 'completes', 'both', 'sentences?', '"She', 'had', 'a', '___', 'in', 'her', 'stocking."', 'and', '"He', 'went', 'for', 'a', '___', 'in', 'the', 'park."'],
@@ -303,7 +303,7 @@ export const newVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-new-3-05',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'A is the mother of B. B is the sister of C. C is the father of D. What is A to D?',
     questionTokens: ['A', 'is', 'the', 'mother', 'of', 'B.', 'B', 'is', 'the', 'sister', 'of', 'C.', 'C', 'is', 'the', 'father', 'of', 'D.', 'What', 'is', 'A', 'to', 'D?'],
@@ -321,7 +321,7 @@ export const newVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-new-3-06',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'Find two words, one from each group, that are closest in meaning. (fast, large, heavy) and (quick, tall, wide)',
     questionTokens: ['Find', 'two', 'words,', 'one', 'from', 'each', 'group,', 'that', 'are', 'closest', 'in', 'meaning.', '(fast,', 'large,', 'heavy)', 'and', '(quick,', 'tall,', 'wide)'],
@@ -339,7 +339,7 @@ export const newVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-new-3-07',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'In a certain code, "come" is written as "dpnf". How would you write "hand" in this code?',
     questionTokens: ['In', 'a', 'certain', 'code,', '"come"', 'is', 'written', 'as', '"dpnf".', 'How', 'would', 'you', 'write', '"hand"', 'in', 'this', 'code?'],
@@ -357,7 +357,7 @@ export const newVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-new-3-08',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'Three children stand in a row. Eve is not next to Finn. Gita is between Eve and Finn. Who is in the middle?',
     questionTokens: ['Three', 'children', 'stand', 'in', 'a', 'row.', 'Eve', 'is', 'not', 'next', 'to', 'Finn.', 'Gita', 'is', 'between', 'Eve', 'and', 'Finn.', 'Who', 'is', 'in', 'the', 'middle?'],

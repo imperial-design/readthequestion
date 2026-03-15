@@ -21,7 +21,7 @@ export function PracticePage() {
   const { getProgress, saveSession, updateStreak, addXp, addToMistakeQueue, updateMistakeQueue } = useProgressStore();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  const VALID_SUBJECTS: Subject[] = ['english', 'maths', 'verbal-reasoning', 'non-verbal-reasoning'];
+  const VALID_SUBJECTS: Subject[] = ['english', 'maths', 'reasoning'];
   const rawSubject = searchParams.get('subject');
   const focusSubject = rawSubject && VALID_SUBJECTS.includes(rawSubject as Subject) ? rawSubject as Subject : null;
 

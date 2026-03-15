@@ -5,8 +5,7 @@ import type { SubjectProgress } from '../../types/progress';
 const SUBJECTS: { key: Subject; label: string; emoji: string; color: string }[] = [
   { key: 'english', label: 'English', emoji: '📖', color: 'from-pink-400 to-rose-500' },
   { key: 'maths', label: 'Maths', emoji: '🔢', color: 'from-blue-400 to-indigo-500' },
-  { key: 'verbal-reasoning', label: 'VR', emoji: '🧩', color: 'from-fuchsia-400 to-purple-500' },
-  { key: 'non-verbal-reasoning', label: 'NVR', emoji: '🔷', color: 'from-violet-400 to-indigo-500' },
+  { key: 'reasoning', label: 'Reasoning', emoji: '🧩', color: 'from-fuchsia-400 to-purple-500' },
 ];
 
 interface SubjectFocusPickerProps {

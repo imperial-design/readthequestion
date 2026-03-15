@@ -5,7 +5,7 @@ const FAQ_ITEMS = [
   {
     question: 'Which subjects does it cover?',
     answer:
-      'AnswerTheQuestion! isn\u2019t about teaching the curriculum \u2014 it\u2019s about teaching exam technique. The questions are in the style of English, Maths, Verbal Reasoning and Non-Verbal Reasoning, so your child practises the CLEAR Method across all the core 11+ and independent school exam subjects. It works because it teaches how to approach any question, not just specific content.',
+      'AnswerTheQuestion! isn\u2019t about teaching the curriculum \u2014 it\u2019s about teaching exam technique. The questions are in the style of English, Maths and Reasoning, so your child practises the CLEAR Method across all the core 11+ and independent school exam subjects. It works because it teaches how to approach any question, not just specific content.',
   },
   {
     question: 'How is this different from doing more practice papers?',

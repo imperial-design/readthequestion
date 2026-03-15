@@ -9,7 +9,7 @@ export const batch2NonVerbalReasoningQuestions: Question[] = [
 
   {
     id: 'nvr-b2-1-01',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'Look at the sequence: 2, 5, 8, 11, ___. What number comes next?',
     questionTokens: ['Look', 'at', 'the', 'sequence:', '2,', '5,', '8,', '11,', '___.', 'What', 'number', 'comes', 'next?'],
@@ -27,7 +27,7 @@ export const batch2NonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-b2-1-02',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'Each shape has a value: star = 4, heart = 6, diamond = 2. What is the total value of: heart + diamond + star?',
     questionTokens: ['Each', 'shape', 'has', 'a', 'value:', 'star', '=', '4,', 'heart', '=', '6,', 'diamond', '=', '2.', 'What', 'is', 'the', 'total', 'value', 'of:', 'heart', '+', 'diamond', '+', 'star?'],
@@ -48,7 +48,7 @@ export const batch2NonVerbalReasoningQuestions: Question[] = [
 
   {
     id: 'nvr-b2-2-01',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'You are facing East. You turn right twice and then turn left once. Which direction are you now facing?',
     questionTokens: ['You', 'are', 'facing', 'East.', 'You', 'turn', 'right', 'twice', 'and', 'then', 'turn', 'left', 'once.', 'Which', 'direction', 'are', 'you', 'now', 'facing?'],
@@ -66,7 +66,7 @@ export const batch2NonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-b2-2-02',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'In a 3×3 grid, each row follows a pattern. Row 1: 2, 4, 6. Row 2: 3, 6, 9. Row 3: 5, 10, ___. What number completes the grid?',
     questionTokens: ['In', 'a', '3×3', 'grid,', 'each', 'row', 'follows', 'a', 'pattern.', 'Row', '1:', '2,', '4,', '6.', 'Row', '2:', '3,', '6,', '9.', 'Row', '3:', '5,', '10,', '___.', 'What', 'number', 'completes', 'the', 'grid?'],
@@ -84,7 +84,7 @@ export const batch2NonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-b2-2-03',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'The rule says: "Numbers that are multiples of 3 go in Set P. Numbers that are even go in Set Q." Where does the number 6 belong?',
     questionTokens: ['The', 'rule', 'says:', '"Numbers', 'that', 'are', 'multiples', 'of', '3', 'go', 'in', 'Set', 'P.', 'Numbers', 'that', 'are', 'even', 'go', 'in', 'Set', 'Q."', 'Where', 'does', 'the', 'number', '6', 'belong?'],
@@ -105,7 +105,7 @@ export const batch2NonVerbalReasoningQuestions: Question[] = [
 
   {
     id: 'nvr-b2-3-01',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'Look at the sequence: 1, 1, 2, 3, 5, 8, ___. What number comes next?',
     questionTokens: ['Look', 'at', 'the', 'sequence:', '1,', '1,', '2,', '3,', '5,', '8,', '___.', 'What', 'number', 'comes', 'next?'],
@@ -123,7 +123,7 @@ export const batch2NonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-b2-3-02',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'A cube has 6 faces. If you paint three faces that all share one corner, how many faces remain unpainted?',
     questionTokens: ['A', 'cube', 'has', '6', 'faces.', 'If', 'you', 'paint', 'three', 'faces', 'that', 'all', 'share', 'one', 'corner,', 'how', 'many', 'faces', 'remain', 'unpainted?'],
@@ -142,7 +142,7 @@ export const batch2NonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-b2-3-03',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'At a party, there are 5 children. Each child shakes hands with every other child exactly once. How many handshakes are there in total?',
     questionTokens: ['At', 'a', 'party,', 'there', 'are', '5', 'children.', 'Each', 'child', 'shakes', 'hands', 'with', 'every', 'other', 'child', 'exactly', 'once.', 'How', 'many', 'handshakes', 'are', 'there', 'in', 'total?'],
@@ -160,7 +160,7 @@ export const batch2NonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-b2-3-04',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'In a code, each shape equals its number of sides: triangle = 3, square = 4, pentagon = 5, hexagon = 6. What is the value of two hexagons plus one triangle?',
     questionTokens: ['In', 'a', 'code,', 'each', 'shape', 'equals', 'its', 'number', 'of', 'sides:', 'triangle', '=', '3,', 'square', '=', '4,', 'pentagon', '=', '5,', 'hexagon', '=', '6.', 'What', 'is', 'the', 'value', 'of', 'two', 'hexagons', 'plus', 'one', 'triangle?'],
@@ -178,7 +178,7 @@ export const batch2NonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-b2-3-05',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'In a number wall, each brick is the sum of the two bricks directly below it. The bottom row is: 3, 7, 2. The middle row is: 10, 9. What number goes on top?',
     questionTokens: ['In', 'a', 'number', 'wall,', 'each', 'brick', 'is', 'the', 'sum', 'of', 'the', 'two', 'bricks', 'directly', 'below', 'it.', 'The', 'bottom', 'row', 'is:', '3,', '7,', '2.', 'The', 'middle', 'row', 'is:', '10,', '9.', 'What', 'number', 'goes', 'on', 'top?'],

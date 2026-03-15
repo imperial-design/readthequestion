@@ -22,8 +22,7 @@ const SUBJECT_CHIPS = [
   { key: null, label: 'Mix', emoji: '🎯' },
   { key: 'english', label: 'Eng', emoji: '📖' },
   { key: 'maths', label: 'Maths', emoji: '🔢' },
-  { key: 'verbal-reasoning', label: 'VR', emoji: '🧩' },
-  { key: 'non-verbal-reasoning', label: 'NVR', emoji: '🔷' },
+  { key: 'reasoning', label: 'Reasoning', emoji: '🧩' },
 ] as const;
 
 export function HomePage() {

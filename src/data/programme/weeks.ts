@@ -13,7 +13,7 @@ export const programmeWeeks: WeekConfig[] = [
     minHighlights: 1,
     minEliminations: 3,
     dailyQuestionCount: 10,
-    subjectDistribution: { english: 3, maths: 3, 'verbal-reasoning': 2, 'non-verbal-reasoning': 2 },
+    subjectDistribution: { english: 3, maths: 3, 'reasoning': 4 },
     unlockableAvatarItems: ['hat_starter'],
   },
   {
@@ -26,7 +26,7 @@ export const programmeWeeks: WeekConfig[] = [
     minHighlights: 1,
     minEliminations: 3,
     dailyQuestionCount: 10,
-    subjectDistribution: { english: 3, maths: 3, 'verbal-reasoning': 2, 'non-verbal-reasoning': 2 },
+    subjectDistribution: { english: 3, maths: 3, 'reasoning': 4 },
     unlockableAvatarItems: ['glasses_round'],
   },
   {
@@ -39,7 +39,7 @@ export const programmeWeeks: WeekConfig[] = [
     minHighlights: 2,
     minEliminations: 3,
     dailyQuestionCount: 10,
-    subjectDistribution: { english: 3, maths: 2, 'verbal-reasoning': 3, 'non-verbal-reasoning': 2 },
+    subjectDistribution: { english: 3, maths: 2, 'reasoning': 5 },
     unlockableAvatarItems: ['scarf_rainbow'],
   },
   {
@@ -52,7 +52,7 @@ export const programmeWeeks: WeekConfig[] = [
     minHighlights: 2,
     minEliminations: 3,
     dailyQuestionCount: 10,
-    subjectDistribution: { english: 2, maths: 3, 'verbal-reasoning': 2, 'non-verbal-reasoning': 3 },
+    subjectDistribution: { english: 2, maths: 3, 'reasoning': 5 },
     unlockableAvatarItems: ['badge_foundation_complete'],
   },
 
@@ -68,7 +68,7 @@ export const programmeWeeks: WeekConfig[] = [
     minHighlights: 2,
     minEliminations: 3,
     dailyQuestionCount: 10,
-    subjectDistribution: { english: 3, maths: 3, 'verbal-reasoning': 2, 'non-verbal-reasoning': 2 },
+    subjectDistribution: { english: 3, maths: 3, 'reasoning': 4 },
     unlockableAvatarItems: ['cape_blue'],
   },
   {
@@ -81,7 +81,7 @@ export const programmeWeeks: WeekConfig[] = [
     minHighlights: 2,
     minEliminations: 3,
     dailyQuestionCount: 10,
-    subjectDistribution: { english: 2, maths: 3, 'verbal-reasoning': 3, 'non-verbal-reasoning': 2 },
+    subjectDistribution: { english: 2, maths: 3, 'reasoning': 5 },
     unlockableAvatarItems: ['crown_silver'],
   },
   {
@@ -94,7 +94,7 @@ export const programmeWeeks: WeekConfig[] = [
     minHighlights: 2,
     minEliminations: 3,
     dailyQuestionCount: 10,
-    subjectDistribution: { english: 3, maths: 2, 'verbal-reasoning': 2, 'non-verbal-reasoning': 3 },
+    subjectDistribution: { english: 3, maths: 2, 'reasoning': 5 },
     unlockableAvatarItems: ['wand_sparkle'],
   },
   {
@@ -107,7 +107,7 @@ export const programmeWeeks: WeekConfig[] = [
     minHighlights: 2,
     minEliminations: 3,
     dailyQuestionCount: 10,
-    subjectDistribution: { english: 2, maths: 2, 'verbal-reasoning': 3, 'non-verbal-reasoning': 3 },
+    subjectDistribution: { english: 2, maths: 2, 'reasoning': 6 },
     unlockableAvatarItems: ['badge_building_complete'],
   },
 
@@ -123,7 +123,7 @@ export const programmeWeeks: WeekConfig[] = [
     minHighlights: 1,
     minEliminations: 3,
     dailyQuestionCount: 10,
-    subjectDistribution: { english: 3, maths: 3, 'verbal-reasoning': 2, 'non-verbal-reasoning': 2 },
+    subjectDistribution: { english: 3, maths: 3, 'reasoning': 4 },
     unlockableAvatarItems: ['wings_golden'],
   },
   {
@@ -136,7 +136,7 @@ export const programmeWeeks: WeekConfig[] = [
     minHighlights: 1,
     minEliminations: 3,
     dailyQuestionCount: 10,
-    subjectDistribution: { english: 2, maths: 3, 'verbal-reasoning': 3, 'non-verbal-reasoning': 2 },
+    subjectDistribution: { english: 2, maths: 3, 'reasoning': 5 },
     unlockableAvatarItems: ['shield_champion'],
   },
   {
@@ -149,7 +149,7 @@ export const programmeWeeks: WeekConfig[] = [
     minHighlights: 1,
     minEliminations: 3,
     dailyQuestionCount: 10,
-    subjectDistribution: { english: 2, maths: 2, 'verbal-reasoning': 3, 'non-verbal-reasoning': 3 },
+    subjectDistribution: { english: 2, maths: 2, 'reasoning': 6 },
     unlockableAvatarItems: ['aura_rainbow'],
   },
   {
@@ -162,7 +162,7 @@ export const programmeWeeks: WeekConfig[] = [
     minHighlights: 1,
     minEliminations: 3,
     dailyQuestionCount: 10,
-    subjectDistribution: { english: 3, maths: 3, 'verbal-reasoning': 2, 'non-verbal-reasoning': 2 },
+    subjectDistribution: { english: 3, maths: 3, 'reasoning': 4 },
     unlockableAvatarItems: ['badge_exam_ready', 'trophy_graduation'],
   },
 ];

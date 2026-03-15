@@ -6,7 +6,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-1-01: comprehension-who
   {
     id: 'vr-1-01',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'Tom had two books but only gave one to Sarah. Sarah then passed it to Jake. Who gave the book to Sarah?',
     questionTokens: [
@@ -30,7 +30,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-1-02: comprehension-when
   {
     id: 'vr-1-02',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'The school trip to the museum was on Wednesday, not Thursday. On Thursday, the children only wrote about their trip. When did the children visit the museum?',
     questionTokens: [
@@ -55,7 +55,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-1-03: comprehension-where
   {
     id: 'vr-1-03',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'Lily left her coat at school. Her mum drove to the shop, then to school to collect it. Where did Lily leave her coat?',
     questionTokens: [
@@ -80,7 +80,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-1-04: comprehension-how-many
   {
     id: 'vr-1-04',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'Oliver had 5 sweets. He gave 2 to his sister but ate only 1 himself. How many sweets did Oliver give to his sister?',
     questionTokens: [
@@ -105,7 +105,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-1-05: comprehension-what
   {
     id: 'vr-1-05',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'Emma had a cat called Whiskers and a dog called Biscuit, but it was not the dog that knocked a vase off the shelf. What is the name of Emma\'s cat?',
     questionTokens: [
@@ -130,7 +130,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-1-06: comprehension-why (requires separating cause from effect)
   {
     id: 'vr-1-06',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'Ben set his alarm for 7 o\'clock but it did not go off. He woke at 8 o\'clock and the bus had already left. His dad had to drive him to school. What caused Ben to miss the bus?',
     questionTokens: [
@@ -155,7 +155,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-1-07: comprehension-who
   {
     id: 'vr-1-07',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'Sophie baked a cake but did not decorate it. Instead, her brother Jack decorated it with icing. Who decorated the cake?',
     questionTokens: [
@@ -179,7 +179,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-1-08: comprehension-where
   {
     id: 'vr-1-08',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'Grandma keeps her biscuits in the kitchen but not her sewing box. Her sewing box is always in the living room. Where does Grandma keep her sewing box?',
     questionTokens: [
@@ -204,7 +204,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-1-09: comprehension-when (requires following a chain of information)
   {
     id: 'vr-1-09',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'Mia has three activities each week. Swimming is the day after Monday. Piano is two days after swimming. Dance is on Fridays. Which day does Mia have piano?',
     questionTokens: [
@@ -228,7 +228,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-1-10: comprehension-inference (requires deduction, not direct lookup)
   {
     id: 'vr-1-10',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'Harry, Alfie and Tom each wore a different coloured jumper: red, green and blue. Harry\'s jumper was not green. Tom\'s jumper was not green and not red. What colour was Alfie\'s jumper?',
     questionTokens: [
@@ -254,7 +254,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-2-01: comprehension-who
   {
     id: 'vr-2-01',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'Aisha scored the first goal, not Ruby, although Ruby scored the second. Charlotte was the goalkeeper who saved three shots. Who scored the first goal?',
     questionTokens: [
@@ -279,7 +279,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-2-02: comprehension-when
   {
     id: 'vr-2-02',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'The Year 5 sports day is on Monday, not Tuesday. The Year 6 sports day is on Tuesday instead. The prize-giving for both years is on Friday. When is the Year 6 sports day?',
     questionTokens: [
@@ -304,7 +304,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-2-03: comprehension-where
   {
     id: 'vr-2-03',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'Dad left his keys at the office. He looked for them at home first, then drove back to the office to get them. He stopped at the petrol station on the way. Where were the keys?',
     questionTokens: [
@@ -330,7 +330,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-2-04: comprehension-how-many
   {
     id: 'vr-2-04',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'There are 8 children in the choir. On Tuesday, 3 were absent so only 5 sang. On Wednesday, 2 were absent. How many children were absent on Wednesday?',
     questionTokens: [
@@ -355,7 +355,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-2-05: comprehension-why
   {
     id: 'vr-2-05',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'The football match was cancelled because the pitch was flooded. However, the tennis match was not cancelled because the courts had a cover. Why was the football match cancelled?',
     questionTokens: [
@@ -380,7 +380,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-2-06: comprehension-what
   {
     id: 'vr-2-06',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'For her birthday, Grace got a book from her aunt but not from her gran. Her gran gave her a bracelet instead. Her best friend Priya gave her a diary. What did Grace\'s aunt give her?',
     questionTokens: [
@@ -405,7 +405,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-2-07: comprehension-who
   {
     id: 'vr-2-07',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'In the school play, Ethan played the king and Zara played the queen. However, only Finn painted all the scenery. Who painted the scenery for the school play?',
     questionTokens: [
@@ -430,7 +430,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-2-08: comprehension-when
   {
     id: 'vr-2-08',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'The baker makes bread every morning and cakes every afternoon. He delivers everything to the shop at 4 o\'clock. When does the baker make cakes?',
     questionTokens: [
@@ -455,7 +455,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-2-09: comprehension-how-many
   {
     id: 'vr-2-09',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'Class 5 collected 120 tins for the food bank. Class 6 collected 95 tins. The school target was 200 tins altogether. How many tins did Class 6 collect?',
     questionTokens: [
@@ -480,7 +480,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-2-10: comprehension-where
   {
     id: 'vr-2-10',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'The football team practises at the park on Saturdays. Their matches are played at the school field. The awards evening is held at the village hall. Where does the team play their matches?',
     questionTokens: [
@@ -508,7 +508,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-3-01: comprehension-who
   {
     id: 'vr-3-01',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'Amara lent her ruler to Deepa but not her pencil. Instead, Deepa lent her pencil to Noah. Noah gave his rubber to Amara. Who lent a pencil to Noah?',
     questionTokens: [
@@ -533,7 +533,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-3-02: comprehension-when
   {
     id: 'vr-3-02',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'Isla\'s family visited France in July and Spain in August, but not before July. They booked their holiday in March and packed their suitcases on the last day of June. When did Isla\'s family visit Spain?',
     questionTokens: [
@@ -559,7 +559,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-3-03: comprehension-where
   {
     id: 'vr-3-03',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'Oscar left his football boots in the changing room. He left his water bottle on the pitch, not in the changing room. Despite this, his shin pads were in his dad\'s car. His kit bag was at home. Where did Oscar leave his water bottle?',
     questionTokens: [
@@ -585,7 +585,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-3-04: comprehension-how-many
   {
     id: 'vr-3-04',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'Mrs Khan bought 12 exercise books for Year 5 and 15 for Year 6, but not every book was for the same year. She also ordered 8 packs of pencils and 6 packs of pens. How many exercise books did she buy for Year 5?',
     questionTokens: [
@@ -612,7 +612,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-3-05: comprehension-why
   {
     id: 'vr-3-05',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'The school closed early on Friday because of heavy snow. Although some parents were late because the roads were icy, that was not the reason for closing. The caretaker stayed behind to salt the paths. Why did the school close early?',
     questionTokens: [
@@ -639,7 +639,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-3-06: comprehension-what
   {
     id: 'vr-3-06',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'At the school fair, Class 4 ran the tombola stall. Class 5 ran the cake stall. Class 6 ran the lucky dip. The head teacher opened the fair at noon. What stall did Class 5 run?',
     questionTokens: [
@@ -665,7 +665,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-3-07: comprehension-who
   {
     id: 'vr-3-07',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'In the relay race, Leo ran first, then Kai ran second. Maya ran third and Freya ran the final leg. Although Freya crossed the finish line to win, she was not the one who ran every leg. Who ran the second leg of the relay?',
     questionTokens: [
@@ -691,7 +691,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-3-08: comprehension-when
   {
     id: 'vr-3-08',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'The library opens at 9 o\'clock on weekdays. On Saturdays it opens at 10 o\'clock. It closes at 5 o\'clock every day. On Sundays the library is shut. When does the library open on Saturdays?',
     questionTokens: [
@@ -717,7 +717,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-3-09: comprehension-how-many
   {
     id: 'vr-3-09',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'At the bake sale, Rohan made 24 biscuits and Ava made 18 cupcakes. Lucas made 30 flapjacks. They sold everything and raised 45 pounds in total. How many cupcakes did Ava make?',
     questionTokens: [
@@ -743,7 +743,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-3-10: comprehension-why
   {
     id: 'vr-3-10',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'Jess was chosen as team captain because she always encouraged her teammates. Poppy was the fastest runner but sometimes forgot to pass the ball. The coach said teamwork was more important than speed. Why was Jess chosen as team captain?',
     questionTokens: [
@@ -772,7 +772,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-1-11: position-trap
   {
     id: 'vr-1-11',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'Emma loves painting. She goes to art club on Mondays. Her best friend Lily goes to drama club. Emma\'s brother Jack plays football on Fridays. Who goes to art club?',
     questionTokens: [
@@ -798,7 +798,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-2-11: negation-trap
   {
     id: 'vr-2-11',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'The old house was dark and gloomy. Which word is not closest in meaning to \'gloomy\'?',
     questionTokens: [
@@ -823,7 +823,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-2-12: question-at-end
   {
     id: 'vr-2-12',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'The village library is open from Monday to Friday. On Saturdays, only the café section is open. The children\'s reading group meets every Wednesday afternoon. Mrs Chen brings her class from the primary school each Thursday morning. The library is closed on Sundays. On which day does Mrs Chen bring her class to the library?',
     questionTokens: [
@@ -852,7 +852,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-2-13: irrelevant-info
   {
     id: 'vr-2-13',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'Oliver has a pet dog called Biscuit and a cat called Whiskers. He walks Biscuit every morning before school. On Wednesdays, he takes Biscuit to the vet for a check-up. His sister Maya prefers cats. Where does Oliver take Biscuit on Wednesdays?',
     questionTokens: [
@@ -880,7 +880,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-3-11: negation-trap
   {
     id: 'vr-3-11',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'Sam never forgets his homework, unlike his friend Tom who always leaves it at home. Sam\'s sister Amy also never forgets. Who does not always bring their homework?',
     questionTokens: [
@@ -906,7 +906,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-3-12: position-trap
   {
     id: 'vr-3-12',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'At the science fair, first place went to Mia for her volcano project. Aiden came second with his solar system model. In third place was Zara with her plant growth experiment. Raj\'s robot didn\'t win a prize but everyone loved it. The judges said Mia\'s project showed the most creativity. Who won second place?',
     questionTokens: [
@@ -937,7 +937,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-1-12: comprehension-where
   {
     id: 'vr-1-12',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'Lily put her hat on the shelf, not on the hook. Where did Lily put her hat?',
     questionTokens: [
@@ -960,7 +960,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-1-13: comprehension-what
   {
     id: 'vr-1-13',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'Ben had a sandwich for lunch but he ate an apple for his snack. What did Ben eat for his snack?',
     questionTokens: [
@@ -983,7 +983,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-1-14: comprehension-who
   {
     id: 'vr-1-14',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'Emma has a dog and a cat. Her brother Max has a rabbit. Who has a rabbit?',
     questionTokens: [
@@ -1006,7 +1006,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-1-15: comprehension-how-many
   {
     id: 'vr-1-15',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'There were 6 red balloons and 4 blue balloons at the party. How many red balloons were there?',
     questionTokens: [
@@ -1029,7 +1029,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-1-16: comprehension-when
   {
     id: 'vr-1-16',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'Swimming club is on Thursday. Football club is on Friday. When is swimming club?',
     questionTokens: [
@@ -1052,7 +1052,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-1-17: comprehension-why
   {
     id: 'vr-1-17',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'Sophie was late for school because she missed the bus. Her sister walked instead. Why was Sophie late?',
     questionTokens: [
@@ -1076,7 +1076,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-1-18: comprehension-what
   {
     id: 'vr-1-18',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'Jack painted a picture of a tree. His friend Rosie painted a picture of the sea. What did Rosie paint?',
     questionTokens: [
@@ -1100,7 +1100,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-1-19: comprehension-who
   {
     id: 'vr-1-19',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'Mum baked a cake. Dad made the sandwiches. Gran brought the drinks. Who made the sandwiches?',
     questionTokens: [
@@ -1123,7 +1123,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-1-20: comprehension-where
   {
     id: 'vr-1-20',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'The cat slept on the sofa. The dog slept in its basket. Where did the dog sleep?',
     questionTokens: [
@@ -1146,7 +1146,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-1-21: comprehension-how-many
   {
     id: 'vr-1-21',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'Sam read 3 books in January and 5 books in February. How many books did Sam read in February?',
     questionTokens: [
@@ -1169,7 +1169,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-1-22: comprehension-inference
   {
     id: 'vr-1-22',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'Ella took her umbrella because the sky was grey and cloudy. What was the weather probably going to be like?',
     questionTokens: [
@@ -1192,7 +1192,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-1-23: comprehension-when
   {
     id: 'vr-1-23',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'Grandpa visits on Sundays. He does not visit on any other day. When does Grandpa visit?',
     questionTokens: [
@@ -1215,7 +1215,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-1-24: comprehension-what
   {
     id: 'vr-1-24',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'For her birthday, Priya got a book from Mum and a toy from Dad. What did Dad give Priya?',
     questionTokens: [
@@ -1238,7 +1238,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-1-25: comprehension-who
   {
     id: 'vr-1-25',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'In the race, Ali came first and Beth came second. Charlie did not finish the race. Who won the race?',
     questionTokens: [
@@ -1262,7 +1262,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-1-26: comprehension-why
   {
     id: 'vr-1-26',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'The flowers died because nobody watered them. The weeds grew tall instead. Why did the flowers die?',
     questionTokens: [
@@ -1286,7 +1286,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-1-27: comprehension-where
   {
     id: 'vr-1-27',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'The children played in the garden. They did not play in the house. Where did the children play?',
     questionTokens: [
@@ -1309,7 +1309,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-1-28: comprehension-inference
   {
     id: 'vr-1-28',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'Tom put on his coat, scarf and gloves before going outside. What season was it most likely?',
     questionTokens: [
@@ -1332,7 +1332,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-1-29: comprehension-how-many
   {
     id: 'vr-1-29',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'Mia has 2 sisters and 1 brother. How many sisters does Mia have?',
     questionTokens: [
@@ -1355,7 +1355,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-1-30: comprehension-what
   {
     id: 'vr-1-30',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'At the pet shop, Zara wanted a hamster but she bought a goldfish instead. What did Zara buy?',
     questionTokens: [
@@ -1378,7 +1378,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-1-31: comprehension-who
   {
     id: 'vr-1-31',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'Lucy can swim but she cannot ride a bike. Her friend Olivia can ride a bike but cannot swim. Who can swim?',
     questionTokens: [
@@ -1404,7 +1404,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-2-14: comprehension-who
   {
     id: 'vr-2-14',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'In the spelling test, Ethan got 8 out of 10 but Isla got 10 out of 10. James got 7. The teacher praised Isla for getting them all right. Who scored the lowest?',
     questionTokens: [
@@ -1429,7 +1429,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-2-15: comprehension-what
   {
     id: 'vr-2-15',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'At the tuck shop, Ruby bought crisps and a drink. She wanted chocolate but it had sold out. Instead, she got a cereal bar. What did Ruby buy instead of chocolate?',
     questionTokens: [
@@ -1453,7 +1453,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-2-16: comprehension-where
   {
     id: 'vr-2-16',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'The art lesson was moved from the classroom to the hall. However, the music lesson stayed in the music room as usual. The drama lesson was in the playground. Where was the art lesson held?',
     questionTokens: [
@@ -1478,7 +1478,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-2-17: comprehension-when
   {
     id: 'vr-2-17',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'The maths test was on Wednesday. The English test was on Thursday, not Wednesday. The results came out on Friday. When was the English test?',
     questionTokens: [
@@ -1502,7 +1502,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-2-18: comprehension-how-many
   {
     id: 'vr-2-18',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'Year 4 collected 50 tins for the food bank. Year 5 collected 75 tins. Year 6 collected 60 tins but then added 10 more. How many tins did Year 5 collect?',
     questionTokens: [
@@ -1526,7 +1526,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-2-19: comprehension-why
   {
     id: 'vr-2-19',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'The school trip to the zoo was postponed because the coach broke down. Some children were upset because they had been looking forward to it. The trip was rescheduled for the following week. Why was the trip postponed?',
     questionTokens: [
@@ -1551,7 +1551,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-2-20: comprehension-inference
   {
     id: 'vr-2-20',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'Nadia packed her swimming costume, towel and goggles into her bag. She told her mum she would be back by four o\'clock. Where was Nadia most likely going?',
     questionTokens: [
@@ -1575,7 +1575,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-2-21: comprehension-who
   {
     id: 'vr-2-21',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'In the cooking class, Amir made pasta, but it was Lily who made the best pizza. Oliver made soup. The teacher said the pizza was the tastiest dish. Who made the tastiest dish?',
     questionTokens: [
@@ -1600,7 +1600,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-2-22: comprehension-what
   {
     id: 'vr-2-22',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'Harry plays the violin on Mondays and the piano on Wednesdays. He used to play the drums but stopped last year. What instrument does Harry play on Wednesdays?',
     questionTokens: [
@@ -1624,7 +1624,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-2-23: comprehension-where
   {
     id: 'vr-2-23',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'Mum left her phone at the restaurant. She thought it was in the car, so she looked there first. Then she remembered it was on the table at the restaurant. Where was the phone actually left?',
     questionTokens: [
@@ -1649,7 +1649,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-2-24: comprehension-how-many
   {
     id: 'vr-2-24',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'There are 5 boys and 7 girls in the chess club. On Friday, 2 boys were absent. The teacher brought 3 new chess sets. How many girls are in the chess club?',
     questionTokens: [
@@ -1673,7 +1673,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-2-25: comprehension-why
   {
     id: 'vr-2-25',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'The park was crowded because it was a sunny bank holiday. Although the ice cream van arrived late because it got stuck in traffic, everyone was happy. Why was the park crowded?',
     questionTokens: [
@@ -1698,7 +1698,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-2-26: comprehension-when
   {
     id: 'vr-2-26',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'Grace practises gymnastics on Tuesdays and Thursdays. She has dance on Saturdays. She does not do any clubs on Mondays or Wednesdays. When does Grace have dance?',
     questionTokens: [
@@ -1723,7 +1723,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-2-27: comprehension-inference
   {
     id: 'vr-2-27',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'The classroom lights were off and all the chairs were on the desks. The bins had been emptied and the floor had been mopped. What had most likely just happened in the classroom?',
     questionTokens: [
@@ -1748,7 +1748,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-2-28: comprehension-who
   {
     id: 'vr-2-28',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'Zoe, Alfie and Poppy each brought a pet to school. Zoe brought a hamster. Alfie did not bring a dog; he brought a guinea pig. Poppy brought the dog. Who brought the guinea pig?',
     questionTokens: [
@@ -1773,7 +1773,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-2-29: comprehension-what
   {
     id: 'vr-2-29',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'For the school play, Year 3 performed a song. Year 4 performed a dance. Year 5 did a poem reading, not a play, even though it was called the school play. What did Year 4 perform?',
     questionTokens: [
@@ -1798,7 +1798,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-2-30: comprehension-where
   {
     id: 'vr-2-30',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'After school, Finn went to the library to return his book. Then he walked to the park to meet his friends. His mum picked him up from the park at five o\'clock. Where did Finn go first after school?',
     questionTokens: [
@@ -1823,7 +1823,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-2-31: comprehension-how-many
   {
     id: 'vr-2-31',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'The farmer has 12 cows, 20 sheep and 6 pigs. He sold 4 sheep last week but bought 2 more pigs. How many cows does the farmer have?',
     questionTokens: [
@@ -1847,7 +1847,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-2-32: comprehension-inference
   {
     id: 'vr-2-32',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'Jake\'s mum put candles on the cake and hung up balloons. She wrapped presents and made party bags for all his friends. What event was Jake\'s mum preparing for?',
     questionTokens: [
@@ -1871,7 +1871,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-2-33: comprehension-when
   {
     id: 'vr-2-33',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'The film starts at half past six. The doors open at six o\'clock. The film finishes at eight o\'clock. Adverts play for fifteen minutes before the film. When does the film start?',
     questionTokens: [
@@ -1898,7 +1898,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-3-13: comprehension-who
   {
     id: 'vr-3-13',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'In the school orchestra, Sana plays the flute and not the clarinet, although her twin sister Meera plays the clarinet. Their friend Jaya plays the violin, not the flute. The conductor, Mr Davis, does not play any instrument during the concert. Who plays the clarinet?',
     questionTokens: [
@@ -1925,7 +1925,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-3-14: comprehension-what
   {
     id: 'vr-3-14',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'The museum had four exhibits: dinosaurs, space, ancient Egypt and the ocean. The dinosaur exhibit was closed for repairs. The space exhibit was the most popular. The children visited ancient Egypt first and the ocean last. Which exhibit was closed?',
     questionTokens: [
@@ -1952,7 +1952,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-3-15: comprehension-when
   {
     id: 'vr-3-15',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'Sports day was originally planned for Wednesday but was moved to Thursday because of rain. The practice session was on Tuesday. Friday was the backup day but it was not needed. When did sports day actually take place?',
     questionTokens: [
@@ -1978,7 +1978,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-3-16: comprehension-where
   {
     id: 'vr-3-16',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'The treasure hunt had clues hidden in five places: the playground, the library, the hall, the office and the garden. The first clue was in the playground. The final clue was not in the garden but in the office. The garden had the third clue. Where was the final clue hidden?',
     questionTokens: [
@@ -2005,7 +2005,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-3-17: comprehension-how-many
   {
     id: 'vr-3-17',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'For the cake sale, Amina baked 15 brownies and 20 cookies. She gave 5 brownies to her neighbour before the sale. At the sale, she sold all the remaining brownies and 18 cookies. How many brownies did Amina sell at the sale?',
     questionTokens: [
@@ -2031,7 +2031,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-3-18: comprehension-why
   {
     id: 'vr-3-18',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'The school play was moved indoors because the stage outside was too wet. Although some parents complained because there were not enough seats inside, the head teacher said it was safer. Why was the play moved indoors?',
     questionTokens: [
@@ -2057,7 +2057,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-3-19: vocabulary
   {
     id: 'vr-3-19',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'The ancient castle was in a state of decay after centuries of neglect. Which word is closest in meaning to "decay"?',
     questionTokens: [
@@ -2081,7 +2081,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-3-20: vocabulary
   {
     id: 'vr-3-20',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'The teacher commended the pupil for her excellent work. Which word is closest in meaning to "commended"?',
     questionTokens: [
@@ -2104,7 +2104,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-3-21: vocabulary
   {
     id: 'vr-3-21',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'The fox was cunning enough to outwit the farmer every time. Which word is closest in meaning to "cunning"?',
     questionTokens: [
@@ -2127,7 +2127,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-3-22: comprehension-inference
   {
     id: 'vr-3-22',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'The old man sat on the bench feeding the pigeons, as he did every afternoon. He wore the same brown coat he had worn for years. The pigeons landed on his shoulders without fear. What can you infer about the old man and the pigeons?',
     questionTokens: [
@@ -2152,7 +2152,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-3-23: comprehension-who
   {
     id: 'vr-3-23',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'Five friends ran a race. Kayla finished before Liam but after Tyrone. Ben finished last. Sophie finished between Liam and Ben. Who finished the race first?',
     questionTokens: [
@@ -2177,7 +2177,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-3-24: vocabulary
   {
     id: 'vr-3-24',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'The mountain path was treacherous in winter due to ice and loose rocks. Which word is closest in meaning to "treacherous"?',
     questionTokens: [
@@ -2201,7 +2201,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-3-25: comprehension-what
   {
     id: 'vr-3-25',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'At the school concert, the choir sang three songs. The first was about the sea, the second was about friendship, and the third was about winter. The audience clapped loudest after the friendship song but gave a standing ovation after the winter song. Which song received a standing ovation?',
     questionTokens: [
@@ -2228,7 +2228,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-3-26: comprehension-how-many
   {
     id: 'vr-3-26',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'There are 30 children in the class. On Monday, everyone was present. On Tuesday, 4 children were absent. On Wednesday, 2 of those 4 returned but 3 different children went home ill. How many children were absent on Wednesday?',
     questionTokens: [
@@ -2254,7 +2254,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-3-27: vocabulary
   {
     id: 'vr-3-27',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'The boy was reluctant to jump into the cold swimming pool. Which word is closest in meaning to "reluctant"?',
     questionTokens: [
@@ -2277,7 +2277,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-3-28: comprehension-where
   {
     id: 'vr-3-28',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'The family went on holiday to Cornwall, not Devon. They had planned to go to Devon originally but changed their minds. They stayed in a cottage near the beach. Their friends went to Wales instead. Where did the family go on holiday?',
     questionTokens: [
@@ -2304,7 +2304,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-3-29: comprehension-inference
   {
     id: 'vr-3-29',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'The shopkeeper sighed and began stacking the chairs on the tables. She turned off the coffee machine, wiped down the counter, and flipped the sign on the door from "Open" to "Closed." What was the shopkeeper most likely doing?',
     questionTokens: [
@@ -2329,7 +2329,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-3-30: vocabulary
   {
     id: 'vr-3-30',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'The expedition was arduous, with steep climbs and freezing temperatures. Which word is closest in meaning to "arduous"?',
     questionTokens: [
@@ -2352,7 +2352,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-3-31: comprehension-who
   {
     id: 'vr-3-31',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'Ella, Freya and Grace all entered the art competition. The winner was not Ella, even though her painting was displayed first. Freya did not win either. The judges chose Grace\'s painting of a sunset. Who did not win the competition?',
     questionTokens: [
@@ -2379,7 +2379,7 @@ export const verbalReasoningQuestions: Question[] = [
   // vr-3-32: comprehension-when
   {
     id: 'vr-3-32',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'The school disco is always in December, not November. Last year it was on the 15th of December. This year it has been moved to the 20th of December because the hall is being painted on the 15th. When is the school disco this year?',
     questionTokens: [

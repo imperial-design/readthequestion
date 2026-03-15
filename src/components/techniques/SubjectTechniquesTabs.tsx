@@ -6,8 +6,7 @@ import { TechniqueCard } from './TechniqueCard';
 const TABS: { key: Subject; label: string; emoji: string }[] = [
   { key: 'english', label: 'Eng', emoji: '📖' },
   { key: 'maths', label: 'Maths', emoji: '🔢' },
-  { key: 'verbal-reasoning', label: 'VR', emoji: '🧩' },
-  { key: 'non-verbal-reasoning', label: 'NVR', emoji: '🔷' },
+  { key: 'reasoning', label: 'Reasoning', emoji: '🧩' },
 ];
 
 interface SubjectTechniquesTabsProps {

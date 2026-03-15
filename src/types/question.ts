@@ -1,4 +1,4 @@
-export type Subject = 'english' | 'maths' | 'verbal-reasoning' | 'non-verbal-reasoning';
+export type Subject = 'english' | 'maths' | 'reasoning';
 export type Difficulty = 1 | 2 | 3;
 
 export interface AnswerOption {
@@ -26,13 +26,11 @@ export interface Question {
 export const SUBJECT_LABELS: Record<Subject, string> = {
   'english': 'English',
   'maths': 'Maths',
-  'verbal-reasoning': 'Verbal Reasoning',
-  'non-verbal-reasoning': 'Non-verbal Reasoning',
+  'reasoning': 'Reasoning',
 };
 
 export const SUBJECT_COLOURS: Record<Subject, string> = {
   'english': 'rainbow-red',
   'maths': 'rainbow-blue',
-  'verbal-reasoning': 'rainbow-green',
-  'non-verbal-reasoning': 'rainbow-violet',
+  'reasoning': 'rainbow-green',
 };

@@ -5,7 +5,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
 
   {
     id: 'nvr-1-01',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'In a code, each letter has exactly one value: A=1, B=2, C=3, D=4. The word CAB has a value of 3+1+2=6. What is the value of the word BAD?',
     questionTokens: ['In', 'a', 'code,', 'each', 'letter', 'has', 'exactly', 'one', 'value:', 'A=1,', 'B=2,', 'C=3,', 'D=4.', 'The', 'word', 'CAB', 'has', 'a', 'value', 'of', '3+1+2=6.', 'What', 'is', 'the', 'value', 'of', 'the', 'word', 'BAD?'],
@@ -23,7 +23,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-1-02',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'Tom is taller than Sam, but Sam is not taller than Lily. Who is the shortest?',
     questionTokens: ['Tom', 'is', 'taller', 'than', 'Sam,', 'but', 'Sam', 'is', 'not', 'taller', 'than', 'Lily.', 'Who', 'is', 'the', 'shortest?'],
@@ -41,7 +41,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-1-03',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'You are facing North. You turn right, not left. Which direction are you now facing?',
     questionTokens: ['You', 'are', 'facing', 'North.', 'You', 'turn', 'right,', 'not', 'left.', 'Which', 'direction', 'are', 'you', 'now', 'facing?'],
@@ -59,7 +59,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-1-04',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'The rule is: "Animals that can fly go in Group A. However, animals that cannot fly go in Group B." A penguin is a bird, but it cannot fly. Which group does a penguin belong in?',
     questionTokens: ['The', 'rule', 'is:', '"Animals', 'that', 'can', 'fly', 'go', 'in', 'Group', 'A.', 'However,', 'animals', 'that', 'cannot', 'fly', 'go', 'in', 'Group', 'B."', 'A', 'penguin', 'is', 'a', 'bird,', 'but', 'it', 'cannot', 'fly.', 'Which', 'group', 'does', 'a', 'penguin', 'belong', 'in?'],
@@ -77,7 +77,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-1-05',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'Look at this sequence of numbers: 2, 4, 6, 8, ___. What comes next?',
     questionTokens: ['Look', 'at', 'this', 'sequence', 'of', 'numbers:', '2,', '4,', '6,', '8,', '___.', 'What', 'comes', 'next?'],
@@ -95,7 +95,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-1-06',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'In a code, each letter is replaced by the letter that comes after it in the alphabet. So A becomes B, and B becomes C. What does the code word "BIG" stand for?',
     questionTokens: ['In', 'a', 'code,', 'each', 'letter', 'is', 'replaced', 'by', 'the', 'letter', 'that', 'comes', 'after', 'it', 'in', 'the', 'alphabet.', 'So', 'A', 'becomes', 'B,', 'and', 'B', 'becomes', 'C.', 'What', 'does', 'the', 'code', 'word', '"BIG"', 'stand', 'for?'],
@@ -113,7 +113,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-1-07',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'Amira has a red circle, a blue square, and a red triangle. She sorts them using this rule: "Only red shapes go on the left shelf. Blue shapes go on the right shelf instead." How many shapes altogether go on the left shelf?',
     questionTokens: ['Amira', 'has', 'a', 'red', 'circle,', 'a', 'blue', 'square,', 'and', 'a', 'red', 'triangle.', 'She', 'sorts', 'them', 'using', 'this', 'rule:', '"Only', 'red', 'shapes', 'go', 'on', 'the', 'left', 'shelf.', 'Blue', 'shapes', 'go', 'on', 'the', 'right', 'shelf', 'instead."', 'How', 'many', 'shapes', 'altogether', 'go', 'on', 'the', 'left', 'shelf?'],
@@ -131,7 +131,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-1-08',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'Harry always sits to the left of Priya. Priya always sits to the left of Owen. Who sits on the far right?',
     questionTokens: ['Harry', 'always', 'sits', 'to', 'the', 'left', 'of', 'Priya.', 'Priya', 'always', 'sits', 'to', 'the', 'left', 'of', 'Owen.', 'Who', 'sits', 'on', 'the', 'far', 'right?'],
@@ -149,7 +149,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-1-09',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'Look at this number sequence: 1, 4, 3, 6, 5, 8, ___. What number comes next?',
     questionTokens: ['Look', 'at', 'this', 'number', 'sequence:', '1,', '4,', '3,', '6,', '5,', '8,', '___.', 'What', 'number', 'comes', 'next?'],
@@ -167,7 +167,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-1-10',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'You are facing East. You turn left, not right. Then you turn left again. Which direction are you now facing?',
     questionTokens: ['You', 'are', 'facing', 'East.', 'You', 'turn', 'left,', 'not', 'right.', 'Then', 'you', 'turn', 'left', 'again.', 'Which', 'direction', 'are', 'you', 'now', 'facing?'],
@@ -188,7 +188,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
 
   {
     id: 'nvr-2-01',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'In a code, vowels are worth 5 points and consonants are worth 3 points. What is the total value of the word "PLANE"?',
     questionTokens: ['In', 'a', 'code,', 'vowels', 'are', 'worth', '5', 'points', 'and', 'consonants', 'are', 'worth', '3', 'points.', 'What', 'is', 'the', 'total', 'value', 'of', 'the', 'word', '"PLANE"?'],
@@ -206,7 +206,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-2-02',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'Jaya is older than Khalid. Although Khalid is younger than Maisie, Maisie is the same age as Jaya. Who is the youngest?',
     questionTokens: ['Jaya', 'is', 'older', 'than', 'Khalid.', 'Although', 'Khalid', 'is', 'younger', 'than', 'Maisie,', 'Maisie', 'is', 'the', 'same', 'age', 'as', 'Jaya.', 'Who', 'is', 'the', 'youngest?'],
@@ -224,7 +224,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-2-03',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'You are facing South. Turn right, not left. Walk forward 4 steps. Then turn left. Walk forward 2 steps. Despite all these turns, which direction are you now facing?',
     questionTokens: ['You', 'are', 'facing', 'South.', 'Turn', 'right,', 'not', 'left.', 'Walk', 'forward', '4', 'steps.', 'Then', 'turn', 'left.', 'Walk', 'forward', '2', 'steps.', 'Despite', 'all', 'these', 'turns,', 'which', 'direction', 'are', 'you', 'now', 'facing?'],
@@ -242,7 +242,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-2-04',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'The rule is: "Only numbers that are both even and greater than 5 go in the special set." Which of these numbers goes in the special set: 4, 5, 6, 3? Every number must be checked.',
     questionTokens: ['The', 'rule', 'is:', '"Only', 'numbers', 'that', 'are', 'both', 'even', 'and', 'greater', 'than', '5', 'go', 'in', 'the', 'special', 'set."', 'Which', 'of', 'these', 'numbers', 'goes', 'in', 'the', 'special', 'set:', '4,', '5,', '6,', '3?', 'Every', 'number', 'must', 'be', 'checked.'],
@@ -260,7 +260,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-2-05',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'Three children sit in a row. Fatima does not sit next to George. Hannah sits to the right of Fatima. Who sits in the middle?',
     questionTokens: ['Three', 'children', 'sit', 'in', 'a', 'row.', 'Fatima', 'does', 'not', 'sit', 'next', 'to', 'George.', 'Hannah', 'sits', 'to', 'the', 'right', 'of', 'Fatima.', 'Who', 'sits', 'in', 'the', 'middle?'],
@@ -278,7 +278,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-2-06',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'Look at this sequence: 1, 1, 2, 3, 5, 8, ___. Each number is the sum of the two numbers before it. What comes next?',
     questionTokens: ['Look', 'at', 'this', 'sequence:', '1,', '1,', '2,', '3,', '5,', '8,', '___.', 'Each', 'number', 'is', 'the', 'sum', 'of', 'the', 'two', 'numbers', 'before', 'it.', 'What', 'comes', 'next?'],
@@ -296,7 +296,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-2-07',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'In a secret code, each letter is shifted forward by 2 places in the alphabet. A becomes C, B becomes D, and so on. The coded message reads "EQVG". What is the original word?',
     questionTokens: ['In', 'a', 'secret', 'code,', 'each', 'letter', 'is', 'shifted', 'forward', 'by', '2', 'places', 'in', 'the', 'alphabet.', 'A', 'becomes', 'C,', 'B', 'becomes', 'D,', 'and', 'so', 'on.', 'The', 'coded', 'message', 'reads', '"EQVG".', 'What', 'is', 'the', 'original', 'word?'],
@@ -314,7 +314,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-2-08',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'Ruby has more stickers than Ethan. Ethan has fewer stickers than Nadia. Nadia has fewer stickers than Ruby. List them from most stickers to fewest.',
     questionTokens: ['Ruby', 'has', 'more', 'stickers', 'than', 'Ethan.', 'Ethan', 'has', 'fewer', 'stickers', 'than', 'Nadia.', 'Nadia', 'has', 'fewer', 'stickers', 'than', 'Ruby.', 'List', 'them', 'from', 'most', 'stickers', 'to', 'fewest.'],
@@ -332,7 +332,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-2-09',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'The sorting rule is: "Words with exactly 4 letters go in Box A. All other words go in Box B." Sort these words: CATS, DOGS, MICE, ELEPHANT. How many go in Box A?',
     questionTokens: ['The', 'sorting', 'rule', 'is:', '"Words', 'with', 'exactly', '4', 'letters', 'go', 'in', 'Box', 'A.', 'All', 'other', 'words', 'go', 'in', 'Box', 'B."', 'Sort', 'these', 'words:', 'CATS,', 'DOGS,', 'MICE,', 'ELEPHANT.', 'How', 'many', 'go', 'in', 'Box', 'A?'],
@@ -350,7 +350,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-2-10',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'In a seating plan, there are 4 seats in a row. Amir sits in Seat 1 (far left). Bella is not in Seat 2. Charlie is in Seat 3. Where does Bella sit?',
     questionTokens: ['In', 'a', 'seating', 'plan,', 'there', 'are', '4', 'seats', 'in', 'a', 'row.', 'Amir', 'sits', 'in', 'Seat', '1', '(far', 'left).', 'Bella', 'is', 'not', 'in', 'Seat', '2.', 'Charlie', 'is', 'in', 'Seat', '3.', 'Where', 'does', 'Bella', 'sit?'],
@@ -371,7 +371,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
 
   {
     id: 'nvr-3-01',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'In a code, each letter has exactly one value: A=1, B=2, C=3, and so on up to Z=26. The value of a word is found by multiplying — not adding — the values of its letters. What is the value of the word "BAD"?',
     questionTokens: ['In', 'a', 'code,', 'each', 'letter', 'has', 'exactly', 'one', 'value:', 'A=1,', 'B=2,', 'C=3,', 'and', 'so', 'on', 'up', 'to', 'Z=26.', 'The', 'value', 'of', 'a', 'word', 'is', 'found', 'by', 'multiplying', '—', 'not', 'adding', '—', 'the', 'values', 'of', 'its', 'letters.', 'What', 'is', 'the', 'value', 'of', 'the', 'word', '"BAD"?'],
@@ -389,7 +389,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-3-02',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'Zara is faster than Liam. Liam is faster than Oliver. Oliver is faster than Priya. However, Priya is faster than Zara. Despite this, who is the fastest?',
     questionTokens: ['Zara', 'is', 'faster', 'than', 'Liam.', 'Liam', 'is', 'faster', 'than', 'Oliver.', 'Oliver', 'is', 'faster', 'than', 'Priya.', 'However,', 'Priya', 'is', 'faster', 'than', 'Zara.', 'Despite', 'this,', 'who', 'is', 'the', 'fastest?'],
@@ -407,7 +407,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-3-03',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'You are facing North. Turn clockwise 90 degrees. Turn clockwise another 90 degrees. Now turn anti-clockwise 90 degrees instead. Which direction are you facing?',
     questionTokens: ['You', 'are', 'facing', 'North.', 'Turn', 'clockwise', '90', 'degrees.', 'Turn', 'clockwise', 'another', '90', 'degrees.', 'Now', 'turn', 'anti-clockwise', '90', 'degrees', 'instead.', 'Which', 'direction', 'are', 'you', 'facing?'],
@@ -425,7 +425,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-3-04',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'The rule for Set P is: "Words that contain the letter E and have more than 4 letters." The rule for Set Q is: "Words that contain the letter E or have more than 4 letters (or both)." The word TIGER has the letter E and has 5 letters. The word LION has no letter E and has 4 letters. Which statement is true?',
     questionTokens: ['The', 'rule', 'for', 'Set', 'P', 'is:', '"Words', 'that', 'contain', 'the', 'letter', 'E', 'and', 'have', 'more', 'than', '4', 'letters."', 'The', 'rule', 'for', 'Set', 'Q', 'is:', '"Words', 'that', 'contain', 'the', 'letter', 'E', 'or', 'have', 'more', 'than', '4', 'letters', '(or', 'both)."', 'The', 'word', 'TIGER', 'has', 'the', 'letter', 'E', 'and', 'has', '5', 'letters.', 'The', 'word', 'LION', 'has', 'no', 'letter', 'E', 'and', 'has', '4', 'letters.', 'Which', 'statement', 'is', 'true?'],
@@ -443,7 +443,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-3-05',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'Four children — Ava, Ben, Chloe, and Dan — each have a different favourite colour: red, blue, green, yellow. Ben likes blue. Ava does not like red, blue, or yellow. Chloe likes red. What is Dan\'s favourite colour?',
     questionTokens: ['Four', 'children', '—', 'Ava,', 'Ben,', 'Chloe,', 'and', 'Dan', '—', 'each', 'have', 'a', 'different', 'favourite', 'colour:', 'red,', 'blue,', 'green,', 'yellow.', 'Ben', 'likes', 'blue.', 'Ava', 'does', 'not', 'like', 'red,', 'blue,', 'or', 'yellow.', 'Chloe', 'likes', 'red.', 'What', 'is', "Dan's", 'favourite', 'colour?'],
@@ -461,7 +461,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-3-06',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'A number sequence follows two rules that alternate. Rule 1: multiply by 2. Rule 2: subtract 3. Starting at 5 and beginning with Rule 1: 5, 10, 7, 14, 11, ___. What comes next?',
     questionTokens: ['A', 'number', 'sequence', 'follows', 'two', 'rules', 'that', 'alternate.', 'Rule', '1:', 'multiply', 'by', '2.', 'Rule', '2:', 'subtract', '3.', 'Starting', 'at', '5', 'and', 'beginning', 'with', 'Rule', '1:', '5,', '10,', '7,', '14,', '11,', '___.', 'What', 'comes', 'next?'],
@@ -479,7 +479,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-3-07',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'In a cipher, each letter in the original word is replaced by the letter 3 places after it in the alphabet (so A becomes D, B becomes E). What does the word CAT become in this code?',
     questionTokens: ['In', 'a', 'cipher,', 'each', 'letter', 'in', 'the', 'original', 'word', 'is', 'replaced', 'by', 'the', 'letter', '3', 'places', 'after', 'it', 'in', 'the', 'alphabet', '(so', 'A', 'becomes', 'D,', 'B', 'becomes', 'E).', 'What', 'does', 'the', 'word', 'CAT', 'become', 'in', 'this', 'code?'],
@@ -497,7 +497,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-3-08',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'You are standing at point X on a grid, facing East. Follow these instructions: Turn left. Walk 3 squares. Turn right. Walk 2 squares. Turn right. Walk 3 squares. How far are you from point X?',
     questionTokens: ['You', 'are', 'standing', 'at', 'point', 'X', 'on', 'a', 'grid,', 'facing', 'East.', 'Follow', 'these', 'instructions:', 'Turn', 'left.', 'Walk', '3', 'squares.', 'Turn', 'right.', 'Walk', '2', 'squares.', 'Turn', 'right.', 'Walk', '3', 'squares.', 'How', 'far', 'are', 'you', 'from', 'point', 'X?'],
@@ -515,7 +515,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-3-09',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'Four friends sit in a row of seats numbered 1 to 4 (left to right). Ali sits in Seat 1. Dev sits in Seat 4. Beth does not sit next to Ali. What seat is Cara in?',
     questionTokens: ['Four', 'friends', 'sit', 'in', 'a', 'row', 'of', 'seats', 'numbered', '1', 'to', '4', '(left', 'to', 'right).', 'Ali', 'sits', 'in', 'Seat', '1.', 'Dev', 'sits', 'in', 'Seat', '4.', 'Beth', 'does', 'not', 'sit', 'next', 'to', 'Ali.', 'What', 'seat', 'is', 'Cara', 'in?'],
@@ -533,7 +533,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-3-10',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'Items are sorted into three groups. Group X: items that are both round and red. Group Y: items that are round but not red. Group Z: items that are not round. A red ball, a blue cube, a red cube, and a green ball need sorting. How many items go in Group Z?',
     questionTokens: ['Items', 'are', 'sorted', 'into', 'three', 'groups.', 'Group', 'X:', 'items', 'that', 'are', 'both', 'round', 'and', 'red.', 'Group', 'Y:', 'items', 'that', 'are', 'round', 'but', 'not', 'red.', 'Group', 'Z:', 'items', 'that', 'are', 'not', 'round.', 'A', 'red', 'ball,', 'a', 'blue', 'cube,', 'a', 'red', 'cube,', 'and', 'a', 'green', 'ball', 'need', 'sorting.', 'How', 'many', 'items', 'go', 'in', 'Group', 'Z?'],
@@ -554,7 +554,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
 
   {
     id: 'nvr-trick-01',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'A sequence shows: circle, square, triangle, circle, square, triangle. Which shape does not appear in this pattern?',
     questionTokens: ['A', 'sequence', 'shows:', 'circle,', 'square,', 'triangle,', 'circle,', 'square,', 'triangle.', 'Which', 'shape', 'does', 'not', 'appear', 'in', 'this', 'pattern?'],
@@ -573,7 +573,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-trick-02',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'In a pattern, each shape is rotated 90 degrees clockwise. A square becomes a diamond, a diamond becomes a square. Which statement is not true about this pattern?',
     questionTokens: ['In', 'a', 'pattern,', 'each', 'shape', 'is', 'rotated', '90', 'degrees', 'clockwise.', 'A', 'square', 'becomes', 'a', 'diamond,', 'a', 'diamond', 'becomes', 'a', 'square.', 'Which', 'statement', 'is', 'not', 'true', 'about', 'this', 'pattern?'],
@@ -592,7 +592,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-trick-03',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'Look at this sequence: small black circle, large white circle, small black square, large white square, small black triangle. What comes next?',
     questionTokens: ['Look', 'at', 'this', 'sequence:', 'small', 'black', 'circle,', 'large', 'white', 'circle,', 'small', 'black', 'square,', 'large', 'white', 'square,', 'small', 'black', 'triangle.', 'What', 'comes', 'next?'],
@@ -611,7 +611,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-trick-04',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'In a grid, the top row has shapes increasing in size from left to right. The bottom row has the same shapes but decreasing in size. The middle row should follow a pattern. If the top-left is a small circle and the top-right is a large circle, what should be in the middle of the middle row?',
     questionTokens: ['In', 'a', 'grid,', 'the', 'top', 'row', 'has', 'shapes', 'increasing', 'in', 'size', 'from', 'left', 'to', 'right.', 'The', 'bottom', 'row', 'has', 'the', 'same', 'shapes', 'but', 'decreasing', 'in', 'size.', 'The', 'middle', 'row', 'should', 'follow', 'a', 'pattern.', 'If', 'the', 'top-left', 'is', 'a', 'small', 'circle', 'and', 'the', 'top-right', 'is', 'a', 'large', 'circle,', 'what', 'should', 'be', 'in', 'the', 'middle', 'of', 'the', 'middle', 'row?'],
@@ -633,7 +633,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
 
   {
     id: 'nvr-1-11',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'In a code, A=2, B=4, C=6, D=8. What is the value of the word DAD?',
     questionTokens: ['In', 'a', 'code,', 'A=2,', 'B=4,', 'C=6,', 'D=8.', 'What', 'is', 'the', 'value', 'of', 'the', 'word', 'DAD?'],
@@ -651,7 +651,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-1-12',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'What comes next in this sequence? 2, 4, 6, 8, ___',
     questionTokens: ['What', 'comes', 'next', 'in', 'this', 'sequence?', '2,', '4,', '6,', '8,', '___'],
@@ -669,7 +669,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-1-13',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'Emma is facing North. She turns to her right. Which direction is she now facing?',
     questionTokens: ['Emma', 'is', 'facing', 'North.', 'She', 'turns', 'to', 'her', 'right.', 'Which', 'direction', 'is', 'she', 'now', 'facing?'],
@@ -687,7 +687,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-1-14',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'Set A contains even numbers. Set B contains numbers greater than 5. Which number belongs in both Set A and Set B?',
     questionTokens: ['Set', 'A', 'contains', 'even', 'numbers.', 'Set', 'B', 'contains', 'numbers', 'greater', 'than', '5.', 'Which', 'number', 'belongs', 'in', 'both', 'Set', 'A', 'and', 'Set', 'B?'],
@@ -705,7 +705,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-1-15',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'Three children each have a different pet: a dog, a cat, or a fish. Mia has the dog. Jake does not have the cat. What pet does Jake have?',
     questionTokens: ['Three', 'children', 'each', 'have', 'a', 'different', 'pet:', 'a', 'dog,', 'a', 'cat,', 'or', 'a', 'fish.', 'Mia', 'has', 'the', 'dog.', 'Jake', 'does', 'not', 'have', 'the', 'cat.', 'What', 'pet', 'does', 'Jake', 'have?'],
@@ -723,7 +723,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-1-16',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'What comes next in this pattern? 1, 2, 4, 8, ___',
     questionTokens: ['What', 'comes', 'next', 'in', 'this', 'pattern?', '1,', '2,', '4,', '8,', '___'],
@@ -741,7 +741,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-1-17',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'In a code, each vowel is worth 3 points and each consonant is worth 1 point. What is the value of the word BEE?',
     questionTokens: ['In', 'a', 'code,', 'each', 'vowel', 'is', 'worth', '3', 'points', 'and', 'each', 'consonant', 'is', 'worth', '1', 'point.', 'What', 'is', 'the', 'value', 'of', 'the', 'word', 'BEE?'],
@@ -759,7 +759,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-1-18',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'Look at this letter sequence: A, C, E, G, ___. What letter comes next?',
     questionTokens: ['Look', 'at', 'this', 'letter', 'sequence:', 'A,', 'C,', 'E,', 'G,', '___.', 'What', 'letter', 'comes', 'next?'],
@@ -777,7 +777,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-1-19',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'A treasure is 2 steps North and 3 steps East of the start. How many steps in total must you take to reach it by going North first, then East?',
     questionTokens: ['A', 'treasure', 'is', '2', 'steps', 'North', 'and', '3', 'steps', 'East', 'of', 'the', 'start.', 'How', 'many', 'steps', 'in', 'total', 'must', 'you', 'take', 'to', 'reach', 'it', 'by', 'going', 'North', 'first,', 'then', 'East?'],
@@ -795,7 +795,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-1-20',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'If all cats have tails, and Whiskers is a cat, what can we say for certain about Whiskers?',
     questionTokens: ['If', 'all', 'cats', 'have', 'tails,', 'and', 'Whiskers', 'is', 'a', 'cat,', 'what', 'can', 'we', 'say', 'for', 'certain', 'about', 'Whiskers?'],
@@ -813,7 +813,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-1-21',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'What comes next? 10, 8, 6, 4, ___',
     questionTokens: ['What', 'comes', 'next?', '10,', '8,', '6,', '4,', '___'],
@@ -831,7 +831,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-1-22',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'In a code, A=5, B=10, C=15. The word AB has a value of 5+10=15. What is the value of the word BC?',
     questionTokens: ['In', 'a', 'code,', 'A=5,', 'B=10,', 'C=15.', 'The', 'word', 'AB', 'has', 'a', 'value', 'of', '5+10=15.', 'What', 'is', 'the', 'value', 'of', 'the', 'word', 'BC?'],
@@ -849,7 +849,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-1-23',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'Set X contains fruits. Set Y contains things that are yellow. A banana is a fruit and is yellow. An apple is a fruit but is red. A daffodil is yellow but is not a fruit. Which item belongs in both sets?',
     questionTokens: ['Set', 'X', 'contains', 'fruits.', 'Set', 'Y', 'contains', 'things', 'that', 'are', 'yellow.', 'A', 'banana', 'is', 'a', 'fruit', 'and', 'is', 'yellow.', 'An', 'apple', 'is', 'a', 'fruit', 'but', 'is', 'red.', 'A', 'daffodil', 'is', 'yellow', 'but', 'is', 'not', 'a', 'fruit.', 'Which', 'item', 'belongs', 'in', 'both', 'sets?'],
@@ -867,7 +867,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-1-24',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'You are facing South. You turn left. Which direction are you now facing?',
     questionTokens: ['You', 'are', 'facing', 'South.', 'You', 'turn', 'left.', 'Which', 'direction', 'are', 'you', 'now', 'facing?'],
@@ -885,7 +885,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-1-25',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'Three friends — Leo, Mia, and Noah — sit in chairs 1, 2, and 3. Leo sits in chair 3. Noah sits in chair 1. Which chair does Mia sit in?',
     questionTokens: ['Three', 'friends', '—', 'Leo,', 'Mia,', 'and', 'Noah', '—', 'sit', 'in', 'chairs', '1,', '2,', 'and', '3.', 'Leo', 'sits', 'in', 'chair', '3.', 'Noah', 'sits', 'in', 'chair', '1.', 'Which', 'chair', 'does', 'Mia', 'sit', 'in?'],
@@ -903,7 +903,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-1-26',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'What comes next in this sequence? 5, 10, 15, 20, ___',
     questionTokens: ['What', 'comes', 'next', 'in', 'this', 'sequence?', '5,', '10,', '15,', '20,', '___'],
@@ -921,7 +921,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-1-27',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'All birds have feathers. A penguin is a bird. Does a penguin have feathers?',
     questionTokens: ['All', 'birds', 'have', 'feathers.', 'A', 'penguin', 'is', 'a', 'bird.', 'Does', 'a', 'penguin', 'have', 'feathers?'],
@@ -939,7 +939,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-1-28',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'In a code, the letter A is replaced by 1, B by 2, and C by 3. What number does the word CAB become?',
     questionTokens: ['In', 'a', 'code,', 'the', 'letter', 'A', 'is', 'replaced', 'by', '1,', 'B', 'by', '2,', 'and', 'C', 'by', '3.', 'What', 'number', 'does', 'the', 'word', 'CAB', 'become?'],
@@ -957,7 +957,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-1-29',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'What comes next in this pattern? 3, 6, 9, 12, ___',
     questionTokens: ['What', 'comes', 'next', 'in', 'this', 'pattern?', '3,', '6,', '9,', '12,', '___'],
@@ -975,7 +975,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-1-30',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'Amy is older than Ben. Ben is older than Cara. Who is the youngest?',
     questionTokens: ['Amy', 'is', 'older', 'than', 'Ben.', 'Ben', 'is', 'older', 'than', 'Cara.', 'Who', 'is', 'the', 'youngest?'],
@@ -996,7 +996,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
 
   {
     id: 'nvr-2-11',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'In a code, A=3, B=5, C=7, D=9. The word ABCD has a value of 3+5+7+9=24. What is the value of the word DBCA?',
     questionTokens: ['In', 'a', 'code,', 'A=3,', 'B=5,', 'C=7,', 'D=9.', 'The', 'word', 'ABCD', 'has', 'a', 'value', 'of', '3+5+7+9=24.', 'What', 'is', 'the', 'value', 'of', 'the', 'word', 'DBCA?'],
@@ -1014,7 +1014,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-2-12',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'What comes next in this sequence? 2, 5, 11, 23, ___',
     questionTokens: ['What', 'comes', 'next', 'in', 'this', 'sequence?', '2,', '5,', '11,', '23,', '___'],
@@ -1032,7 +1032,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-2-13',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'You are in the centre of a grid facing West. You turn right and walk 4 squares, then turn left and walk 2 squares. Which direction are you now from the centre?',
     questionTokens: ['You', 'are', 'in', 'the', 'centre', 'of', 'a', 'grid', 'facing', 'West.', 'You', 'turn', 'right', 'and', 'walk', '4', 'squares,', 'then', 'turn', 'left', 'and', 'walk', '2', 'squares.', 'Which', 'direction', 'are', 'you', 'now', 'from', 'the', 'centre?'],
@@ -1050,7 +1050,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-2-14',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'Set P contains multiples of 3. Set Q contains multiples of 4. Which number belongs in both Set P and Set Q?',
     questionTokens: ['Set', 'P', 'contains', 'multiples', 'of', '3.', 'Set', 'Q', 'contains', 'multiples', 'of', '4.', 'Which', 'number', 'belongs', 'in', 'both', 'Set', 'P', 'and', 'Set', 'Q?'],
@@ -1068,7 +1068,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-2-15',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'Four children each like a different sport: football, tennis, swimming, and rugby. Ella likes tennis. Finn does not like football or swimming. Grace likes swimming. What sport does Harry like?',
     questionTokens: ['Four', 'children', 'each', 'like', 'a', 'different', 'sport:', 'football,', 'tennis,', 'swimming,', 'and', 'rugby.', 'Ella', 'likes', 'tennis.', 'Finn', 'does', 'not', 'like', 'football', 'or', 'swimming.', 'Grace', 'likes', 'swimming.', 'What', 'sport', 'does', 'Harry', 'like?'],
@@ -1086,7 +1086,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-2-16',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'A sequence follows the rule: add 1, then multiply by 2, then add 1, then multiply by 2, and so on. Starting at 1: 1, 2, 4, 5, 10, ___. What comes next?',
     questionTokens: ['A', 'sequence', 'follows', 'the', 'rule:', 'add', '1,', 'then', 'multiply', 'by', '2,', 'then', 'add', '1,', 'then', 'multiply', 'by', '2,', 'and', 'so', 'on.', 'Starting', 'at', '1:', '1,', '2,', '4,', '5,', '10,', '___.', 'What', 'comes', 'next?'],
@@ -1104,7 +1104,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-2-17',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'In a code, each letter is shifted forward by 2 positions in the alphabet (A becomes C, B becomes D). What does the word FIG become?',
     questionTokens: ['In', 'a', 'code,', 'each', 'letter', 'is', 'shifted', 'forward', 'by', '2', 'positions', 'in', 'the', 'alphabet', '(A', 'becomes', 'C,', 'B', 'becomes', 'D).', 'What', 'does', 'the', 'word', 'FIG', 'become?'],
@@ -1122,7 +1122,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-2-18',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'What comes next in this sequence? Z, X, V, T, ___',
     questionTokens: ['What', 'comes', 'next', 'in', 'this', 'sequence?', 'Z,', 'X,', 'V,', 'T,', '___'],
@@ -1140,7 +1140,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-2-19',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'If it is raining, Tom takes an umbrella. If it is sunny, Tom takes sunglasses. It is raining today. Which statement must be true?',
     questionTokens: ['If', 'it', 'is', 'raining,', 'Tom', 'takes', 'an', 'umbrella.', 'If', 'it', 'is', 'sunny,', 'Tom', 'takes', 'sunglasses.', 'It', 'is', 'raining', 'today.', 'Which', 'statement', 'must', 'be', 'true?'],
@@ -1158,7 +1158,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-2-20',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'On a grid, a counter starts at position (2, 3). It moves 3 squares right and 1 square down. What is its new position?',
     questionTokens: ['On', 'a', 'grid,', 'a', 'counter', 'starts', 'at', 'position', '(2,', '3).', 'It', 'moves', '3', 'squares', 'right', 'and', '1', 'square', 'down.', 'What', 'is', 'its', 'new', 'position?'],
@@ -1176,7 +1176,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-2-21',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'Set M contains words with exactly 4 letters. Set N contains words that start with the letter S. Which word belongs in Set M but not in Set N?',
     questionTokens: ['Set', 'M', 'contains', 'words', 'with', 'exactly', '4', 'letters.', 'Set', 'N', 'contains', 'words', 'that', 'start', 'with', 'the', 'letter', 'S.', 'Which', 'word', 'belongs', 'in', 'Set', 'M', 'but', 'not', 'in', 'Set', 'N?'],
@@ -1194,7 +1194,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-2-22',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'Five houses are in a row numbered 1 to 5. The red house is at number 3. The blue house is immediately to the left of the red house. The green house is at the far right. What number is the blue house?',
     questionTokens: ['Five', 'houses', 'are', 'in', 'a', 'row', 'numbered', '1', 'to', '5.', 'The', 'red', 'house', 'is', 'at', 'number', '3.', 'The', 'blue', 'house', 'is', 'immediately', 'to', 'the', 'left', 'of', 'the', 'red', 'house.', 'The', 'green', 'house', 'is', 'at', 'the', 'far', 'right.', 'What', 'number', 'is', 'the', 'blue', 'house?'],
@@ -1212,7 +1212,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-2-23',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'A pattern follows these rules: each number is the sum of the two numbers before it. The sequence starts: 1, 1, 2, 3, 5, ___. What comes next?',
     questionTokens: ['A', 'pattern', 'follows', 'these', 'rules:', 'each', 'number', 'is', 'the', 'sum', 'of', 'the', 'two', 'numbers', 'before', 'it.', 'The', 'sequence', 'starts:', '1,', '1,', '2,', '3,', '5,', '___.', 'What', 'comes', 'next?'],
@@ -1230,7 +1230,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-2-24',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'In a code, vowels are worth 5 points and consonants are worth 2 points. What is the total value of the word HOUSE?',
     questionTokens: ['In', 'a', 'code,', 'vowels', 'are', 'worth', '5', 'points', 'and', 'consonants', 'are', 'worth', '2', 'points.', 'What', 'is', 'the', 'total', 'value', 'of', 'the', 'word', 'HOUSE?'],
@@ -1248,7 +1248,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-2-25',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'Look at this number sequence: 50, 45, 41, 38, 36, ___. The differences between terms decrease by 1 each time. What comes next?',
     questionTokens: ['Look', 'at', 'this', 'number', 'sequence:', '50,', '45,', '41,', '38,', '36,', '___.', 'The', 'differences', 'between', 'terms', 'decrease', 'by', '1', 'each', 'time.', 'What', 'comes', 'next?'],
@@ -1266,7 +1266,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-2-26',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'You are facing East. You make a half turn (180 degrees). Then you turn right (90 degrees). Which direction are you now facing?',
     questionTokens: ['You', 'are', 'facing', 'East.', 'You', 'make', 'a', 'half', 'turn', '(180', 'degrees).', 'Then', 'you', 'turn', 'right', '(90', 'degrees).', 'Which', 'direction', 'are', 'you', 'now', 'facing?'],
@@ -1284,7 +1284,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-2-27',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'If all roses are flowers, and some flowers are red, which statement must be true?',
     questionTokens: ['If', 'all', 'roses', 'are', 'flowers,', 'and', 'some', 'flowers', 'are', 'red,', 'which', 'statement', 'must', 'be', 'true?'],
@@ -1302,7 +1302,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-2-28',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'Three friends — Priya, Quinn, and Ravi — each like a different flavour of ice cream: chocolate, vanilla, and strawberry. Priya does not like chocolate or vanilla. Quinn does not like vanilla or strawberry. What flavour does Ravi like?',
     questionTokens: ['Three', 'friends', '—', 'Priya,', 'Quinn,', 'and', 'Ravi', '—', 'each', 'like', 'a', 'different', 'flavour', 'of', 'ice', 'cream:', 'chocolate,', 'vanilla,', 'and', 'strawberry.', 'Priya', 'does', 'not', 'like', 'chocolate', 'or', 'vanilla.', 'Quinn', 'does', 'not', 'like', 'vanilla', 'or', 'strawberry.', 'What', 'flavour', 'does', 'Ravi', 'like?'],
@@ -1320,7 +1320,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-2-29',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'In a code, each letter\'s value equals its position in the alphabet (A=1, B=2, ..., Z=26). What is the value of the word ACE?',
     questionTokens: ['In', 'a', 'code,', 'each', "letter's", 'value', 'equals', 'its', 'position', 'in', 'the', 'alphabet', '(A=1,', 'B=2,', '...,', 'Z=26).', 'What', 'is', 'the', 'value', 'of', 'the', 'word', 'ACE?'],
@@ -1338,7 +1338,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-2-30',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'What comes next in this pattern? 2, 6, 18, 54, ___',
     questionTokens: ['What', 'comes', 'next', 'in', 'this', 'pattern?', '2,', '6,', '18,', '54,', '___'],
@@ -1359,7 +1359,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
 
   {
     id: 'nvr-3-11',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'In a code, each letter\'s value is found by multiplying its alphabet position by 2 then subtracting 1 (A=1, B=3, C=5, D=7, E=9). What is the total value of the word BED?',
     questionTokens: ['In', 'a', 'code,', 'each', "letter's", 'value', 'is', 'found', 'by', 'multiplying', 'its', 'alphabet', 'position', 'by', '2', 'then', 'subtracting', '1', '(A=1,', 'B=3,', 'C=5,', 'D=7,', 'E=9).', 'What', 'is', 'the', 'total', 'value', 'of', 'the', 'word', 'BED?'],
@@ -1377,7 +1377,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-3-12',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'A sequence follows two alternating rules. Odd positions: multiply by 3. Even positions: subtract 5. Starting with 2: 2, 6, 1, 3, -2, ___. What comes next?',
     questionTokens: ['A', 'sequence', 'follows', 'two', 'alternating', 'rules.', 'Odd', 'positions:', 'multiply', 'by', '3.', 'Even', 'positions:', 'subtract', '5.', 'Starting', 'with', '2:', '2,', '6,', '1,', '3,', '-2,', '___.', 'What', 'comes', 'next?'],
@@ -1395,7 +1395,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-3-13',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'You are at the centre of a compass facing North. You turn clockwise 135 degrees. Then you turn anti-clockwise 45 degrees. Which direction are you now facing?',
     questionTokens: ['You', 'are', 'at', 'the', 'centre', 'of', 'a', 'compass', 'facing', 'North.', 'You', 'turn', 'clockwise', '135', 'degrees.', 'Then', 'you', 'turn', 'anti-clockwise', '45', 'degrees.', 'Which', 'direction', 'are', 'you', 'now', 'facing?'],
@@ -1413,7 +1413,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-3-14',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'Set A contains numbers divisible by both 2 and 3. Set B contains numbers divisible by 5. Set C is the overlap of A and B. Which number belongs in Set C?',
     questionTokens: ['Set', 'A', 'contains', 'numbers', 'divisible', 'by', 'both', '2', 'and', '3.', 'Set', 'B', 'contains', 'numbers', 'divisible', 'by', '5.', 'Set', 'C', 'is', 'the', 'overlap', 'of', 'A', 'and', 'B.', 'Which', 'number', 'belongs', 'in', 'Set', 'C?'],
@@ -1431,7 +1431,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-3-15',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'Five students — Amy, Ben, Cal, Dee, and Eve — sit around a circular table. Amy sits directly opposite Ben. Cal sits to Amy\'s left. Dee does not sit next to Ben. Who sits to Amy\'s right?',
     questionTokens: ['Five', 'students', '—', 'Amy,', 'Ben,', 'Cal,', 'Dee,', 'and', 'Eve', '—', 'sit', 'around', 'a', 'circular', 'table.', 'Amy', 'sits', 'directly', 'opposite', 'Ben.', 'Cal', 'sits', 'to', "Amy's", 'left.', 'Dee', 'does', 'not', 'sit', 'next', 'to', 'Ben.', 'Who', 'sits', 'to', "Amy's", 'right?'],
@@ -1449,7 +1449,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-3-16',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'A number machine takes an input, doubles it, then subtracts 3, then divides by the original input (if the original is not zero). If the input is 5, what is the output?',
     questionTokens: ['A', 'number', 'machine', 'takes', 'an', 'input,', 'doubles', 'it,', 'then', 'subtracts', '3,', 'then', 'divides', 'by', 'the', 'original', 'input', '(if', 'the', 'original', 'is', 'not', 'zero).', 'If', 'the', 'input', 'is', '5,', 'what', 'is', 'the', 'output?'],
@@ -1467,7 +1467,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-3-17',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'In a cipher, each letter is replaced by the letter that is the same distance from Z as the original is from A. So A(1st from A) becomes Z(1st from Z), B(2nd from A) becomes Y(2nd from Z). What does the word DOG become?',
     questionTokens: ['In', 'a', 'cipher,', 'each', 'letter', 'is', 'replaced', 'by', 'the', 'letter', 'that', 'is', 'the', 'same', 'distance', 'from', 'Z', 'as', 'the', 'original', 'is', 'from', 'A.', 'So', 'A(1st', 'from', 'A)', 'becomes', 'Z(1st', 'from', 'Z),', 'B(2nd', 'from', 'A)', 'becomes', 'Y(2nd', 'from', 'Z).', 'What', 'does', 'the', 'word', 'DOG', 'become?'],
@@ -1485,7 +1485,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-3-18',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'Look at this sequence: 1, 4, 9, 16, 25, ___. What comes next?',
     questionTokens: ['Look', 'at', 'this', 'sequence:', '1,', '4,', '9,', '16,', '25,', '___.', 'What', 'comes', 'next?'],
@@ -1503,7 +1503,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-3-19',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'Every student who plays football also plays cricket. Some students who play cricket also play tennis. Tom plays football. Which statement must be true?',
     questionTokens: ['Every', 'student', 'who', 'plays', 'football', 'also', 'plays', 'cricket.', 'Some', 'students', 'who', 'play', 'cricket', 'also', 'play', 'tennis.', 'Tom', 'plays', 'football.', 'Which', 'statement', 'must', 'be', 'true?'],
@@ -1521,7 +1521,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-3-20',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'On a grid, a robot starts at (0, 0) facing North. It follows these commands: Forward 3, Turn Right, Forward 2, Turn Right, Forward 1. What are its final coordinates?',
     questionTokens: ['On', 'a', 'grid,', 'a', 'robot', 'starts', 'at', '(0,', '0)', 'facing', 'North.', 'It', 'follows', 'these', 'commands:', 'Forward', '3,', 'Turn', 'Right,', 'Forward', '2,', 'Turn', 'Right,', 'Forward', '1.', 'What', 'are', 'its', 'final', 'coordinates?'],
@@ -1539,7 +1539,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-3-21',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'Set X: numbers where the sum of digits is even. Set Y: numbers greater than 50. Which number is in Set X but not in Set Y?',
     questionTokens: ['Set', 'X:', 'numbers', 'where', 'the', 'sum', 'of', 'digits', 'is', 'even.', 'Set', 'Y:', 'numbers', 'greater', 'than', '50.', 'Which', 'number', 'is', 'in', 'Set', 'X', 'but', 'not', 'in', 'Set', 'Y?'],
@@ -1557,7 +1557,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-3-22',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'Five students each study a different subject: Maths, English, Science, Art, and Music. Liam studies Maths. Nora does not study English, Art, or Music. Oscar studies Art. Penny does not study Music. What does Quinn study?',
     questionTokens: ['Five', 'students', 'each', 'study', 'a', 'different', 'subject:', 'Maths,', 'English,', 'Science,', 'Art,', 'and', 'Music.', 'Liam', 'studies', 'Maths.', 'Nora', 'does', 'not', 'study', 'English,', 'Art,', 'or', 'Music.', 'Oscar', 'studies', 'Art.', 'Penny', 'does', 'not', 'study', 'Music.', 'What', 'does', 'Quinn', 'study?'],
@@ -1575,7 +1575,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-3-23',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'A pattern follows a rule based on triangle numbers: 1, 3, 6, 10, 15, ___. What comes next?',
     questionTokens: ['A', 'pattern', 'follows', 'a', 'rule', 'based', 'on', 'triangle', 'numbers:', '1,', '3,', '6,', '10,', '15,', '___.', 'What', 'comes', 'next?'],
@@ -1593,7 +1593,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-3-24',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'In a code, letters are assigned values: A=1, B=2, ..., Z=26. The value of a word is found by multiplying all letter values together. What is the value of the word BAD?',
     questionTokens: ['In', 'a', 'code,', 'letters', 'are', 'assigned', 'values:', 'A=1,', 'B=2,', '...,', 'Z=26.', 'The', 'value', 'of', 'a', 'word', 'is', 'found', 'by', 'multiplying', 'all', 'letter', 'values', 'together.', 'What', 'is', 'the', 'value', 'of', 'the', 'word', 'BAD?'],
@@ -1611,7 +1611,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-3-25',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'You are at point A on a grid, facing West. Turn left. Walk 5 squares. Turn left. Walk 5 squares. Turn left. Walk 5 squares. Turn left. Walk 5 squares. Where are you now?',
     questionTokens: ['You', 'are', 'at', 'point', 'A', 'on', 'a', 'grid,', 'facing', 'West.', 'Turn', 'left.', 'Walk', '5', 'squares.', 'Turn', 'left.', 'Walk', '5', 'squares.', 'Turn', 'left.', 'Walk', '5', 'squares.', 'Turn', 'left.', 'Walk', '5', 'squares.', 'Where', 'are', 'you', 'now?'],
@@ -1629,7 +1629,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-3-26',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'If no teachers are students, and all students are learners, which statement must be true?',
     questionTokens: ['If', 'no', 'teachers', 'are', 'students,', 'and', 'all', 'students', 'are', 'learners,', 'which', 'statement', 'must', 'be', 'true?'],
@@ -1647,7 +1647,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-3-27',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'Four children — Will, Xia, Yara, and Zak — each scored a different mark on a test: 60, 70, 80, 90. Will scored higher than Xia. Yara scored 80. Zak did not score the lowest or the highest. What did Will score?',
     questionTokens: ['Four', 'children', '—', 'Will,', 'Xia,', 'Yara,', 'and', 'Zak', '—', 'each', 'scored', 'a', 'different', 'mark', 'on', 'a', 'test:', '60,', '70,', '80,', '90.', 'Will', 'scored', 'higher', 'than', 'Xia.', 'Yara', 'scored', '80.', 'Zak', 'did', 'not', 'score', 'the', 'lowest', 'or', 'the', 'highest.', 'What', 'did', 'Will', 'score?'],
@@ -1665,7 +1665,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-3-28',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'A sequence uses two alternating operations: +4, then x2, then +4, then x2, and so on. Starting at 1: 1, 5, 10, 14, 28, ___. What comes next?',
     questionTokens: ['A', 'sequence', 'uses', 'two', 'alternating', 'operations:', '+4,', 'then', 'x2,', 'then', '+4,', 'then', 'x2,', 'and', 'so', 'on.', 'Starting', 'at', '1:', '1,', '5,', '10,', '14,', '28,', '___.', 'What', 'comes', 'next?'],
@@ -1683,7 +1683,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-3-29',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'Set A: even numbers less than 20. Set B: prime numbers. Set C: the overlap of A and B. How many numbers are in Set C?',
     questionTokens: ['Set', 'A:', 'even', 'numbers', 'less', 'than', '20.', 'Set', 'B:', 'prime', 'numbers.', 'Set', 'C:', 'the', 'overlap', 'of', 'A', 'and', 'B.', 'How', 'many', 'numbers', 'are', 'in', 'Set', 'C?'],
@@ -1701,7 +1701,7 @@ export const nonVerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'nvr-3-30',
-    subject: 'non-verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'A secret code shifts each letter backward by a number equal to its position in the word. The 1st letter shifts back 1, the 2nd shifts back 2, the 3rd shifts back 3. What does the code CIG produce when decoded?',
     questionTokens: ['A', 'secret', 'code', 'shifts', 'each', 'letter', 'backward', 'by', 'a', 'number', 'equal', 'to', 'its', 'position', 'in', 'the', 'word.', 'The', '1st', 'letter', 'shifts', 'back', '1,', 'the', '2nd', 'shifts', 'back', '2,', 'the', '3rd', 'shifts', 'back', '3.', 'What', 'does', 'the', 'code', 'CIG', 'produce', 'when', 'decoded?'],

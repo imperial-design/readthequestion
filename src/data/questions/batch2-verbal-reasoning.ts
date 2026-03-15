@@ -11,7 +11,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
 
   {
     id: 'vr-b2-1-01',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'Which word means the opposite of "ancient"?',
     questionTokens: ['Which', 'word', 'means', 'the', 'opposite', 'of', '"ancient"?'],
@@ -29,7 +29,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-b2-1-02',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'Glove is to hand as sock is to ___.',
     questionTokens: ['Glove', 'is', 'to', 'hand', 'as', 'sock', 'is', 'to', '___.'],
@@ -47,7 +47,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-b2-1-03',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'Which is the odd one out? Square, Triangle, Circle, Cube',
     questionTokens: ['Which', 'is', 'the', 'odd', 'one', 'out?', 'Square,', 'Triangle,', 'Circle,', 'Cube'],
@@ -68,7 +68,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
 
   {
     id: 'vr-b2-2-01',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'Find the hidden animal in this sentence: "We shall amble along the river path." The animal is:',
     questionTokens: ['Find', 'the', 'hidden', 'animal', 'in', 'this', 'sentence:', '"We', 'shall', 'amble', 'along', 'the', 'river', 'path."', 'The', 'animal', 'is:'],
@@ -86,7 +86,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-b2-2-02',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'If A = 1, B = 2, C = 3 and so on, what is the value of the first letter of the word "cat"?',
     questionTokens: ['If', 'A', '=', '1,', 'B', '=', '2,', 'C', '=', '3', 'and', 'so', 'on,', 'what', 'is', 'the', 'value', 'of', 'the', 'first', 'letter', 'of', 'the', 'word', '"cat"?'],
@@ -104,7 +104,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-b2-2-03',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'Which word is closest in meaning to "enormous"?',
     questionTokens: ['Which', 'word', 'is', 'closest', 'in', 'meaning', 'to', '"enormous"?'],
@@ -122,7 +122,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-b2-2-04',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'Look at the pattern: Monday, Wednesday, Friday, ___. What day comes next?',
     questionTokens: ['Look', 'at', 'the', 'pattern:', 'Monday,', 'Wednesday,', 'Friday,', '___.', 'What', 'day', 'comes', 'next?'],
@@ -140,7 +140,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-b2-2-05',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'Paw is to cat as hoof is to ___.',
     questionTokens: ['Paw', 'is', 'to', 'cat', 'as', 'hoof', 'is', 'to', '___.'],
@@ -158,7 +158,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-b2-2-06',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'Which is the odd one out? Rose, Daisy, Oak, Tulip',
     questionTokens: ['Which', 'is', 'the', 'odd', 'one', 'out?', 'Rose,', 'Daisy,', 'Oak,', 'Tulip'],
@@ -176,7 +176,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-b2-2-07',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'Which word correctly completes both sentences? "She wore a ___ on her head." and "He twisted the bottle ___."',
     questionTokens: ['Which', 'word', 'correctly', 'completes', 'both', 'sentences?', '"She', 'wore', 'a', '___', 'on', 'her', 'head."', 'and', '"He', 'twisted', 'the', 'bottle', '___."'],
@@ -197,7 +197,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
 
   {
     id: 'vr-b2-3-01',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'Author is to novel as sculptor is to ___.',
     questionTokens: ['Author', 'is', 'to', 'novel', 'as', 'sculptor', 'is', 'to', '___.'],
@@ -215,7 +215,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-b2-3-02',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'If the code for "fish" is "gjtj" (each letter moves forward by 1, 2, 1, 2), what is the code for "bird"?',
     questionTokens: ['If', 'the', 'code', 'for', '"fish"', 'is', '"gjtj"', '(each', 'letter', 'moves', 'forward', 'by', '1,', '2,', '1,', '2),', 'what', 'is', 'the', 'code', 'for', '"bird"?'],
@@ -233,7 +233,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-b2-3-03',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'What word can follow "snow" and come before "room"?',
     questionTokens: ['What', 'word', 'can', 'follow', '"snow"', 'and', 'come', 'before', '"room"?'],
@@ -251,7 +251,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-b2-3-04',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'Which is the odd one out? Mercury, Venus, Mars, Pluto',
     questionTokens: ['Which', 'is', 'the', 'odd', 'one', 'out?', 'Mercury,', 'Venus,', 'Mars,', 'Pluto'],
@@ -269,7 +269,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-b2-3-05',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'Which word is the opposite of "transparent"?',
     questionTokens: ['Which', 'word', 'is', 'the', 'opposite', 'of', '"transparent"?'],
@@ -287,7 +287,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-b2-3-06',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'What comes next in the series? A, C, F, J, ___',
     questionTokens: ['What', 'comes', 'next', 'in', 'the', 'series?', 'A,', 'C,', 'F,', 'J,', '___'],
@@ -305,7 +305,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-b2-3-07',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'Anna is taller than Beth. Carol is shorter than Beth. Diana is taller than Anna. Who is the shortest?',
     questionTokens: ['Anna', 'is', 'taller', 'than', 'Beth.', 'Carol', 'is', 'shorter', 'than', 'Beth.', 'Diana', 'is', 'taller', 'than', 'Anna.', 'Who', 'is', 'the', 'shortest?'],
@@ -323,7 +323,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-b2-3-08',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'Pen is to write as brush is to ___.',
     questionTokens: ['Pen', 'is', 'to', 'write', 'as', 'brush', 'is', 'to', '___.'],
@@ -341,7 +341,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-b2-3-09',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'In a code, "tiger" is written as "ujhfs". Each letter has been moved forward by one place in the alphabet. Using the same code, what would "snake" become?',
     questionTokens: ['In', 'a', 'code,', '"tiger"', 'is', 'written', 'as', '"ujhfs".', 'Each', 'letter', 'has', 'been', 'moved', 'forward', 'by', 'one', 'place', 'in', 'the', 'alphabet.', 'Using', 'the', 'same', 'code,', 'what', 'would', '"snake"', 'become?'],
@@ -359,7 +359,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-b2-3-10',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'Read the sentence: "The knight\'s valour in battle was legendary." What does "valour" mean?',
     questionTokens: ['Read', 'the', 'sentence:', '"The', 'knight\'s', 'valour', 'in', 'battle', 'was', 'legendary."', 'What', 'does', '"valour"', 'mean?'],
@@ -382,7 +382,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
 
   {
     id: 'vr-b2-wpa-1-01',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: '(cat → act) (tap → pat) (dog → ?)',
     questionTokens: ['(cat', '→', 'act)', '(tap', '→', 'pat)', '(dog', '→', '?)'],
@@ -400,7 +400,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-b2-wpa-1-02',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: '(pot → top) (war → raw) (tip → ?)',
     questionTokens: ['(pot', '→', 'top)', '(war', '→', 'raw)', '(tip', '→', '?)'],
@@ -418,7 +418,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-b2-wpa-2-01',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: '(finger → finer) (garden → grade) (lemon → ?)',
     questionTokens: ['(finger', '→', 'finer)', '(garden', '→', 'grade)', '(lemon', '→', '?)'],
@@ -436,7 +436,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-b2-wpa-2-02',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: '(horse → shore) (steal → tales) (night → ?)',
     questionTokens: ['(horse', '→', 'shore)', '(steal', '→', 'tales)', '(night', '→', '?)'],
@@ -454,7 +454,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-b2-wpa-2-03',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: '(listen → silent) (below → elbow) (earth → ?)',
     questionTokens: ['(listen', '→', 'silent)', '(below', '→', 'elbow)', '(earth', '→', '?)'],
@@ -472,7 +472,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-b2-wpa-3-01',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: '(organ → groan) (plate → leapt) (parse → ?)',
     questionTokens: ['(organ', '→', 'groan)', '(plate', '→', 'leapt)', '(parse', '→', '?)'],
@@ -490,7 +490,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-b2-wpa-3-02',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: '(canoe → ocean) (meats → steam) (trace → ?)',
     questionTokens: ['(canoe', '→', 'ocean)', '(meats', '→', 'steam)', '(trace', '→', '?)'],
@@ -508,7 +508,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-b2-wpa-3-03',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: '(danger → garden) (drawer → reward) (spread → ?)',
     questionTokens: ['(danger', '→', 'garden)', '(drawer', '→', 'reward)', '(spread', '→', '?)'],
@@ -526,7 +526,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-b2-wpa-2-04',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: '(post → stop) (leaf → flea) (snap → ?)',
     questionTokens: ['(post', '→', 'stop)', '(leaf', '→', 'flea)', '(snap', '→', '?)'],
@@ -544,7 +544,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-b2-wpa-3-04',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: '(master → stream) (stripe → esprit) (allergy → ?)',
     questionTokens: ['(master', '→', 'stream)', '(stripe', '→', 'esprit)', '(allergy', '→', '?)'],
@@ -565,7 +565,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
 
   {
     id: 'vr-b2-cmg-1-01',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'Find two words, one from each group, that are closest in meaning. (big, cold, fast) (quick, tiny, warm)',
     questionTokens: ['Find', 'two', 'words,', 'one', 'from', 'each', 'group,', 'that', 'are', 'closest', 'in', 'meaning.', '(big,', 'cold,', 'fast)', '(quick,', 'tiny,', 'warm)'],
@@ -583,7 +583,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-b2-cmg-1-02',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'Find two words, one from each group, that are closest in meaning. (happy, tall, shut) (glad, short, open)',
     questionTokens: ['Find', 'two', 'words,', 'one', 'from', 'each', 'group,', 'that', 'are', 'closest', 'in', 'meaning.', '(happy,', 'tall,', 'shut)', '(glad,', 'short,', 'open)'],
@@ -601,7 +601,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-b2-cmg-2-01',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'Find two words, one from each group, that are closest in meaning. (expand, retreat, silence) (withdraw, noise, shrink)',
     questionTokens: ['Find', 'two', 'words,', 'one', 'from', 'each', 'group,', 'that', 'are', 'closest', 'in', 'meaning.', '(expand,', 'retreat,', 'silence)', '(withdraw,', 'noise,', 'shrink)'],
@@ -619,7 +619,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-b2-cmg-2-02',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'Find two words, one from each group, that are closest in meaning. (conceal, divide, mend) (split, repair, reveal)',
     questionTokens: ['Find', 'two', 'words,', 'one', 'from', 'each', 'group,', 'that', 'are', 'closest', 'in', 'meaning.', '(conceal,', 'divide,', 'mend)', '(split,', 'repair,', 'reveal)'],
@@ -637,7 +637,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-b2-cmg-3-01',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'Find two words, one from each group, that are closest in meaning. (benevolent, sporadic, prudent) (cautious, frequent, malicious)',
     questionTokens: ['Find', 'two', 'words,', 'one', 'from', 'each', 'group,', 'that', 'are', 'closest', 'in', 'meaning.', '(benevolent,', 'sporadic,', 'prudent)', '(cautious,', 'frequent,', 'malicious)'],
@@ -655,7 +655,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-b2-cmg-3-02',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'Find two words, one from each group, that are closest in meaning. (abundant, scarce, peculiar) (plentiful, ordinary, rare)',
     questionTokens: ['Find', 'two', 'words,', 'one', 'from', 'each', 'group,', 'that', 'are', 'closest', 'in', 'meaning.', '(abundant,', 'scarce,', 'peculiar)', '(plentiful,', 'ordinary,', 'rare)'],
@@ -673,7 +673,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-b2-cmg-3-03',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'Find two words, one from each group, that are closest in meaning. (valiant, tranquil, hostile) (aggressive, brave, peaceful)',
     questionTokens: ['Find', 'two', 'words,', 'one', 'from', 'each', 'group,', 'that', 'are', 'closest', 'in', 'meaning.', '(valiant,', 'tranquil,', 'hostile)', '(aggressive,', 'brave,', 'peaceful)'],
@@ -691,7 +691,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-b2-cmg-3-04',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'Find two words, one from each group, that are closest in meaning. (tedious, urgent, fragile) (delicate, pressing, exciting)',
     questionTokens: ['Find', 'two', 'words,', 'one', 'from', 'each', 'group,', 'that', 'are', 'closest', 'in', 'meaning.', '(tedious,', 'urgent,', 'fragile)', '(delicate,', 'pressing,', 'exciting)'],
@@ -712,7 +712,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
 
   {
     id: 'vr-b2-opp-1-01',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'Find two words, one from each group, that are most opposite in meaning. (light, soft, wet) (dark, loud, dry)',
     questionTokens: ['Find', 'two', 'words,', 'one', 'from', 'each', 'group,', 'that', 'are', 'most', 'opposite', 'in', 'meaning.', '(light,', 'soft,', 'wet)', '(dark,', 'loud,', 'dry)'],
@@ -730,7 +730,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-b2-opp-2-01',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'Find two words, one from each group, that are most opposite in meaning. (generous, ancient, brave) (modern, cowardly, mean)',
     questionTokens: ['Find', 'two', 'words,', 'one', 'from', 'each', 'group,', 'that', 'are', 'most', 'opposite', 'in', 'meaning.', '(generous,', 'ancient,', 'brave)', '(modern,', 'cowardly,', 'mean)'],
@@ -748,7 +748,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-b2-opp-2-02',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'Find two words, one from each group, that are most opposite in meaning. (smooth, narrow, loud) (rough, wide, quiet)',
     questionTokens: ['Find', 'two', 'words,', 'one', 'from', 'each', 'group,', 'that', 'are', 'most', 'opposite', 'in', 'meaning.', '(smooth,', 'narrow,', 'loud)', '(rough,', 'wide,', 'quiet)'],
@@ -766,7 +766,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-b2-opp-3-01',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'Find two words, one from each group, that are most opposite in meaning. (illuminate, expand, conceal) (reveal, shrink, darken)',
     questionTokens: ['Find', 'two', 'words,', 'one', 'from', 'each', 'group,', 'that', 'are', 'most', 'opposite', 'in', 'meaning.', '(illuminate,', 'expand,', 'conceal)', '(reveal,', 'shrink,', 'darken)'],
@@ -784,7 +784,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-b2-opp-3-02',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'Find two words, one from each group, that are most opposite in meaning. (commence, demolish, ascend) (descend, construct, terminate)',
     questionTokens: ['Find', 'two', 'words,', 'one', 'from', 'each', 'group,', 'that', 'are', 'most', 'opposite', 'in', 'meaning.', '(commence,', 'demolish,', 'ascend)', '(descend,', 'construct,', 'terminate)'],
@@ -802,7 +802,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-b2-opp-3-03',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'Find two words, one from each group, that are most opposite in meaning. (temporary, voluntary, inferior) (superior, compulsory, permanent)',
     questionTokens: ['Find', 'two', 'words,', 'one', 'from', 'each', 'group,', 'that', 'are', 'most', 'opposite', 'in', 'meaning.', '(temporary,', 'voluntary,', 'inferior)', '(superior,', 'compulsory,', 'permanent)'],
@@ -820,7 +820,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-b2-opp-3-04',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'Find two words, one from each group, that are most opposite in meaning. (timid, artificial, shallow) (natural, bold, deep)',
     questionTokens: ['Find', 'two', 'words,', 'one', 'from', 'each', 'group,', 'that', 'are', 'most', 'opposite', 'in', 'meaning.', '(timid,', 'artificial,', 'shallow)', '(natural,', 'bold,', 'deep)'],
@@ -841,7 +841,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
 
   {
     id: 'vr-b2-wfb-1-01',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'Find the word that means the same or nearly the same as both pairs: (stone, pebble) (shake, sway). Which word fits?',
     questionTokens: ['Find', 'the', 'word', 'that', 'means', 'the', 'same', 'or', 'nearly', 'the', 'same', 'as', 'both', 'pairs:', '(stone,', 'pebble)', '(shake,', 'sway).', 'Which', 'word', 'fits?'],
@@ -859,7 +859,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-b2-wfb-2-01',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'Find the word that means the same or nearly the same as both pairs: (item, thing) (protest, complain). Which word fits?',
     questionTokens: ['Find', 'the', 'word', 'that', 'means', 'the', 'same', 'or', 'nearly', 'the', 'same', 'as', 'both', 'pairs:', '(item,', 'thing)', '(protest,', 'complain).', 'Which', 'word', 'fits?'],
@@ -877,7 +877,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-b2-wfb-2-02',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'Find the word that means the same or nearly the same as both pairs: (light, lamp) (fire, dismiss). Which word fits?',
     questionTokens: ['Find', 'the', 'word', 'that', 'means', 'the', 'same', 'or', 'nearly', 'the', 'same', 'as', 'both', 'pairs:', '(light,', 'lamp)', '(fire,', 'dismiss).', 'Which', 'word', 'fits?'],
@@ -895,7 +895,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-b2-wfb-2-03',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'Find the word that means the same or nearly the same as both pairs: (fair, just) (correct, accurate). Which word fits?',
     questionTokens: ['Find', 'the', 'word', 'that', 'means', 'the', 'same', 'or', 'nearly', 'the', 'same', 'as', 'both', 'pairs:', '(fair,', 'just)', '(correct,', 'accurate).', 'Which', 'word', 'fits?'],
@@ -913,7 +913,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-b2-wfb-3-01',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'Find the word that means the same or nearly the same as both pairs: (vessel, ship) (skill, ability). Which word fits?',
     questionTokens: ['Find', 'the', 'word', 'that', 'means', 'the', 'same', 'or', 'nearly', 'the', 'same', 'as', 'both', 'pairs:', '(vessel,', 'ship)', '(skill,', 'ability).', 'Which', 'word', 'fits?'],
@@ -931,7 +931,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-b2-wfb-3-02',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'Find the word that means the same or nearly the same as both pairs: (money, cash) (bread, dough). Which word fits?',
     questionTokens: ['Find', 'the', 'word', 'that', 'means', 'the', 'same', 'or', 'nearly', 'the', 'same', 'as', 'both', 'pairs:', '(money,', 'cash)', '(bread,', 'dough).', 'Which', 'word', 'fits?'],
@@ -949,7 +949,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-b2-wfb-3-03',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'Find the word that means the same or nearly the same as both pairs: (level, flat) (smooth, even). Which word fits?',
     questionTokens: ['Find', 'the', 'word', 'that', 'means', 'the', 'same', 'or', 'nearly', 'the', 'same', 'as', 'both', 'pairs:', '(level,', 'flat)', '(smooth,', 'even).', 'Which', 'word', 'fits?'],
@@ -970,7 +970,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
 
   {
     id: 'vr-b2-cw-1-01',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'Take one word from each group and put them together to make a new word. (sun, sat, sit) (day, ray, bay). Which compound word can you make?',
     questionTokens: ['Take', 'one', 'word', 'from', 'each', 'group', 'and', 'put', 'them', 'together', 'to', 'make', 'a', 'new', 'word.', '(sun,', 'sat,', 'sit)', '(day,', 'ray,', 'bay).', 'Which', 'compound', 'word', 'can', 'you', 'make?'],
@@ -988,7 +988,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-b2-cw-1-02',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 1,
     questionText: 'Take one word from each group and put them together to make a new word. (foot, hand, head) (ball, bell, bill). Which compound word can you make?',
     questionTokens: ['Take', 'one', 'word', 'from', 'each', 'group', 'and', 'put', 'them', 'together', 'to', 'make', 'a', 'new', 'word.', '(foot,', 'hand,', 'head)', '(ball,', 'bell,', 'bill).', 'Which', 'compound', 'word', 'can', 'you', 'make?'],
@@ -1006,7 +1006,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-b2-cw-2-01',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'Take one word from each group and put them together to make a new word. (sea, see, sew) (soon, son, sun). Which compound word can you make?',
     questionTokens: ['Take', 'one', 'word', 'from', 'each', 'group', 'and', 'put', 'them', 'together', 'to', 'make', 'a', 'new', 'word.', '(sea,', 'see,', 'sew)', '(soon,', 'son,', 'sun).', 'Which', 'compound', 'word', 'can', 'you', 'make?'],
@@ -1024,7 +1024,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-b2-cw-2-02',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'Take one word from each group and put them together to make a new word. (car, cat, cap) (pet, pen, pin). Which compound word can you make?',
     questionTokens: ['Take', 'one', 'word', 'from', 'each', 'group', 'and', 'put', 'them', 'together', 'to', 'make', 'a', 'new', 'word.', '(car,', 'cat,', 'cap)', '(pet,', 'pen,', 'pin).', 'Which', 'compound', 'word', 'can', 'you', 'make?'],
@@ -1042,7 +1042,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-b2-cw-2-03',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'Take one word from each group and put them together to make a new word. (but, bat, bit) (ton, ten, tan). Which compound word can you make?',
     questionTokens: ['Take', 'one', 'word', 'from', 'each', 'group', 'and', 'put', 'them', 'together', 'to', 'make', 'a', 'new', 'word.', '(but,', 'bat,', 'bit)', '(ton,', 'ten,', 'tan).', 'Which', 'compound', 'word', 'can', 'you', 'make?'],
@@ -1060,7 +1060,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-b2-cw-3-01',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'Take one word from each group and put them together to make a new word. (for, far, fur) (get, got, gut). Which compound word can you make?',
     questionTokens: ['Take', 'one', 'word', 'from', 'each', 'group', 'and', 'put', 'them', 'together', 'to', 'make', 'a', 'new', 'word.', '(for,', 'far,', 'fur)', '(get,', 'got,', 'gut).', 'Which', 'compound', 'word', 'can', 'you', 'make?'],
@@ -1078,7 +1078,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-b2-cw-3-02',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'Take one word from each group and put them together to make a new word. (war, was, way) (den, dim, dam). Which compound word can you make?',
     questionTokens: ['Take', 'one', 'word', 'from', 'each', 'group', 'and', 'put', 'them', 'together', 'to', 'make', 'a', 'new', 'word.', '(war,', 'was,', 'way)', '(den,', 'dim,', 'dam).', 'Which', 'compound', 'word', 'can', 'you', 'make?'],
@@ -1096,7 +1096,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-b2-cw-3-03',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'Take one word from each group and put them together to make a new word. (par, per, pit) (son, sun, sin). Which compound word can you make?',
     questionTokens: ['Take', 'one', 'word', 'from', 'each', 'group', 'and', 'put', 'them', 'together', 'to', 'make', 'a', 'new', 'word.', '(par,', 'per,', 'pit)', '(son,', 'sun,', 'sin).', 'Which', 'compound', 'word', 'can', 'you', 'make?'],
@@ -1117,7 +1117,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
 
   {
     id: 'vr-b2-ml-2-01',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'Move one letter from the first word to the second word to make two new real words: "clasp" "_oil". Which letter do you move?',
     questionTokens: ['Move', 'one', 'letter', 'from', 'the', 'first', 'word', 'to', 'the', 'second', 'word', 'to', 'make', 'two', 'new', 'real', 'words:', '"clasp"', '"_oil".', 'Which', 'letter', 'do', 'you', 'move?'],
@@ -1135,7 +1135,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-b2-ml-2-02',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 2,
     questionText: 'Move one letter from the first word to the second word to make two new real words: "crate" "_old". Which letter do you move?',
     questionTokens: ['Move', 'one', 'letter', 'from', 'the', 'first', 'word', 'to', 'the', 'second', 'word', 'to', 'make', 'two', 'new', 'real', 'words:', '"crate"', '"_old".', 'Which', 'letter', 'do', 'you', 'move?'],
@@ -1153,7 +1153,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-b2-ml-3-01',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'Move one letter from the first word to the second word to make two new real words: "brain" "_each". Which letter do you move?',
     questionTokens: ['Move', 'one', 'letter', 'from', 'the', 'first', 'word', 'to', 'the', 'second', 'word', 'to', 'make', 'two', 'new', 'real', 'words:', '"brain"', '"_each".', 'Which', 'letter', 'do', 'you', 'move?'],
@@ -1171,7 +1171,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-b2-ml-3-02',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'Move one letter from the first word to the second word to make two new real words: "bland" "_ear". Which letter do you move?',
     questionTokens: ['Move', 'one', 'letter', 'from', 'the', 'first', 'word', 'to', 'the', 'second', 'word', 'to', 'make', 'two', 'new', 'real', 'words:', '"bland"', '"_ear".', 'Which', 'letter', 'do', 'you', 'move?'],
@@ -1189,7 +1189,7 @@ export const batch2VerbalReasoningQuestions: Question[] = [
   },
   {
     id: 'vr-b2-ml-3-03',
-    subject: 'verbal-reasoning',
+    subject: 'reasoning',
     difficulty: 3,
     questionText: 'Move one letter from the first word to the second word to make two new real words: "wheat" "_ill". Which letter do you move?',
     questionTokens: ['Move', 'one', 'letter', 'from', 'the', 'first', 'word', 'to', 'the', 'second', 'word', 'to', 'make', 'two', 'new', 'real', 'words:', '"wheat"', '"_ill".', 'Which', 'letter', 'do', 'you', 'move?'],
