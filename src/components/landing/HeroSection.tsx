@@ -25,8 +25,8 @@ export function HeroSection() {
         >
           {/* Big bold headline */}
           <h1 className="font-display font-extrabold text-[2rem] leading-[1.15] md:text-5xl md:leading-[1.15] text-white drop-shadow-lg mb-5 max-w-2xl mx-auto">
-            They&rsquo;ll only get the marks if they{' '}
-            <span className="text-fuchsia-300">Read the&nbsp;Question!</span>
+            They can only get the marks if they{' '}
+            <span className="text-fuchsia-300">Answer the&nbsp;Question!</span>
           </h1>
 
           {/* Subhead — glass card with dark text */}
