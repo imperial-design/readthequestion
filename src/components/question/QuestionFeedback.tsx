@@ -152,11 +152,11 @@ export function QuestionFeedback({ isCorrect, techniqueScore, question, selected
   const stars = getStars();
 
   const getHootMessage = () => {
-    if (isCorrect && techniqueScore.overallTechniquePercent >= 90) return "Owl-standing work! Perfect technique AND the right answer!";
-    if (isCorrect && techniqueScore.overallTechniquePercent >= 60) return "Hoo-ray! Great job getting that right!";
-    if (isCorrect) return "You got it right! Keep working on your technique and you'll be flying!";
-    if (techniqueScore.overallTechniquePercent >= 70) return "Good technique! The answer wasn't right this time, but your method is spot on. Keep it up!";
-    return "Don't worry — every question teaches you something! Let's look at what happened.";
+    if (isCorrect && techniqueScore.overallTechniquePercent >= 90) return "Owl-standing work! Perfect technique AND the right answer — you absolutely smashed it!";
+    if (isCorrect && techniqueScore.overallTechniquePercent >= 60) return "Brilliant! You nailed it! Keep using the CLEAR Method like that and you'll be unstoppable!";
+    if (isCorrect) return "Yes! You got it! Now imagine using your full technique too — you'd be on fire!";
+    if (techniqueScore.overallTechniquePercent >= 70) return "So close! Your technique was really impressive though — that's what matters most. The right answers will follow!";
+    return "Not to worry — every question is a chance to learn! Let's see what happened and you'll nail the next one.";
   };
 
   return (
@@ -227,7 +227,7 @@ export function QuestionFeedback({ isCorrect, techniqueScore, question, selected
         <div>
           <p className={`font-display font-bold text-lg ${isCorrect ? 'text-calm-700' : 'text-red-700'}`}>
             {isCorrect
-              ? (techniqueScore.overallTechniquePercent >= 90 ? 'Perfect!' : 'Well done!')
+              ? (techniqueScore.overallTechniquePercent >= 90 ? 'Nailed it!' : 'Brilliant!')
               : 'Not quite right'}
           </p>
           <p className="text-sm text-gray-600 mt-1">{question.explanation}</p>

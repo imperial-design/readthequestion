@@ -281,11 +281,32 @@ export function HomePage() {
         </div>
       </motion.div>
 
-      {/* ========== EXAM COUNTDOWN ========== */}
+      {/* ========== STATS ROW ========== */}
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.12 }}
+        className="grid grid-cols-3 gap-3 relative z-10"
+      >
+        <div className="bg-indigo-900/60 backdrop-blur-sm rounded-card p-3 text-center border border-indigo-400/30">
+          <p className="font-display font-extrabold text-2xl text-yellow-300 drop-shadow-sm">{progress.xp}</p>
+          <p className="text-indigo-100/90 text-sm font-display">⭐ Points</p>
+        </div>
+        <div className="bg-indigo-900/60 backdrop-blur-sm rounded-card p-3 text-center border border-indigo-400/30">
+          <p className="font-display font-extrabold text-2xl text-green-300 drop-shadow-sm">{progress.totalCorrect}</p>
+          <p className="text-indigo-100/90 text-sm font-display">✅ Correct</p>
+        </div>
+        <div className="bg-indigo-900/60 backdrop-blur-sm rounded-card p-3 text-center border border-indigo-400/30">
+          <p className="font-display font-extrabold text-2xl text-white drop-shadow-sm">{progress.averageTechniqueScore}%</p>
+          <p className="text-indigo-100/90 text-sm font-display">🎯 Technique</p>
+        </div>
+      </motion.div>
+
+      {/* ========== EXAM COUNTDOWN ========== */}
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.15 }}
         className="relative z-10"
       >
         {examDate ? (
@@ -295,12 +316,11 @@ export function HomePage() {
         )}
       </motion.div>
 
-
       {/* ========== 12-WEEK PROGRESS TRACKER ========== */}
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.15 }}
+        transition={{ delay: 0.18 }}
         className="relative z-10 bg-gradient-to-br from-orange-300/25 via-pink-300/20 to-rose-300/25 backdrop-blur-sm rounded-card p-4 border border-orange-200/30"
       >
         <div className="text-center mb-3">
@@ -420,7 +440,7 @@ export function HomePage() {
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
+          transition={{ delay: 0.22 }}
           className="relative z-10"
         >
           <Link
@@ -443,7 +463,7 @@ export function HomePage() {
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.22 }}
+          transition={{ delay: 0.25 }}
           className="relative z-10"
         >
           <button
@@ -460,27 +480,6 @@ export function HomePage() {
           </button>
         </motion.div>
       )}
-
-      {/* ========== STATS ROW ========== */}
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.25 }}
-        className="grid grid-cols-3 gap-3 relative z-10"
-      >
-        <div className="bg-white/20 backdrop-blur-sm rounded-card p-3 text-center border border-white/30">
-          <p className="font-display font-extrabold text-2xl text-yellow-300 drop-shadow-sm">{progress.xp}</p>
-          <p className="text-white/90 text-sm font-display">⭐ Points</p>
-        </div>
-        <div className="bg-white/20 backdrop-blur-sm rounded-card p-3 text-center border border-white/30">
-          <p className="font-display font-extrabold text-2xl text-green-300 drop-shadow-sm">{progress.totalCorrect}</p>
-          <p className="text-white/90 text-sm font-display">✅ Correct</p>
-        </div>
-        <div className="bg-white/20 backdrop-blur-sm rounded-card p-3 text-center border border-white/30">
-          <p className="font-display font-extrabold text-2xl text-white drop-shadow-sm">{progress.averageTechniqueScore}%</p>
-          <p className="text-white/90 text-sm font-display">🎯 Technique</p>
-        </div>
-      </motion.div>
 
       {/* ========== REFER A FRIEND ========== */}
       <motion.div
