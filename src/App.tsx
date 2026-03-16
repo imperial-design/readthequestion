@@ -1,5 +1,6 @@
 import { lazy, Suspense, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router';
+import { Analytics } from '@vercel/analytics/react';
 import { useAuthStore } from './stores/useAuthStore';
 import { useProgressStore } from './stores/useProgressStore';
 import { useSupabaseAuth } from './hooks/useSupabaseAuth';
@@ -169,6 +170,7 @@ function App() {
           </Routes>
         </Suspense>
       </BrowserRouter>
+      <Analytics />
     </ErrorBoundary>
     </MotionConfig>
   );
