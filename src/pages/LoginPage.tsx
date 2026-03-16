@@ -17,6 +17,8 @@ export function LoginPage() {
   const [loading, setLoading] = useState(false);
   const [showForgotPassword, setShowForgotPassword] = useState(false);
   const [resetEmailSent, setResetEmailSent] = useState(false);
+  const [showResendConfirmation, setShowResendConfirmation] = useState(false);
+  const [confirmationResent, setConfirmationResent] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [newPassword, setNewPassword] = useState('');
   const [confirmNewPassword, setConfirmNewPassword] = useState('');
@@ -51,6 +53,28 @@ export function LoginPage() {
       if (signInError) throw signInError;
       const redirect = searchParams.get('redirect');
       navigate(redirect && redirect.startsWith('/') && !redirect.startsWith('//') ? redirect : '/select-child');
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : 'Something went wrong';
+      setError(msg);
+      if (msg.toLowerCase().includes('email not confirmed')) {
+        setShowResendConfirmation(true);
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleResendConfirmation = async () => {
+    setError(null);
+    setLoading(true);
+    try {
+      const { error: resendError } = await supabase.auth.resend({
+        type: 'signup',
+        email,
+      });
+      if (resendError) throw resendError;
+      setConfirmationResent(true);
+      setShowResendConfirmation(false);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Something went wrong');
     } finally {
@@ -404,6 +428,30 @@ export function LoginPage() {
                   <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-red-600 text-sm font-display font-semibold bg-red-50 p-3 rounded-lg">
                     {error}
                   </motion.p>
+                )}
+
+                {showResendConfirmation && (
+                  <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="bg-amber-50 border border-amber-200 rounded-lg p-3 text-center">
+                    <p className="text-sm text-amber-800 font-display mb-2">
+                      Your email hasn't been confirmed yet. Check your inbox (and spam folder), or resend the confirmation email.
+                    </p>
+                    <button
+                      type="button"
+                      onClick={handleResendConfirmation}
+                      disabled={loading}
+                      className="text-sm font-display font-bold text-purple-600 hover:text-purple-800 underline"
+                    >
+                      {loading ? 'Sending...' : 'Resend confirmation email'}
+                    </button>
+                  </motion.div>
+                )}
+
+                {confirmationResent && (
+                  <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="bg-green-50 border border-green-200 rounded-lg p-3 text-center">
+                    <p className="text-sm text-green-800 font-display">
+                      Confirmation email resent to <strong>{email}</strong>. Check your inbox and spam folder.
+                    </p>
+                  </motion.div>
                 )}
 
                 <motion.button

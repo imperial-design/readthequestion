@@ -156,7 +156,8 @@ serve(async (req) => {
       payment_method_types: ['card'],
       mode: 'payment' as const,
       allow_promotion_codes: true,
-      // Collect billing name + address — prevents "empty customer_data[name]" error with promo codes
+      // Collect billing details — required to prevent "empty customer_data[name]" error
+      // with promotion codes. Standard for UK card payments and increases trust.
       billing_address_collection: 'required',
       line_items: lineItems,
       success_url: `${successUrl}?session_id={CHECKOUT_SESSION_ID}${includeCribSheet ? '&crib_sheet=1' : ''}`,
