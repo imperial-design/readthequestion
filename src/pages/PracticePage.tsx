@@ -47,6 +47,11 @@ export function PracticePage() {
   const questions = useDailyQuestions(weekConfig, answeredIds, focusSubject ?? undefined, mistakeQuestionIds);
 
   const [showBreathing, setShowBreathing] = useState(true);
+  const [showWeek1Note, setShowWeek1Note] = useState(() => {
+    // Show once ever, only in week 1 on first session
+    if (localStorage.getItem('atq_week1_note_seen') === 'true') return false;
+    return true;
+  });
   const [currentIndex, setCurrentIndex] = useState(0);
   const [results, setResults] = useState<QuestionResult[]>([]);
   const [sessionComplete, setSessionComplete] = useState(false);
@@ -128,6 +133,30 @@ export function PracticePage() {
   // Pre-session breathing exercise (skip if session already complete)
   if (showBreathing && !sessionComplete) {
     return <PreSessionBreathing onComplete={() => setShowBreathing(false)} />;
+  }
+
+  // Week 1 one-time note — shown after breathing, before first question
+  if (showWeek1Note && progress.currentWeek === 1 && progress.totalQuestionsAnswered === 0) {
+    return (
+      <div className="flex items-center justify-center min-h-[60vh] px-4">
+        <div className="bg-white/90 backdrop-blur-sm rounded-card p-6 max-w-md shadow-lg border border-amber-200/50 text-center space-y-4">
+          <p className="text-4xl">🦉</p>
+          <p className="font-display text-sm text-gray-700 leading-relaxed">
+            <span className="font-bold text-amber-600">Week 1 — Foundation:</span>{' '}
+            This week's questions are deliberately straightforward — the focus is on learning the CLEAR Method technique, not testing knowledge. The questions get progressively more challenging each week as the technique becomes second nature!
+          </p>
+          <button
+            onClick={() => {
+              localStorage.setItem('atq_week1_note_seen', 'true');
+              setShowWeek1Note(false);
+            }}
+            className="w-full py-3 bg-gradient-to-r from-purple-600 to-fuchsia-600 text-white font-display font-bold rounded-button shadow-md hover:shadow-lg transition-all"
+          >
+            Got it — let's go! 🚀
+          </button>
+        </div>
+      </div>
+    );
   }
 
   if (sessionComplete) {

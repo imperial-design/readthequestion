@@ -165,6 +165,9 @@ export function QuestionScreen({
           <span className="text-sm text-gray-400 font-display" aria-label={`Question ${questionNumber} of ${totalQuestions}`}>
             {questionNumber}/{totalQuestions}
           </span>
+          <span className="px-2 py-0.5 rounded-full text-xs font-display font-bold bg-white/80 text-gray-500 border border-gray-200">
+            Lv {question.difficulty}
+          </span>
         </div>
 
         <div
