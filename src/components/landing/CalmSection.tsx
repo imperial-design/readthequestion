@@ -61,6 +61,24 @@ export function CalmSection() {
               focus feels familiar, not forced.
             </p>
           </div>
+
+          {/* Dyslexia-friendly callout */}
+          <div className="mt-6 bg-amber-50 rounded-xl p-5 border border-amber-200/50">
+            <div className="flex items-start gap-3">
+              <span className="text-2xl shrink-0">♿</span>
+              <div>
+                <p className="font-display font-bold text-sm text-gray-800 mb-1">
+                  Dyslexia-friendly mode included
+                </p>
+                <p className="font-display text-sm text-gray-600 leading-relaxed">
+                  One toggle in Settings gives your child 25% extra time per question
+                  (matching the standard exam provision), softer backgrounds, higher
+                  contrast text, and larger supporting text. Because every child
+                  deserves the right conditions to show what they can do.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </motion.div>
     </section>
