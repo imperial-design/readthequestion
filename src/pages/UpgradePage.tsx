@@ -10,7 +10,7 @@ import { supabase } from '../lib/supabase';
 
 const FEATURES = [
   { emoji: '📖', text: 'All 12 weeks of guided technique training' },
-  { emoji: '🎯', text: 'English, Maths, VR & NVR questions' },
+  { emoji: '🎯', text: 'English, Maths & Reasoning questions' },
   { emoji: '📝', text: 'Full mock exams with real timing' },
   { emoji: '🏅', text: 'Complete badge collection & achievements' },
   { emoji: '🧘', text: 'Visualisation & breathing exercises' },
@@ -85,11 +85,11 @@ export function UpgradePage() {
       {/* Header */}
       <div className="text-center">
         <h2 className="font-display text-2xl font-bold text-white drop-shadow-md">
-          You did brilliantly in Week 1! 🎉
+          Ready to master exam technique? 🦉
         </h2>
         <p className="text-white/80 font-display mt-2 max-w-sm mx-auto">
-          {currentUser?.name}, you&rsquo;ve built great foundations. Unlock the full programme to
-          keep building your technique.
+          {currentUser?.name}, unlock the full 12-week CLEAR Method™ programme and
+          turn &ldquo;nearly right&rdquo; into confident, accurate answers.
         </p>
       </div>
 
@@ -183,7 +183,7 @@ export function UpgradePage() {
           onClick={() => navigate('/home')}
           className="text-sm text-white/80 font-display hover:text-white/80 transition-colors"
         >
-          Maybe later — back to the nest
+          ← Back
         </button>
       </div>
 

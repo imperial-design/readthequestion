@@ -82,7 +82,7 @@ export function Header() {
           {/* Level */}
           <div className="flex items-center gap-1 text-white font-display font-bold text-sm drop-shadow-sm">
             <Star className="w-4 h-4 text-yellow-300" />
-            <span>Lv {progress.level}</span>
+            <span>Level {progress.level}</span>
           </div>
 
           {/* Avatar with dropdown menu */}

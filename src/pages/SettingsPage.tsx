@@ -233,10 +233,17 @@ export function SettingsPage() {
                     const { data: { session } } = await supabase.auth.getSession();
                     if (!session) throw new Error('Not logged in');
 
-                    const { error } = await supabase.functions.invoke('delete-account', {
+                    const { data, error } = await supabase.functions.invoke('delete-account', {
                       body: { confirm: 'DELETE_MY_ACCOUNT' },
+                      headers: {
+                        Authorization: `Bearer ${session.access_token}`,
+                      },
                     });
-                    if (error) throw error;
+                    if (error) {
+                      // Extract real error message from response
+                      const msg = data?.error || error.message || 'Unknown error';
+                      throw new Error(msg);
+                    }
 
                     await supabase.auth.signOut();
                     logout();
