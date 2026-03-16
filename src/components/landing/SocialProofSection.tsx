@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { BookOpen, Brain, Shield } from 'lucide-react';
 
 export function SocialProofSection() {
   return (
@@ -10,7 +11,7 @@ export function SocialProofSection() {
         transition={{ duration: 0.6 }}
       >
         <h2 className="font-display font-extrabold text-2xl md:text-3xl text-white drop-shadow-md text-center mb-8 leading-tight">
-          Built on research. Proven at the kitchen table.
+          Join families preparing for the 11+ and secondary school
         </h2>
 
         <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 md:p-8 shadow-sm border border-white/30">
@@ -32,23 +33,41 @@ export function SocialProofSection() {
             That&rsquo;s exactly what the CLEAR Method trains your child to do.
           </p>
 
-          {/* Placeholder testimonial cards */}
+          {/* Three confidence pillars */}
           <div className="grid gap-4 md:grid-cols-3">
-            {[1, 2, 3].map((i) => (
+            {[
+              {
+                icon: BookOpen,
+                title: '668 exam-style questions',
+                body: 'Covering Maths, English &amp; Reasoning — with new questions added regularly.',
+              },
+              {
+                icon: Brain,
+                title: 'Research-backed method',
+                body: 'The CLEAR Method teaches the metacognitive skills that turn careless mistakes into confident answers.',
+              },
+              {
+                icon: Shield,
+                title: 'Calm & focused exam habits',
+                body: 'Built-in breathing exercises and the CLEAR Method help your child stay calm under pressure and think before they answer.',
+              },
+            ].map((item, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="border-2 border-dashed border-gray-200 rounded-xl p-5 text-center"
+                className="bg-gradient-to-b from-purple-50 to-white rounded-xl p-5 text-center border border-purple-100/50"
               >
-                <div className="w-10 h-10 rounded-full bg-gray-100 mx-auto mb-3" />
-                <div className="h-3 bg-gray-100 rounded-full w-3/4 mx-auto mb-2" />
-                <div className="h-3 bg-gray-100 rounded-full w-full mx-auto mb-2" />
-                <div className="h-3 bg-gray-100 rounded-full w-2/3 mx-auto mb-3" />
-                <p className="font-display text-xs text-gray-400">
-                  Coming soon
+                <div className="w-10 h-10 rounded-full bg-purple-100 mx-auto mb-3 flex items-center justify-center">
+                  <item.icon className="w-5 h-5 text-purple-600" />
+                </div>
+                <h3 className="font-display font-bold text-sm text-gray-800 mb-1">
+                  {item.title}
+                </h3>
+                <p className="font-display text-sm text-gray-600 leading-relaxed">
+                  {item.body}
                 </p>
               </motion.div>
             ))}
