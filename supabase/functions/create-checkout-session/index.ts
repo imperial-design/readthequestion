@@ -156,11 +156,11 @@ serve(async (req) => {
       payment_method_types: ['card'],
       mode: 'payment' as const,
       allow_promotion_codes: true,
+      // Collect billing name + address — prevents "empty customer_data[name]" error with promo codes
+      billing_address_collection: 'required',
       line_items: lineItems,
       success_url: `${successUrl}?session_id={CHECKOUT_SESSION_ID}${includeCribSheet ? '&crib_sheet=1' : ''}`,
       cancel_url: cancelUrl,
-      // Don't pre-fill customer_email — causes "empty customer_data[name]" errors
-      // with promotion codes. Users type their email on the Stripe checkout page instead.
       metadata: {
         ...(userId ? { parentId: userId } : {}),
         includeCribSheet: includeCribSheet ? 'true' : 'false',
