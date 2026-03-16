@@ -94,7 +94,7 @@ export function ChildPickerPage() {
         programmeStartDate: p.programme_start_date,
         hasSeenOnboarding: p.has_seen_onboarding || localStorage.getItem(`atq_onboarding_seen_${p.id}`) === 'true',
         hasSeenTutorial: (p.has_seen_tutorial ?? false) || localStorage.getItem(`atq_tutorial_seen_${p.id}`) === 'true',
-        hasPaid: p.has_paid ?? false,
+        hasPaid: (p.has_paid ?? false) || localStorage.getItem(`atq_has_paid_${p.id}`) === 'true',
         referralCode: p.referral_code ?? undefined,
       })));
 
@@ -196,7 +196,7 @@ export function ChildPickerPage() {
         programmeStartDate: newChild.programme_start_date,
         hasSeenOnboarding: newChild.has_seen_onboarding,
         hasSeenTutorial: newChild.has_seen_tutorial ?? false,
-        hasPaid: newChild.has_paid ?? false,
+        hasPaid: (newChild.has_paid ?? false) || localStorage.getItem(`atq_has_paid_${newChild.id}`) === 'true',
         referralCode: newChild.referral_code ?? undefined,
       }]);
 

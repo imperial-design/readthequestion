@@ -82,7 +82,14 @@
       "Bash(npx tsc:*)",
       "Bash(grep -r \"^\\\\s*id:\" src/data/questions/*.ts)",
       "Bash(npm i:*)",
-      "Bash(supabase functions:*)"
+      "Bash(supabase functions:*)",
+      "Bash(ls -la \"/Users/rebeccaeverton/11+ Read the Question/.env\"*)",
+      "Bash(ls -la \"/Users/rebeccaeverton/11+ Read the Question/.env.local\"*)",
+      "Bash(ls -la \"/Users/rebeccaeverton/11+ Read the Question/.env.production\"*)",
+      "Bash(for dir:*)",
+      "Read(//Users/rebeccaeverton/11+ Read the Question/$dir/**)",
+      "Bash(wc -l \"/Users/rebeccaeverton/11+ Read the Question/src/data/questions/\"*.ts)",
+      "Bash(find src/data/questions -name '*.ts' -exec wc -l {} +)"
     ]
   }
 }

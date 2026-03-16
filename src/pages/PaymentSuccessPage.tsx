@@ -404,7 +404,7 @@ export function PaymentSuccessPage() {
                 onClick={() => navigate('/practice')}
                 className="w-full py-4 rounded-2xl font-display font-bold text-white text-lg bg-gradient-to-r from-purple-600 via-fuchsia-600 to-pink-500 shadow-lg"
               >
-                Start Week 2! 🚀
+                Start Practising! 🚀
               </motion.button>
             </div>
           )}

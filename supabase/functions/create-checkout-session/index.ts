@@ -159,14 +159,14 @@ serve(async (req) => {
       line_items: lineItems,
       success_url: `${successUrl}?session_id={CHECKOUT_SESSION_ID}${includeCribSheet ? '&crib_sheet=1' : ''}`,
       cancel_url: cancelUrl,
-      // Pre-fill email on checkout page — customer_email only, no customer_data
-      ...(customerEmail ? { customer_email: customerEmail } : {}),
+      // Pre-fill email on checkout page
+      ...(customerEmail ? { customer_creation: 'always' as const, customer_email: customerEmail } : {}),
       metadata: {
         ...(userId ? { parentId: userId } : {}),
         includeCribSheet: includeCribSheet ? 'true' : 'false',
         ...(customerEmail ? { customerEmail } : {}),
       },
-    } as Stripe.Checkout.SessionCreateParams);
+    });
 
     // Record pending payment in database
     const supabaseAdmin = createClient(

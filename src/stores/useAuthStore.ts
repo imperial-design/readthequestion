@@ -114,6 +114,10 @@ export const useAuthStore = create<AuthState>()(
             u.id === childId ? { ...u, ...updates } : u
           ),
         }));
+        // Persist hasPaid to localStorage as fallback (survives failed Supabase writes)
+        if (updates.hasPaid) {
+          try { localStorage.setItem(`atq_has_paid_${childId}`, 'true'); } catch {}
+        }
       },
 
       logout: () => {
@@ -147,8 +151,9 @@ export const useAuthStore = create<AuthState>()(
     {
       name: 'rtq-auth',
       partialize: (state) => ({
-        // Only persist the child selection, not the session (Supabase handles that)
+        // Persist child selection AND children array so hasPaid survives refresh
         currentChildId: state.currentChildId,
+        children: state.children,
       }),
     }
   )

@@ -11,7 +11,9 @@ export function usePaywall() {
   const getProgress = useProgressStore(s => s.getProgress);
   const progress = currentUser ? getProgress(currentUser.id) : null;
 
-  const isPaid = currentUser?.hasPaid === true;
+  // Check both the store and localStorage fallback (in case webhook hasn't processed yet)
+  const isPaid = currentUser?.hasPaid === true ||
+    (currentUser ? localStorage.getItem(`atq_has_paid_${currentUser.id}`) === 'true' : false);
   const currentWeek = progress?.currentWeek ?? 1;
   const needsPayment = !isPaid;
 
