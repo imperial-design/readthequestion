@@ -55,14 +55,14 @@ const slides: OnboardingSlide[] = [
     body: "Once you've eliminated, lock in your answer with confidence. Then review — top students check their work and it's OK to change your answer if you spot a mistake!",
     tips: [
       { emoji: '⏭️', text: 'Stuck? Dot it and move on' },
-      { emoji: '⏱️', text: 'Easy questions first, hard ones second' },
-      { emoji: '🔄', text: 'Change your answer if you find a reason to' },
+      { emoji: '⏱️', text: 'Go through the paper and answer all of the easy questions before returning to ones you find hard' },
+      { emoji: '🔄', text: 'Change your answer ONLY if you have good reason to' },
     ],
   },
   {
     hootMood: 'celebrating',
     title: "Let's Start!",
-    body: "Your first session is ready. This isn't about knowing the answers — it's about building the CLEAR habit that wins marks. I'll be right here helping you!",
+    body: "Your first session is ready. This is about building the habits so you can identify the best answer based on everything else you're learning. I'll be right here helping you!",
     highlight: 'CLEAR habit',
   },
 ];
