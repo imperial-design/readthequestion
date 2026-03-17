@@ -13,6 +13,7 @@ export type QuestionFlowState =
   | 'SHOWING_ANSWERS'
   | 'ELIMINATING'
   | 'SELECTING'
+  | 'REVIEWING'
   | 'FEEDBACK'
   | 'COMPLETE';
 
@@ -202,12 +203,28 @@ export function useQuestionFlow(question: Question | null, weekConfig: WeekConfi
     });
   }, []);
 
+  // R — Review: transition from SELECTING to REVIEWING before confirming
+  const startReview = useCallback(() => {
+    setData(prev => {
+      if (prev.state !== 'SELECTING' || prev.selectedAnswer === null) return prev;
+      return { ...prev, state: 'REVIEWING', canAdvance: false };
+    });
+  }, []);
+
+  // Cancel review — return to SELECTING so child can change their answer
+  const cancelReview = useCallback(() => {
+    setData(prev => {
+      if (prev.state !== 'REVIEWING') return prev;
+      return { ...prev, state: 'SELECTING', selectedAnswer: null, canAdvance: false };
+    });
+  }, []);
+
   const confirmAnswer = useCallback((forceTimeout = false) => {
     if (!question) return;
 
     setData(prev => {
-      // Normal confirm: must be in SELECTING with an answer chosen
-      if (!forceTimeout && (prev.state !== 'SELECTING' || prev.selectedAnswer === null)) return prev;
+      // Normal confirm: must be in SELECTING or REVIEWING with an answer chosen
+      if (!forceTimeout && ((prev.state !== 'SELECTING' && prev.state !== 'REVIEWING') || prev.selectedAnswer === null)) return prev;
       // Timeout confirm: can trigger from any pre-feedback state
       if (forceTimeout && (prev.state === 'FEEDBACK' || prev.state === 'COMPLETE')) return prev;
 
@@ -257,6 +274,8 @@ export function useQuestionFlow(question: Question | null, weekConfig: WeekConfi
     toggleEliminate,
     startSelecting,
     selectAnswer,
+    startReview,
+    cancelReview,
     confirmAnswer,
     complete,
   };

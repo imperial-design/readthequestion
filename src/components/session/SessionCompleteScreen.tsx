@@ -183,7 +183,7 @@ export function SessionCompleteScreen({
         transition={{ delay: 0.8 }}
         className="text-center"
       >
-        <h2 className="font-display text-2xl font-bold text-focus-800">Quest Complete!</h2>
+        <h2 className="font-display text-2xl font-bold text-focus-800">Session Complete!</h2>
       </motion.div>
 
       {/* XP earned */}

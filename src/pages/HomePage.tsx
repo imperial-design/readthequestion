@@ -216,14 +216,14 @@ export function HomePage() {
             </div>
 
             {hasPractisedToday ? (
-              <Link to="/practice" className="block text-center">
+              <div className="text-center">
                 <p className="font-display font-extrabold text-xl text-white mb-0.5">
                   ✅ Today's Session Complete!
                 </p>
                 <p className="text-white/90 font-display text-sm">
                   Score: {todaySession?.averageTechniqueScore ?? 0}% technique · Come back tomorrow!
                 </p>
-              </Link>
+              </div>
             ) : (
               <>
                 <p className="font-display font-extrabold text-xl text-white mb-0.5 text-center">
@@ -367,10 +367,10 @@ export function HomePage() {
             </div>
           </div>
 
-          {/* Improvers — Weeks 5-8 */}
+          {/* Building — Weeks 5-8 */}
           <div className="rounded-xl border-2 border-orange-300/50 bg-orange-400/20 backdrop-blur-sm p-2">
             <p className="text-center text-[11px] font-display font-extrabold text-white mb-1.5">
-              🔥 Improvers
+              🔥 Building
             </p>
             <div className="flex gap-1">
               {Array.from({ length: 4 }, (_, i) => {

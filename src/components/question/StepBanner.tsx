@@ -79,9 +79,20 @@ const STEP_CONFIGS: Record<string, StepConfig> = {
     emoji: '🔒',
     showDownArrows: false,
   },
+  REVIEWING: {
+    step: 7,
+    label: 'REVIEW YOUR ANSWER',
+    instruction: 'Read the question one more time. Does your answer make sense?',
+    bgColour: 'bg-teal-100',
+    borderColour: 'border-teal-400',
+    textColour: 'text-teal-900',
+    badgeColour: 'bg-teal-500',
+    emoji: '✅',
+    showDownArrows: false,
+  },
 };
 
-const TOTAL_STEPS = 6;
+const TOTAL_STEPS = 7;
 
 interface StepBannerProps {
   flowState: string;

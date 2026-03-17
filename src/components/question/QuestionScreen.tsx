@@ -149,7 +149,7 @@ export function QuestionScreen({
 
   // Heavy scaffolding uses the big bold StepBanner for ALL technique states
   const showStepBanner = weekConfig.scaffoldingLevel === 'heavy'
-    && ['READING_FIRST', 'READING_SECOND', 'NUMBER_EXTRACTION', 'HIGHLIGHTING', 'ELIMINATING', 'SELECTING'].includes(data.state);
+    && ['READING_FIRST', 'READING_SECOND', 'NUMBER_EXTRACTION', 'HIGHLIGHTING', 'ELIMINATING', 'SELECTING', 'REVIEWING'].includes(data.state);
 
   // Medium/light still use the subtle mascot tips for some states
   const showMascotTip = !showStepBanner
@@ -348,17 +348,48 @@ export function QuestionScreen({
           scaffoldingLevel={weekConfig.scaffoldingLevel}
         />
 
-        {/* Confirm selection — appears when all wrong answers are eliminated */}
+        {/* A — Answer: Lock In button — transitions to R — Review step */}
         {data.state === 'SELECTING' && data.selectedAnswer !== null && (
           <motion.button
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             whileTap={{ scale: 0.97 }}
-            onClick={() => flow.confirmAnswer()}
+            onClick={() => flow.startReview()}
             className="mt-4 w-full py-3 rounded-button font-display font-bold text-white rainbow-gradient hover:opacity-90 transition-opacity"
           >
             Lock in my answer! 🔒
           </motion.button>
+        )}
+
+        {/* R — Review: check your answer before confirming */}
+        {data.state === 'REVIEWING' && data.selectedAnswer !== null && (
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mt-4 space-y-3"
+          >
+            <div className="bg-teal-50 border-2 border-teal-300 rounded-xl p-4">
+              <p className="font-display font-bold text-xs text-teal-600 uppercase tracking-wide mb-1.5">Your answer:</p>
+              <p className="font-display font-bold text-base text-gray-800">
+                {String.fromCharCode(65 + data.selectedAnswer)}. {question.options[data.selectedAnswer]?.text}
+              </p>
+              <p className="font-display text-xs text-teal-700 mt-2">
+                Read the question one more time — does this answer make sense?
+              </p>
+            </div>
+            <button
+              onClick={() => flow.confirmAnswer()}
+              className="w-full py-3 rounded-button font-display font-bold text-white rainbow-gradient hover:opacity-90 transition-opacity"
+            >
+              Yes, that's my final answer! ✅
+            </button>
+            <button
+              onClick={flow.cancelReview}
+              className="w-full py-2.5 rounded-button font-display font-semibold text-gray-600 bg-gray-100 hover:bg-gray-200 transition-colors text-sm"
+            >
+              🔄 Actually, let me change that
+            </button>
+          </motion.div>
         )}
       </motion.div>
 

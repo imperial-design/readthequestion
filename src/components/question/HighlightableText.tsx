@@ -3,15 +3,16 @@ import { motion } from 'framer-motion';
 import type { ScaffoldingLevel } from '../../types/programme';
 import { isNumberWord, toDigit } from '../../utils/numberWords';
 
-// Research-backed "danger words" that children most commonly miss when rushing
-// (SL Ager 2025, EEF comprehension strategies). These change the meaning of a question.
+// Research-backed "danger words" that genuinely change the meaning of an exam question.
+// Restricted to words that, if missed, would lead directly to the wrong answer.
+// Removed over-broad words ('at', 'each', 'more', 'less', 'before', 'after', 'between', 'until')
+// that appear too frequently to provide a useful teaching signal in Foundation phase.
 const DANGER_WORDS = new Set([
-  'not', 'never', 'except', 'without', 'unless',       // negatives
-  'only', 'always', 'every', 'exactly', 'at',           // qualifiers/limits
-  'least', 'most', 'fewer', 'less', 'more',             // comparatives
-  'each', 'altogether', 'remaining', 'total',            // hidden operations
-  'however', 'although', 'despite', 'but', 'instead',   // reversal words
-  'before', 'after', 'between', 'until',                 // time/sequence
+  'not', 'never', 'except', 'without', 'unless',    // negatives — reverse the meaning entirely
+  'only', 'always', 'every', 'exactly',              // strong qualifiers — easy to rush past
+  'least', 'most', 'fewer',                          // superlatives/comparatives that flip the answer
+  'altogether', 'remaining', 'total',                // hidden maths operations
+  'however', 'although', 'despite', 'but', 'instead', // contrast/reversal connectives
 ]);
 
 function isDangerWord(token: string): boolean {
