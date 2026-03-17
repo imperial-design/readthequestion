@@ -56,6 +56,7 @@ export function SignupPage() {
         email,
         password,
         options: {
+          emailRedirectTo: `${window.location.origin}/login`,
           data: {
             marketing_opt_in: marketingOptIn,
           },
@@ -116,7 +117,7 @@ export function SignupPage() {
                 onClick={async () => {
                   setResending(true);
                   try {
-                    await supabase.auth.resend({ type: 'signup', email });
+                    await supabase.auth.resend({ type: 'signup', email, options: { emailRedirectTo: `${window.location.origin}/login` } });
                     setResent(true);
                   } catch {
                     // silently fail
