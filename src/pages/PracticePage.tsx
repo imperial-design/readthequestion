@@ -47,10 +47,10 @@ export function PracticePage() {
   const questions = useDailyQuestions(weekConfig, answeredIds, focusSubject ?? undefined, mistakeQuestionIds);
 
   const [showBreathing, setShowBreathing] = useState(true);
-  const [showWeek1Note, setShowWeek1Note] = useState(() => {
-    // Show once ever, only in week 1 on first session
-    if (localStorage.getItem('atq_week1_note_seen') === 'true') return false;
-    return true;
+  const currentWeek = progress?.currentWeek ?? 1;
+  const [showWeekNote, setShowWeekNote] = useState(() => {
+    // Show once per week at the start of the first session of that week
+    return localStorage.getItem(`atq_week_note_${currentWeek}`) !== 'true';
   });
   const [currentIndex, setCurrentIndex] = useState(0);
   const [results, setResults] = useState<QuestionResult[]>([]);
@@ -135,24 +135,51 @@ export function PracticePage() {
     return <PreSessionBreathing onComplete={() => setShowBreathing(false)} />;
   }
 
-  // Week 1 one-time note — shown after breathing, before first question
-  if (showWeek1Note && progress.currentWeek === 1 && progress.totalQuestionsAnswered === 0) {
+  // Weekly start card — shown once at the start of each new week
+  if (showWeekNote) {
+    const targetMinutes = Math.round(weekConfig.timePerQuestionMs * weekConfig.dailyQuestionCount / 60000);
+    const phaseLabel = weekConfig.phase === 'foundation' ? 'Foundation' : weekConfig.phase === 'building' ? 'Building' : 'Exam Ready';
+    const phaseEmoji = weekConfig.phase === 'foundation' ? '🌱' : weekConfig.phase === 'building' ? '🏗️' : '🎯';
+    const weekGoals: Record<string, string[]> = {
+      foundation: ['Learn every step of the CLEAR Method', 'Read every question twice before looking at answers', 'Highlight the key words that tell you what to do'],
+      building: ['Apply the technique without prompts', 'Speed up — aim for the target time below', 'Spot danger words on your own'],
+      'exam-ready': ['Match real exam pace', 'Trust your technique under pressure', 'Finish all 10 questions with time to check'],
+    };
+    const goals = weekGoals[weekConfig.phase] ?? weekGoals.foundation;
+
     return (
       <div className="flex items-center justify-center min-h-[60vh] px-4">
-        <div className="bg-white/90 backdrop-blur-sm rounded-card p-6 max-w-md shadow-lg border border-amber-200/50 text-center space-y-4">
-          <p className="text-4xl">🦉</p>
-          <p className="font-display text-sm text-gray-700 leading-relaxed">
-            <span className="font-bold text-amber-600">Week 1 — Foundation:</span>{' '}
-            This week's questions are deliberately straightforward — the focus is on learning the CLEAR Method technique, not testing knowledge. The questions get progressively more challenging each week as the technique becomes second nature!
-          </p>
+        <div className="bg-white/90 backdrop-blur-sm rounded-card p-6 max-w-md shadow-lg border border-purple-200/50 space-y-4">
+          <div className="text-center">
+            <p className="text-4xl mb-2">🦉</p>
+            <p className="font-display font-black text-xl text-purple-700">Week {weekConfig.weekNumber} — {phaseLabel} {phaseEmoji}</p>
+          </div>
+
+          {/* Timing target */}
+          <div className="bg-gradient-to-r from-fuchsia-500 to-pink-500 rounded-2xl p-4 text-center text-white">
+            <p className="font-display font-bold text-sm opacity-90">⏱️ This week's target time</p>
+            <p className="font-display font-black text-3xl">{targetMinutes} minutes</p>
+            <p className="font-display text-xs opacity-80">for all 10 questions</p>
+          </div>
+
+          {/* Goals */}
+          <div className="space-y-2">
+            {goals.map((goal, i) => (
+              <div key={i} className="flex items-start gap-2">
+                <span className="text-purple-500 font-bold text-sm mt-0.5">✓</span>
+                <p className="font-display text-sm text-gray-700">{goal}</p>
+              </div>
+            ))}
+          </div>
+
           <button
             onClick={() => {
-              localStorage.setItem('atq_week1_note_seen', 'true');
-              setShowWeek1Note(false);
+              localStorage.setItem(`atq_week_note_${currentWeek}`, 'true');
+              setShowWeekNote(false);
             }}
             className="w-full py-3 bg-gradient-to-r from-purple-600 to-fuchsia-600 text-white font-display font-bold rounded-button shadow-md hover:shadow-lg transition-all"
           >
-            Got it — let's go! 🚀
+            Let's go! 🚀
           </button>
         </div>
       </div>
