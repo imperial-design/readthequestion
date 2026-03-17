@@ -230,8 +230,9 @@ Four Zustand stores, all using `persist` middleware (localStorage):
 6. Stripe sends `checkout.session.completed` webhook to `stripe-webhook` Edge Function, which:
    - Updates `payments` table status to 'completed'
    - If authenticated user: marks all their `child_profiles` as `has_paid = true`
-   - Sends payment confirmation email via Zoho SMTP
+   - Sends payment confirmation email via Zoho SMTP (fire-and-forget to avoid CPU timeout)
    - If crib sheet was purchased: sends separate email with PDF attachment from Supabase Storage
+   - **Important**: Webhook uses manual HMAC-SHA256 signature verification (not Stripe SDK `constructEvent`) because the Stripe SDK is incompatible with Supabase Edge / Deno runtime. The verification uses Web Crypto API directly.
 
 ### Guest payment claiming:
 - `claim-payment` Edge Function links unclaimed payments to accounts by matching email
@@ -287,7 +288,7 @@ All deployed to Supabase. All use the shared `_shared/rate-limit.ts` (in-memory 
 | Function | Rate Limit | Auth | Purpose |
 |---|---|---|---|
 | `create-checkout-session` | 10/min | Optional | Creates Stripe Checkout Session. Supports guest (email in body) or authenticated (JWT in header) |
-| `stripe-webhook` | 100/min | Stripe sig | Handles `checkout.session.completed`. Marks payment complete, sends emails |
+| `stripe-webhook` | 100/min | Stripe sig | Handles `checkout.session.completed`. Marks payment complete, sends emails (fire-and-forget) |
 | `claim-payment` | 10/min | Required | Matches unclaimed payments by email, marks child profiles as paid |
 | `send-welcome-email` | (has limit) | Required | Sends branded HTML welcome email via Zoho SMTP |
 | `delete-account` | 3/min | Required | Uses service role key to delete user from Supabase Auth + all data |
@@ -418,6 +419,12 @@ XP: `techniquePercent * 0.5` (up to 50 XP) + 30 bonus for correct answer. Levels
 - Account deletion with CASCADE cleanup
 - Referral code system (generated per child, tracked via `referred_by`)
 - `console.log`/`console.debug`/`console.warn` stripped in production builds
+- Stripe webhook with manual HMAC-SHA256 verification (Deno-compatible)
+- Fire-and-forget email pattern in webhook to avoid CPU timeout
+- Resend confirmation email on both Login and Signup pages
+- Guest checkout → claim-payment → paywall clearing end-to-end flow
+- Stripe promotion codes (ATQBETA100 for 100% off, ATQWELCOME10 for 10% off) configured in Stripe Dashboard
+- Dashboard styled with violet-fuchsia gradient colour scheme
 
 ---
 
@@ -430,6 +437,11 @@ XP: `techniquePercent * 0.5` (up to 50 XP) + 30 bonus for correct answer. Levels
 - Sound effects hook exists (`useSoundEffects.ts`) but sound assets not visible in public directory
 - The `visualisation/` component directory is empty — visualisation logic is likely inline in `VisualisationPage.tsx`
 - No automated tests
+- **Supabase Auth confirmation emails** may not arrive reliably — a "Resend confirmation email" button exists on both Login and Signup pages as a workaround
+- **Payment confirmation emails** can fail due to Supabase Edge Function CPU time limits when sending via Zoho SMTP — mitigated by fire-and-forget pattern but SMTP itself may be too slow
+- **Favicon** not displaying correctly
+- **UpgradePage** still references "VR & NVR" instead of merged "Reasoning" subject
+- **Crib sheet download** on HomePage uses `localStorage.getItem('atq-crib-sheet-purchased')` — this flag is lost on sign-out/device change. Needs to be stored in Supabase (e.g. on payments table or child_profiles) for persistence
 
 ---
 
@@ -438,7 +450,7 @@ XP: `techniquePercent * 0.5` (up to 50 XP) + 30 bonus for correct answer. Levels
 **Good**:
 - Strict CSP in `vercel.json` (no `unsafe-eval`, limited `connect-src` to Supabase/Stripe)
 - HSTS with preload, X-Frame-Options DENY, X-Content-Type-Options nosniff
-- Stripe webhook signature verification
+- Stripe webhook signature verification (manual HMAC-SHA256 via Web Crypto API — Stripe SDK incompatible with Deno)
 - Rate limiting on all Edge Functions (sliding window per IP)
 - Service role key only used server-side (delete-account, stripe-webhook)
 - Redirect URL validation in checkout (must be trusted origin)
@@ -533,3 +545,15 @@ Required secrets (set via `supabase secrets set`):
 13. **Lazy loading**: Auth + landing pages are eagerly loaded. All post-login pages are lazy loaded via `React.lazy()` with a Professor Hoot spinner as fallback.
 
 14. **Manual chunks**: Vite config splits the bundle into `react-vendor`, `framer`, and `questions` chunks for better caching.
+
+15. **Stripe SDK incompatibility in Deno**: The `stripe-webhook` Edge Function cannot use `stripe.webhooks.constructEvent()` or `constructEventAsync()` — they fail with `Deno.core.runMicrotasks` errors. Webhook signature verification is implemented manually using Web Crypto API HMAC-SHA256. Do not attempt to revert to the SDK method.
+
+16. **Fire-and-forget emails in Edge Functions**: Email sending (Zoho SMTP via `denomailer`) exceeds Supabase Edge Function CPU time limits if done synchronously. The webhook returns 200 to Stripe immediately after DB updates, then sends emails in a non-blocking `try/catch` block. Uses `EdgeRuntime.waitUntil` if available.
+
+17. **`has_paid` column**: Was missing from `child_profiles` table initially — had to be added via `ALTER TABLE`. All payment-related updates were silently failing without it. If setting up a fresh Supabase instance, ensure this column exists: `ALTER TABLE child_profiles ADD COLUMN has_paid boolean DEFAULT false;`
+
+18. **Dashboard colour scheme**: Uses a violet-fuchsia gradient palette. Stats row: `bg-gradient-to-br from-violet-500/40 to-fuchsia-500/30`. Exam countdown: fuchsia gradient (`from-fuchsia-500/70 to-fuchsia-600/60`). 12-week journey: more transparent fuchsia (`from-fuchsia-500/50 via-fuchsia-500/40 to-fuchsia-600/35`). The user specifically dislikes solid indigo/purple and plain white for dashboard cards.
+
+19. **Stripe promo codes**: `create-checkout-session` passes `allow_promotion_codes: true`. Do NOT pass `customer_email` to Stripe when promo codes are enabled — it causes a Stripe error. Instead, use `customer_creation: 'always'` or collect email via Stripe's built-in form. Billing address is required (`billing_address_collection: 'required'`) to avoid empty customer name errors.
+
+20. **Paywall persistence fix**: `useAuthStore` persists `children` array (including `hasPaid` flag) to localStorage, not just `currentChildId`. This prevents a login loop where the paywall check runs before Supabase fetches child profiles.

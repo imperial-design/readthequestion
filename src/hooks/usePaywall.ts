@@ -11,9 +11,9 @@ export function usePaywall() {
   const getProgress = useProgressStore(s => s.getProgress);
   const progress = currentUser ? getProgress(currentUser.id) : null;
 
-  // Check both the store and localStorage fallback (in case webhook hasn't processed yet)
-  const isPaid = currentUser?.hasPaid === true ||
-    (currentUser ? localStorage.getItem(`atq_has_paid_${currentUser.id}`) === 'true' : false);
+  // hasPaid comes from Supabase-fetched child profile, persisted via Zustand store
+  // Do NOT use localStorage fallback — it can be tampered with
+  const isPaid = currentUser?.hasPaid === true;
   const currentWeek = progress?.currentWeek ?? 1;
   const needsPayment = !isPaid;
 

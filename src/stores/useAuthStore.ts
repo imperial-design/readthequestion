@@ -114,10 +114,6 @@ export const useAuthStore = create<AuthState>()(
             u.id === childId ? { ...u, ...updates } : u
           ),
         }));
-        // Persist hasPaid to localStorage as fallback (survives failed Supabase writes)
-        if (updates.hasPaid) {
-          try { localStorage.setItem(`atq_has_paid_${childId}`, 'true'); } catch {}
-        }
       },
 
       logout: () => {
@@ -137,7 +133,7 @@ export const useAuthStore = create<AuthState>()(
           const keysToRemove: string[] = [];
           for (let i = 0; i < localStorage.length; i++) {
             const key = localStorage.key(i);
-            if (key?.startsWith('atq_review_prompted_')) {
+            if (key?.startsWith('atq_review_prompted_') || key?.startsWith('atq_has_paid_')) {
               keysToRemove.push(key);
             }
           }
