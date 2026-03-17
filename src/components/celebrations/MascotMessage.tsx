@@ -46,8 +46,8 @@ export function getMascotTip(state: string, scaffoldingLevel: string): string {
     return 'Convert number words to digits.';
   }
   if (state === 'HIGHLIGHTING') {
-    if (scaffoldingLevel === 'heavy') return "Time to be a Word Detective! Tap the important words. And watch out for those sneaky danger words — they love to trick you!";
-    return 'Highlight key words. Watch for danger words!';
+    if (scaffoldingLevel === 'heavy') return "Time to be a Word Detective! Tap only the most important words — the fewest that tell you what the question is really asking. And always watch for danger words!";
+    return 'Highlight the key words — only the ones that really matter. Watch for danger words!';
   }
   if (state === 'ELIMINATING') {
     if (scaffoldingLevel === 'heavy') return "Cross out all the wrong answers first! Then tap the one you think is right. Even I get tricked sometimes, so let's be careful!";

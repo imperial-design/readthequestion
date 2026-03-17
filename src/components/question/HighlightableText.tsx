@@ -106,8 +106,9 @@ export function HighlightableText({
     }
   };
 
-  // Show danger word styling only during highlighting (not disabled) and not during feedback
-  const showDangerWords = !disabled && !showFeedback && !numberExtractionMode;
+  // Show danger word styling only in heavy scaffolding (weeks 1-4) — teaching phase only.
+  // In medium/light scaffolding children must identify danger words independently.
+  const showDangerWords = !disabled && !showFeedback && !numberExtractionMode && scaffoldingLevel === 'heavy';
 
   // Get the display text for a token (converted digit or original)
   const getDisplayText = (token: string, index: number) => {
@@ -193,7 +194,7 @@ export function HighlightableText({
       )}
       {!numberExtractionMode && !disabled && scaffoldingLevel === 'medium' && (
         <p className={`mt-3 ${dyslexiaMode ? 'text-base text-gray-700' : 'text-sm text-gray-500'} font-display`}>
-          Tap key words. <span className="border-b-2 border-dotted border-rainbow-red/50 px-0.5">Dotted words</span> are danger words — don't miss them!
+          Tap only the key words you really need — the fewest that tell you what the question is asking. Watch for danger words like NOT, except, least!
         </p>
       )}
     </div>

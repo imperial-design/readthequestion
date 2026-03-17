@@ -45,13 +45,13 @@ export const CORE_STEPS: CoreStep[] = [
     title: 'Spot the Key Words',
     emoji: '🔍',
     childDescription:
-      'Key words are the important words that tell you exactly what to do. Words like "closest in meaning", "opposite", "how many", "which", "NOT" and "except" change the whole question!',
+      'Key words are the most important words that tell you what the question is really asking. The trick is to find the FEWEST words that give you the most information — like a detective picking only the vital clues. Words like "NOT", "except", "closest", "opposite" are almost always key.',
     hootSecret:
-      "I call this being a Word Detective! The key words are like clues — they tell you exactly what treasure to find.",
+      "I call this being a Word Detective! The best detectives don't circle everything — they find the vital few clues. If you highlight every word, none of them stand out. Pick only what really matters!",
     inYourExam: [
-      'Underline or circle the key words with your pencil',
-      'Watch out for danger words like not, except, least, most',
-      'Circle any words that stand out — they are there for a reason',
+      'Underline the fewest words that tell you exactly what the question is asking',
+      'Always underline danger words like NOT, except, least, most, only — they change everything',
+      'Only underline names if the question mentions more than one person — then you need to match the right detail to the right person',
     ],
     inTheApp:
       'Tap the key words to highlight them. The app shows you which ones you found and which you missed.',
@@ -383,7 +383,7 @@ export const ON_PAPER_TIPS: OnPaperTip[] = [
     id: 'underline-keywords',
     emoji: '✏️',
     title: 'Underline Key Words',
-    description: 'Use your pencil to underline or circle the most important words. This is what the best test-takers do.',
+    description: 'Use your pencil to underline the fewest words that tell you what the question is really asking. If everything is underlined, nothing stands out — be selective. Always underline danger words like NOT, except, and least.',
   },
   {
     id: 'circle-numbers',
