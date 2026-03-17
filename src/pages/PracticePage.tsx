@@ -245,6 +245,7 @@ export function PracticePage() {
         weekConfig={weekConfig}
         questionNumber={currentIndex + 1}
         totalQuestions={questions.length}
+        sessionsCompleted={progress.sessions.length}
         onComplete={handleQuestionComplete}
       />
     </div>

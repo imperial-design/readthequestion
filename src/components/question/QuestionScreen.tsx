@@ -20,6 +20,7 @@ interface QuestionScreenProps {
   weekConfig: WeekConfig;
   questionNumber: number;
   totalQuestions: number;
+  sessionsCompleted?: number;
   onComplete: (result: QuestionResult) => void;
 }
 
@@ -28,6 +29,7 @@ export function QuestionScreen({
   weekConfig,
   questionNumber,
   totalQuestions,
+  sessionsCompleted = 0,
   onComplete,
 }: QuestionScreenProps) {
   const { dyslexiaMode } = useDyslexiaMode();
@@ -225,7 +227,7 @@ export function QuestionScreen({
 
       {/* Step banner — big bold instructions for heavy scaffolding */}
       {showStepBanner && (
-        <StepBanner flowState={data.state} />
+        <StepBanner flowState={data.state} sessionsCompleted={sessionsCompleted} />
       )}
 
       {/* Mascot tip — subtler version for medium scaffolding */}

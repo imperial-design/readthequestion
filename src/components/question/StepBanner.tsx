@@ -85,11 +85,15 @@ const TOTAL_STEPS = 6;
 
 interface StepBannerProps {
   flowState: string;
+  sessionsCompleted?: number;
 }
 
-export function StepBanner({ flowState }: StepBannerProps) {
+export function StepBanner({ flowState, sessionsCompleted = 0 }: StepBannerProps) {
   const config = STEP_CONFIGS[flowState];
   if (!config) return null;
+
+  // After 3 completed sessions the child knows the steps — drop the flashy animations
+  const showAnimations = sessionsCompleted < 3;
 
   return (
     <motion.div
@@ -122,19 +126,21 @@ export function StepBanner({ flowState }: StepBannerProps) {
 
       {/* Main banner */}
       <div className={`relative rounded-2xl border-3 ${config.borderColour} ${config.bgColour} p-4 overflow-hidden`}>
-        {/* Pulsing glow behind banner */}
-        <motion.div
-          className={`absolute inset-0 ${config.bgColour} opacity-50`}
-          animate={{ opacity: [0.3, 0.6, 0.3] }}
-          transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-        />
+        {/* Pulsing glow behind banner — only in first 3 sessions */}
+        {showAnimations && (
+          <motion.div
+            className={`absolute inset-0 ${config.bgColour} opacity-50`}
+            animate={{ opacity: [0.3, 0.6, 0.3] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+          />
+        )}
 
         <div className="relative flex items-center gap-3">
           {/* Step number badge */}
           <motion.div
             className={`shrink-0 w-14 h-14 rounded-full ${config.badgeColour} flex items-center justify-center shadow-lg`}
-            animate={{ scale: [1, 1.08, 1] }}
-            transition={{ duration: 1.2, repeat: Infinity, ease: 'easeInOut' }}
+            animate={showAnimations ? { scale: [1, 1.08, 1] } : {}}
+            transition={showAnimations ? { duration: 1.2, repeat: Infinity, ease: 'easeInOut' } : {}}
           >
             <span className="font-display font-black text-white text-xl leading-none">
               {config.step}
@@ -155,8 +161,8 @@ export function StepBanner({ flowState }: StepBannerProps) {
           </div>
         </div>
 
-        {/* Bouncing arrows pointing down */}
-        {config.showDownArrows && (
+        {/* Bouncing arrows pointing down — only in first 3 sessions */}
+        {config.showDownArrows && showAnimations && (
           <div className="flex justify-center gap-4 mt-3">
             {[0, 1, 2].map((i) => (
               <motion.span
