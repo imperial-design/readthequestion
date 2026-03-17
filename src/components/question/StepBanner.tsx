@@ -49,7 +49,7 @@ const STEP_CONFIGS: Record<string, StepConfig> = {
   HIGHLIGHTING: {
     step: 4,
     label: 'FIND THE KEY WORDS',
-    instruction: 'Tap the important words — watch out for traps!',
+    instruction: 'Tap the fewest words that tell you what to find — always get danger words!',
     bgColour: 'bg-purple-100',
     borderColour: 'border-purple-400',
     textColour: 'text-purple-900',

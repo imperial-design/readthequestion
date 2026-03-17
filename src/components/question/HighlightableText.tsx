@@ -176,19 +176,18 @@ export function HighlightableText({
           animate={{ opacity: 1, y: 0 }}
           className="mt-4 text-sm text-focus-600 font-display bg-focus-50 rounded-xl p-3 border border-focus-200 space-y-2"
         >
-          <p className="font-bold text-base">👆 Tap the important words!</p>
+          <p className="font-bold text-base">👆 Tap the FEWEST words that tell you what to find!</p>
           <div className={`flex flex-wrap gap-2 ${dyslexiaMode ? 'text-sm' : 'text-xs'}`}>
-            <span className="bg-white px-2 py-1 rounded-full border border-focus-200">Names</span>
+            <span className="bg-white px-2 py-1 rounded-full border border-focus-200">Key facts</span>
             <span className="bg-white px-2 py-1 rounded-full border border-focus-200">Numbers</span>
-            <span className="bg-white px-2 py-1 rounded-full border border-focus-200">Places</span>
             <span className="bg-white px-2 py-1 rounded-full border border-focus-200">Times</span>
-            <span className="bg-white px-2 py-1 rounded-full border border-focus-200">Key details</span>
+            <span className="bg-white px-2 py-1 rounded-full border border-focus-200">Question focus</span>
           </div>
           <p className={`${dyslexiaMode ? 'text-sm text-gray-700' : 'text-xs text-gray-500'}`}>
-            Look for <span className="font-bold text-rainbow-red">who</span>, <span className="font-bold text-rainbow-blue">what</span>, <span className="font-bold text-rainbow-green">when</span> and <span className="font-bold text-rainbow-violet">where</span>
+            Only highlight names if there are <span className="font-bold">two or more people</span> — then you need to match each person to the right detail
           </p>
           <p className={`${dyslexiaMode ? 'text-sm' : 'text-xs'} text-rainbow-red font-semibold`}>
-            Watch out for <span className="border-b-2 border-dotted border-rainbow-red/50 px-0.5">danger words</span> like not, never, except, only, although, however!
+            Always highlight <span className="border-b-2 border-dotted border-rainbow-red/50 px-0.5">danger words</span>: NOT, never, except, only, although, however!
           </p>
         </motion.div>
       )}

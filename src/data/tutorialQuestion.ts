@@ -90,7 +90,7 @@ export const TUTORIAL_STEPS = [
     id: 'key-words',
     hootMood: 'teaching' as const,
     title: 'L — Look for Key Words',
-    message: 'See the word "normally"? That is a key word! It tells you the question is about what usually happens — not what happened on Monday. In the app, tap key words to highlight them. In your real exam, underline them with your pencil!',
+    message: 'See "normally"? That is a key word — it tells you the question asks about the usual routine, not Monday\'s exception. The rule: highlight the FEWEST words that tell you what to find. Always highlight danger words like "normally", "always", "never", "not", "except". In the app, tap to highlight. In your real exam, underline with your pencil!',
     showQuestion: true,
     showAnswers: false,
     highlightKeyWords: true,

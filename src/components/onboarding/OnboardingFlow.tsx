@@ -40,8 +40,8 @@ const slides: OnboardingSlide[] = [
   {
     hootMood: 'teaching',
     title: 'L — Look for Key Words',
-    body: "Words like \"not\", \"most\", \"least\", \"always\" and \"except\" change the whole question. In the app you'll tap to highlight them. In your real exam, underline them with your pencil!",
-    highlight: 'underline them',
+    body: "Highlight the FEWEST words that tell you what the question is really asking — could you answer it using only those words? Always highlight danger words: NOT, except, least, never, only. Only highlight a name if there are two or more people in the question. In the app you'll tap to highlight. In your real exam, underline with your pencil!",
+    highlight: 'danger words',
   },
   {
     hootMood: 'warning',

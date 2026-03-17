@@ -45,7 +45,7 @@ export const CORE_STEPS: CoreStep[] = [
     title: 'Spot the Key Words',
     emoji: '🔍',
     childDescription:
-      'Key words are the most important words that tell you what the question is really asking. The trick is to find the FEWEST words that give you the most information — like a detective picking only the vital clues. Words like "NOT", "except", "closest", "opposite" are almost always key.',
+      'Highlight the FEWEST words that tell you exactly what the question is asking — like a detective picking only the vital clues. Always highlight danger words: NOT, except, least, never, only, however, although. Only highlight a name if there are TWO OR MORE people in the question — then you need to match the right detail to the right person. Test yourself: could you answer the question using only your highlighted words?',
     hootSecret:
       "I call this being a Word Detective! The best detectives don't circle everything — they find the vital few clues. If you highlight every word, none of them stand out. Pick only what really matters!",
     inYourExam: [
@@ -383,7 +383,7 @@ export const ON_PAPER_TIPS: OnPaperTip[] = [
     id: 'underline-keywords',
     emoji: '✏️',
     title: 'Underline Key Words',
-    description: 'Use your pencil to underline the fewest words that tell you what the question is really asking. If everything is underlined, nothing stands out — be selective. Always underline danger words like NOT, except, and least.',
+    description: 'Use your pencil to underline the fewest words that tell you what the question is really asking. Always underline danger words like NOT, except, least, never, only. Only underline names if there are two or more people — then you need to match each person to the right detail. If everything is underlined, nothing stands out — be selective.',
   },
   {
     id: 'circle-numbers',
