@@ -1,13 +1,16 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useNavigate } from 'react-router';
 import { ProfessorHoot } from '../mascot/ProfessorHoot';
-import { CORE_STEPS, CORE_HABITS, TRICK_TYPES } from '../../data/techniques';
+import { CLEAR_STEPS, TRICK_TYPES } from '../../data/techniques';
 import { TechniqueCard } from './TechniqueCard';
 import { SubjectTechniquesTabs } from './SubjectTechniquesTabs';
 import { OnPaperSection } from './OnPaperSection';
 
 export function ChildTechniquesView() {
-  const [activeStep, setActiveStep] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const navigate = useNavigate();
+  const step = CLEAR_STEPS[activeIndex];
 
   return (
     <div className="space-y-5">
@@ -16,141 +19,148 @@ export function ChildTechniquesView() {
         <ProfessorHoot
           mood="teaching"
           size="md"
-          message="Welcome to my technique library! Learn these 5 steps and you will ace any question!"
+          message="The CLEAR Method™ is your secret weapon! Learn these 5 steps and you will ace any question!"
           showSpeechBubble={true}
           animate={true}
         />
       </div>
 
-      {/* ───── The 5 Habits ───── */}
+      {/* ───── The CLEAR Method™ ───── */}
       <div className="space-y-3">
-        <h3 className="font-display font-bold text-white text-center text-base">
-          🌟 5 Habits of Top Students
-        </h3>
-        <p className="text-white/70 text-xs font-display text-center">
-          Learn these habits and you will be ready for anything!
-        </p>
-
-        <div className="space-y-2">
-          {CORE_HABITS.map(habit => (
-            <div
-              key={habit.id}
-              className="bg-white/90 backdrop-blur-sm rounded-card p-3 border border-white/30 flex items-start gap-2.5"
-            >
-              <span className="text-xl shrink-0">{habit.emoji}</span>
-              <div>
-                <p className="font-display font-bold text-gray-800 text-sm">
-                  {habit.number}. {habit.title}
-                </p>
-                <p className="text-gray-600 text-xs leading-relaxed mt-0.5">
-                  {habit.childSummary}
-                </p>
-              </div>
-            </div>
-          ))}
+        <div className="text-center">
+          <h3 className="font-display font-extrabold text-white text-lg drop-shadow-md">
+            The CLEAR Method™
+          </h3>
+          <p className="text-white/70 text-xs font-display mt-0.5">
+            5 steps — in order — every single question
+          </p>
         </div>
-      </div>
 
-      {/* ───── The 5 Steps ───── */}
-      <div className="space-y-3">
-        <h3 className="font-display font-bold text-white text-center text-base">
-          The 5 Steps
-        </h3>
-
-        {/* Step selector */}
-        <div className="flex gap-1.5 justify-center">
-          {CORE_STEPS.map((step, i) => (
+        {/* CLEAR letter selector */}
+        <div className="flex gap-2 justify-center">
+          {CLEAR_STEPS.map((s, i) => (
             <button
-              key={step.id}
-              onClick={() => setActiveStep(i)}
-              className={`flex flex-col items-center gap-0.5 px-2 py-1.5 rounded-xl text-xs font-display font-bold transition-all min-w-[52px] ${
-                activeStep === i
-                  ? 'bg-white text-purple-600 shadow-sm scale-105'
-                  : 'bg-white/20 text-white hover:bg-white/30'
+              key={s.letter}
+              onClick={() => setActiveIndex(i)}
+              className={`flex flex-col items-center gap-0.5 transition-all duration-200 ${
+                activeIndex === i ? 'scale-110' : 'opacity-70 hover:opacity-90 hover:scale-105'
               }`}
             >
-              <span className="text-base">{step.emoji}</span>
-              <span className="text-[10px] leading-tight">{step.number}</span>
+              <div
+                className={`w-12 h-12 rounded-2xl flex items-center justify-center shadow-lg bg-gradient-to-br ${s.gradient} ${
+                  activeIndex === i
+                    ? 'ring-3 ring-white ring-offset-2 ring-offset-transparent shadow-xl'
+                    : ''
+                }`}
+              >
+                <span className="font-display font-extrabold text-white text-xl leading-none">
+                  {s.letter}
+                </span>
+              </div>
+              <span className="text-white/80 font-display font-bold text-[10px] leading-tight text-center">
+                {s.name}
+              </span>
             </button>
           ))}
         </div>
 
-        {/* Active step card */}
+        {/* Active step detail */}
         <AnimatePresence mode="wait">
           <motion.div
-            key={activeStep}
+            key={activeIndex}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
           >
-            {(() => {
-              const step = CORE_STEPS[activeStep];
-              return (
-                <div className="bg-white/90 backdrop-blur-sm rounded-card p-4 border border-white/30 space-y-3">
-                  <div className="flex items-center gap-2">
-                    <span className="text-2xl">{step.emoji}</span>
-                    <h4 className="font-display font-bold text-gray-800 text-base">
-                      Step {step.number}: {step.title}
-                    </h4>
-                  </div>
-
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    {step.childDescription}
+            <div className="bg-white/90 backdrop-blur-sm rounded-card p-4 border border-white/30 space-y-3">
+              {/* Step header */}
+              <div className="flex items-center gap-3">
+                <div
+                  className={`w-12 h-12 rounded-2xl flex items-center justify-center bg-gradient-to-br ${step.gradient} shadow-md shrink-0`}
+                >
+                  <span className="font-display font-extrabold text-white text-xl">
+                    {step.letter}
+                  </span>
+                </div>
+                <div>
+                  <p className="font-display font-extrabold text-gray-800 text-base leading-tight">
+                    {step.letter} — {step.name}
                   </p>
+                  <p className={`font-display font-semibold text-xs ${step.textColour}`}>
+                    {step.emoji} {step.tagline}
+                  </p>
+                </div>
+              </div>
 
-                  {/* In Your Exam box */}
-                  <div className="bg-purple-50 rounded-xl p-3 border border-purple-200">
-                    <p className="font-display font-bold text-purple-700 text-xs mb-1.5">
-                      🖊️ In Your Exam:
+              <p className="text-gray-600 text-sm leading-relaxed">
+                {step.childDescription}
+              </p>
+
+              {/* In Your Exam */}
+              <div className="bg-purple-50 rounded-xl p-3 border border-purple-200">
+                <p className="font-display font-bold text-purple-700 text-xs mb-1.5">
+                  🖊️ In Your Exam:
+                </p>
+                <ul className="space-y-1">
+                  {step.inYourExam.map((tip, j) => (
+                    <li key={j} className="text-gray-600 text-xs flex items-start gap-1.5">
+                      <span className="text-purple-400 mt-0.5 shrink-0">•</span>
+                      {tip}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* In the App */}
+              <div className="bg-blue-50 rounded-xl p-3 border border-blue-200">
+                <p className="font-display font-bold text-blue-700 text-xs mb-1">
+                  📱 In This App:
+                </p>
+                <p className="text-gray-600 text-xs">{step.inTheApp}</p>
+
+                {/* C step: link to breathing exercise */}
+                {step.linkToBreathing && (
+                  <button
+                    onClick={() => navigate('/practice')}
+                    className="mt-2 inline-flex items-center gap-1.5 text-xs font-display font-bold text-blue-600 hover:text-blue-800 transition-colors"
+                  >
+                    <span>🧘</span>
+                    <span>Start a session to try the breathing exercise →</span>
+                  </button>
+                )}
+              </div>
+
+              {/* Professor Hoot secret */}
+              <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-3 border-2 border-amber-200/40">
+                <div className="flex items-start gap-2">
+                  <span className="text-lg shrink-0">🦉</span>
+                  <div>
+                    <p className="font-display font-bold text-xs text-amber-600 mb-0.5">
+                      Professor Hoot's Secret
                     </p>
-                    <ul className="space-y-1">
-                      {step.inYourExam.map((tip, j) => (
-                        <li key={j} className="text-gray-600 text-xs flex items-start gap-1.5">
-                          <span className="text-purple-400 mt-0.5 shrink-0">-</span>
-                          {tip}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* In the App box */}
-                  <div className="bg-blue-50 rounded-xl p-3 border border-blue-200">
-                    <p className="font-display font-bold text-blue-700 text-xs mb-1">
-                      📱 In This App:
-                    </p>
-                    <p className="text-gray-600 text-xs">{step.inTheApp}</p>
-                  </div>
-
-                  {/* Research stat */}
-                  {step.researchStat && (
-                    <div className="bg-amber-50 rounded-xl p-2.5 border border-amber-200/60">
-                      <p className="text-xs font-display text-gray-500">
-                        Research shows this gives children{' '}
-                        <strong className="text-amber-700">{step.researchStat}</strong>
-                      </p>
-                    </div>
-                  )}
-
-                  {/* Hoot secret */}
-                  <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-3 border-2 border-amber-200/40">
-                    <div className="flex items-start gap-2">
-                      <span className="text-lg shrink-0">🦉</span>
-                      <div>
-                        <p className="font-display font-bold text-xs text-amber-600 mb-0.5">
-                          Professor Hoot's Secret
-                        </p>
-                        <p className="text-sm text-gray-600 italic">
-                          "{step.hootSecret}"
-                        </p>
-                      </div>
-                    </div>
+                    <p className="text-sm text-gray-600 italic">"{step.hootSecret}"</p>
                   </div>
                 </div>
-              );
-            })()}
+              </div>
+            </div>
           </motion.div>
         </AnimatePresence>
+
+        {/* Step navigation dots */}
+        <div className="flex justify-center gap-1.5">
+          {CLEAR_STEPS.map((s, i) => (
+            <button
+              key={s.letter}
+              onClick={() => setActiveIndex(i)}
+              className={`transition-all duration-300 rounded-full ${
+                i === activeIndex
+                  ? 'w-6 h-2 bg-white'
+                  : 'w-2 h-2 bg-white/35 hover:bg-white/55'
+              }`}
+            />
+          ))}
+        </div>
       </div>
 
       {/* ───── Subject Techniques ───── */}

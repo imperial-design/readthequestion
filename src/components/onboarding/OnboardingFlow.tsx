@@ -21,6 +21,16 @@ const slides: OnboardingSlide[] = [
   },
   {
     hootMood: 'teaching',
+    title: '👨‍👩‍👧 A Note for Parents',
+    body: "For the best start, sit with your child for the tutorial, the first practice question, and the first full session. After that, they can fly solo! I'll guide them every step of the way.",
+    tips: [
+      { emoji: '📖', text: 'Read through these slides together' },
+      { emoji: '🧪', text: 'Do the tutorial side by side so you can explain each step' },
+      { emoji: '⭐', text: "Stay for Day 1 — after that they're ready to go it alone!" },
+    ],
+  },
+  {
+    hootMood: 'teaching',
     title: 'What is the CLEAR Method?',
     body: "It's 5 simple steps you follow for every question. Practise them daily and they become automatic — just like tying your shoes! Let me show you...",
     tips: [
@@ -57,16 +67,6 @@ const slides: OnboardingSlide[] = [
       { emoji: '⏭️', text: 'Stuck? Dot it and move on' },
       { emoji: '⏱️', text: 'Go through the paper and answer all of the easy questions before returning to ones you find hard' },
       { emoji: '🔄', text: 'Change your answer ONLY if you have good reason to' },
-    ],
-  },
-  {
-    hootMood: 'teaching',
-    title: '👨‍👩‍👧 A Note for Parents',
-    body: "For the best start, sit with your child for the tutorial, the first practice question, and the first full session. After that, they can fly solo! I'll guide them every step of the way.",
-    tips: [
-      { emoji: '📖', text: 'Read through these slides together' },
-      { emoji: '🧪', text: 'Do the tutorial side by side so you can explain each step' },
-      { emoji: '⭐', text: 'Stay for Day 1 — after that they\'re ready to go it alone!' },
     ],
   },
   {

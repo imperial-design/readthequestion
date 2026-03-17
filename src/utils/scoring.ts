@@ -65,8 +65,8 @@ export function calculateTechniqueScore(
 }
 
 export function calculateXpFromResult(techniquePercent: number, correct: boolean): number {
-  let xp = Math.round(techniquePercent * 0.5); // Up to 50 XP for technique
-  if (correct) xp += 30; // Bonus for correct answer
+  let xp = Math.round(techniquePercent * 0.8); // Up to 80 XP for technique
+  if (correct) xp += 20; // Bonus for correct answer
   return xp;
 }
 

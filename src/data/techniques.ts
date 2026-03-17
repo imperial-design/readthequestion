@@ -124,6 +124,127 @@ export const CORE_STEPS: CoreStep[] = [
   },
 ];
 
+// ─── CLEAR Method Steps (child-facing, letter-mapped) ─────────────
+// These map directly to C / L / E / A / R and are the canonical
+// child-facing explanation of the method. Use in ChildTechniquesView.
+
+export interface ClearStep {
+  letter: 'C' | 'L' | 'E' | 'A' | 'R';
+  name: string;
+  emoji: string;
+  tagline: string;
+  childDescription: string;
+  hootSecret: string;
+  inYourExam: string[];
+  inTheApp: string;
+  linkToBreathing?: boolean;
+  gradient: string;
+  textColour: string;
+}
+
+export const CLEAR_STEPS: ClearStep[] = [
+  {
+    letter: 'C',
+    name: 'Calm',
+    emoji: '🧘',
+    tagline: 'Breathe before you begin',
+    gradient: 'from-blue-500 to-indigo-600',
+    textColour: 'text-indigo-700',
+    childDescription:
+      'Before every practice session and every exam, take a moment to breathe. Breathe in for 4 counts, hold for 4, breathe out for 4, hold for 4. This tells your brain: "Time to focus!" A calm brain answers questions better than a worried brain.',
+    hootSecret:
+      "I always breathe before I start. Even wise owls get nervous — breathing is how I tell my brain to be brilliant! You can feel the difference straight away.",
+    inYourExam: [
+      'Take 3 slow, deep breaths before the exam begins',
+      'Breathe in for 4 counts, hold for 4, breathe out for 4',
+      "If you feel stuck on a question, breathe first — then try again",
+      'Tell yourself: "I am calm. I am ready. I know my CLEAR Method."',
+    ],
+    inTheApp:
+      'Every session starts with a box breathing exercise. Do not skip it — it is training your brain to start every exam feeling calm and ready!',
+    linkToBreathing: true,
+  },
+  {
+    letter: 'L',
+    name: 'Look',
+    emoji: '👀',
+    tagline: 'Read every word carefully',
+    gradient: 'from-violet-500 to-purple-600',
+    textColour: 'text-purple-700',
+    childDescription:
+      'Read the question TWO times before you look at the answers. First read: what is it about? Second read: what is it REALLY asking? Then find the key words — the fewest words that tell you exactly what you need. Always look out for danger words like NOT, except, never, only — they flip the whole meaning!',
+    hootSecret:
+      "Here's my biggest secret: I ALWAYS read every question twice. Even wise owls need two looks! If you rush straight to the answers, the question setter wins. Slow down to speed up.",
+    inYourExam: [
+      'Cover the answers with your hand so you cannot peek',
+      'Read the question once to understand it',
+      'Read it again and ask: "What is this REALLY asking?"',
+      'Underline key words — especially danger words like NOT, except, only, never',
+    ],
+    inTheApp:
+      'The app makes you read twice and tap the key words before the answers appear. This trains your brain to do it automatically!',
+  },
+  {
+    letter: 'E',
+    name: 'Eliminate',
+    emoji: '✂️',
+    tagline: 'Cross out every wrong answer',
+    gradient: 'from-fuchsia-500 to-pink-600',
+    textColour: 'text-fuchsia-700',
+    childDescription:
+      'Cross out ALL the wrong answers one by one. Ask yourself: "Could this possibly be right?" If no, cross it out! The last one standing is your answer. Even if you are not sure of the right answer, you can almost always spot what is clearly wrong.',
+    hootSecret:
+      "This is my favourite trick! Cross out the wrong ones first, and the right answer practically jumps out at you. Hoo-ray! The question setters hide the right answer — elimination finds it.",
+    inYourExam: [
+      'Put a single line through each wrong answer',
+      'Check EVERY option — do not grab the first one that looks right',
+      'Watch for answers using numbers from the question but calculated wrongly',
+      'Watch for answers that mention the passage but do not answer THIS question',
+    ],
+    inTheApp:
+      'Tap wrong answers to cross them out. You cannot select the right answer until all wrong ones are gone — that is the rule!',
+  },
+  {
+    letter: 'A',
+    name: 'Answer',
+    emoji: '✏️',
+    tagline: 'Choose with confidence',
+    gradient: 'from-pink-500 to-rose-600',
+    textColour: 'text-rose-700',
+    childDescription:
+      'Now choose your answer! After eliminating, you should have just one or two options left. Pick the one that best answers what the question REALLY asked. Trust your method — you have done all the preparation. Go with the answer that matches your key words.',
+    hootSecret:
+      "After eliminating, choosing becomes easy. The hard work was in L and E. By the time you get to A, you've EARNED your answer — believe in it!",
+    inYourExam: [
+      'Choose the answer that best matches the key words you found',
+      'If stuck between two, go back to the key words — they point to the right one',
+      'NEVER leave a question blank — a guess after eliminating gives you 50%+',
+    ],
+    inTheApp:
+      'Tap your chosen answer. The app records your selection and gives you a chance to review before confirming.',
+  },
+  {
+    letter: 'R',
+    name: 'Review',
+    emoji: '✅',
+    tagline: 'Check before you commit',
+    gradient: 'from-teal-500 to-emerald-600',
+    textColour: 'text-teal-700',
+    childDescription:
+      "Before you lock in, read the question ONE MORE TIME. Does your answer still match what was asked? Did you spot any danger words? If you are happy, lock it in! If something feels off, trust that feeling and reconsider. Research shows that answer changes are mostly from WRONG to RIGHT — checking really works!",
+    hootSecret:
+      "A wise owl always double-checks! The research says students who check their answers catch 1 in 5 mistakes. That could be the difference between passing and failing. Always review!",
+    inYourExam: [
+      'Re-read the question one final time before writing your answer',
+      'Check: did I answer what was ASKED, not what I expected?',
+      'It is okay to change your answer if you spot a real reason',
+      'If you finish early, go back and check ALL your answers!',
+    ],
+    inTheApp:
+      'After choosing, the app shows your answer and asks "does this still make sense?". You can change it at this point. When you are sure — lock it in!',
+  },
+];
+
 // ─── Subject-Specific Techniques ──────────────────────────────────
 
 export interface SubjectTechnique {
