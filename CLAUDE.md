@@ -440,6 +440,10 @@ XP: `techniquePercent * 0.5` (up to 50 XP) + 30 bonus for correct answer. Levels
 - "Today's Session Complete" card no longer links to /practice (removed accidental re-trigger)
 - Vertical spacing tightened across all pages (AppShell pt-4→pt-2, BadgesPage/SettingsPage/SessionCompleteScreen/PracticePage)
 - Onboarding has timing progression slide: Week 1 = 20 min, Week 6 = 15 min, Week 12 = 9 min (framed positively)
+- ChildTechniquesView restructured: confusing "5 Habits" + "5 Steps" dual-section replaced with single CLEAR Method™ hero using C/L/E/A/R gradient letter buttons and full step detail on tap; `CLEAR_STEPS` array added to `techniques.ts`
+- C (Calm) step in techniques view explicitly links breathing exercise to CLEAR Method; "Start a session" CTA connects the two
+- Onboarding "A Note for Parents" slide moved from position 7 to position 2 (immediately after Welcome) — parents see it before their child advances
+- XP formula rebalanced: `techniquePercent × 0.8 + 20 (correct)` — technique now drives 80% of XP, reinforcing method over answer-guessing (max 100 XP unchanged)
 
 ---
 
@@ -606,3 +610,9 @@ Required secrets (set via `supabase secrets set`):
 28. **Interactive tutorial elimination**: The `show-answers` tutorial step has `interactive: true` in TUTORIAL_STEPS. `GuidedTutorial.tsx` detects this flag and renders each answer as a tappable button. Tapping a wrong answer adds it to `userEliminated[]` state, triggers a `setEliminationFeedback` with the `eliminationReason` from the option, and Professor Hoot's message changes to show the reason. When the last wrong answer is eliminated, Professor Hoot celebrates and the step auto-advances after 1.8 seconds. The correct answer is shown grayed out with "?" during elimination. No Next button is shown during interactive elimination.
 
 29. **Breathing page visual design**: `PreSessionBreathing.tsx` uses a fuchsia/pink/indigo/blue theme. Background: `linear-gradient(160deg, #1e1b4b → #4c1d95 → #7c3aed → #c026d3 → #db2777 → #be123c)`. Four animated background orbs with independent pulse durations/delays. Six twinkling star dots. Triple-layer breathing circle (ambient glow, halo ring, main circle with shimmer). Phase-specific colour personality: inhale=pink/fuchsia, hold-in=amber/orange, exhale=violet/indigo, hold-out=blue. "I'm Ready!" button has a purple→pink→orange gradient with glowing box-shadow. Cycle progress shown as expanding pills.
+
+30. **CLEAR Method™ as single source of truth in techniques view**: `ChildTechniquesView` previously showed "5 Habits" (from `CORE_HABITS`) and "The 5 Steps" (from `CORE_STEPS`) as two separate sections — the same concepts presented twice in slightly different ways, which confused children. Both sections replaced with a single **CLEAR Method™** section using the new `CLEAR_STEPS` array in `techniques.ts`. `CLEAR_STEPS` maps directly to C/L/E/A/R with `gradient` and `textColour` fields for visual styling. The C step has `linkToBreathing: true` which renders a CTA linking to `/practice` (where the breathing exercise runs).
+
+31. **Parent onboarding note placement**: The "A Note for Parents" slide must appear as slide 2 (index 1) in `OnboardingFlow.tsx`, immediately after Welcome, before any CLEAR Method content. This ensures parents see the co-watching guidance before their child has advanced. If the note appears late (e.g. after the CLEAR Method slides), parents miss it — the child will have already clicked through before the parent reads it.
+
+32. **XP formula rationale**: `calculateXpFromResult` uses `techniquePercent × 0.8 + 20 (correct)` so technique drives 80 XP and correctness adds 20. Previously `× 0.5 + 30` gave too much weight to answer correctness (37.5% of max XP), creating an incentive to guess quickly rather than use the method. Now technique is 80% of maximum XP. The total maximum is unchanged at 100 XP (80 + 20).
