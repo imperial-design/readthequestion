@@ -399,7 +399,10 @@ XP: `techniquePercent * 0.5` (up to 50 XP) + 30 bonus for correct answer. Levels
 
 ## What's Working
 
-- Full question flow with all technique steps (read twice, highlight, number extraction, eliminate, select, feedback)
+- Full question flow with all 8 technique steps (read twice, highlight, number extraction, eliminate, select, **review**, feedback, complete) — CLEAR Method now fully mechanically enforced
+- `REVIEWING` state in `useQuestionFlow`: after selecting answer, child sees their chosen answer and reads question one last time before confirming; can change answer if they spot a mistake
+- Tutorial elimination step is **interactive**: child taps each wrong answer themselves, Professor Hoot explains the reason for each elimination in real time; auto-advances when all eliminated
+- Tutorial has R — Review step (before celebration) demonstrating the review habit
 - 12-week progressive programme with 3 phases
 - Stripe checkout (guest + authenticated) with webhook handling
 - Guest payment claiming on account creation
@@ -408,8 +411,7 @@ XP: `techniquePercent * 0.5` (up to 50 XP) + 30 bonus for correct answer. Levels
 - Progress sync to Supabase with offline-first localStorage
 - Badges, XP, levels, streaks with spaced repetition mistake queue
 - Parent dashboard with analytics
-- Guided tutorial (interactive CLEAR Method walkthrough)
-- Pre-session breathing exercise (box breathing 4-4-4-4)
+- Pre-session breathing exercise (box breathing 4-4-4-4) — fully redesigned with fuchsia/pink/indigo/blue palette, phase-specific colours, animated background orbs, twinkling stars, triple-layer breathing circle
 - Exam-day visualisation with audio
 - Dyslexia-friendly mode (per-child)
 - PWA with service worker
@@ -432,6 +434,12 @@ XP: `techniquePercent * 0.5` (up to 50 XP) + 30 bonus for correct answer. Levels
 - Security documentation: secret rotation policy, backup/restore procedures, environment separation guide, guest checkout auth rationale (all in `docs/security/`)
 - Paywall enforced server-side only — no localStorage bypass (`usePaywall.ts` sources `hasPaid` exclusively from Supabase-fetched child profiles)
 - Security audit score: **22/22 (2 N/A) — SHIP**
+- DANGER_WORDS restricted to genuinely exam-critical words (removed over-broad: 'at', 'each', 'more', 'less', 'before', 'after', 'between', 'until')
+- "Session Complete!" (was "Quest Complete!" — brand language fix)
+- Phase 2 correctly labelled "Building" everywhere (was "Improvers" on HomePage journey tracker)
+- "Today's Session Complete" card no longer links to /practice (removed accidental re-trigger)
+- Vertical spacing tightened across all pages (AppShell pt-4→pt-2, BadgesPage/SettingsPage/SessionCompleteScreen/PracticePage)
+- Onboarding has timing progression slide: Week 1 = 20 min, Week 6 = 15 min, Week 12 = 9 min (framed positively)
 
 ---
 
@@ -592,3 +600,9 @@ Required secrets (set via `supabase secrets set`):
 25. **Zoho email delivery**: Emails sent from `rebecca@answerthequestion.co.uk` may fail to deliver to `@answerthequestion.co.uk` addresses if MX records don't resolve correctly. Check MX records point to `mx.zoho.eu`, `mx2.zoho.eu`, `mx3.zoho.eu`. Emails to external addresses (Gmail, Outlook) work fine.
 
 26. **Security documentation**: Security policies live in `docs/security/`: `secret-rotation.md` (90-day rotation schedule), `backup-restore.md` (Supabase backup + quarterly restore testing), `environment-separation.md` (separate dev/prod Supabase projects + Stripe test/live keys), `guest-checkout-auth.md` (rationale for unauthenticated checkout endpoint with mitigations).
+
+27. **R — Review step in question flow**: `useQuestionFlow` has a `REVIEWING` state between `SELECTING` and `FEEDBACK`. `startReview()` transitions SELECTING→REVIEWING; `cancelReview()` returns to SELECTING (clears selectedAnswer so child re-taps). `confirmAnswer()` works from both SELECTING and REVIEWING states. The timer timeout force-confirms from any non-FEEDBACK/COMPLETE state (including REVIEWING). StepBanner shows step 7 "R — REVIEW YOUR ANSWER" in teal. The review UI shows the selected answer text in a teal card with "Read one more time — does this make sense?" and two buttons: confirm or change.
+
+28. **Interactive tutorial elimination**: The `show-answers` tutorial step has `interactive: true` in TUTORIAL_STEPS. `GuidedTutorial.tsx` detects this flag and renders each answer as a tappable button. Tapping a wrong answer adds it to `userEliminated[]` state, triggers a `setEliminationFeedback` with the `eliminationReason` from the option, and Professor Hoot's message changes to show the reason. When the last wrong answer is eliminated, Professor Hoot celebrates and the step auto-advances after 1.8 seconds. The correct answer is shown grayed out with "?" during elimination. No Next button is shown during interactive elimination.
+
+29. **Breathing page visual design**: `PreSessionBreathing.tsx` uses a fuchsia/pink/indigo/blue theme. Background: `linear-gradient(160deg, #1e1b4b → #4c1d95 → #7c3aed → #c026d3 → #db2777 → #be123c)`. Four animated background orbs with independent pulse durations/delays. Six twinkling star dots. Triple-layer breathing circle (ambient glow, halo ring, main circle with shimmer). Phase-specific colour personality: inhale=pink/fuchsia, hold-in=amber/orange, exhale=violet/indigo, hold-out=blue. "I'm Ready!" button has a purple→pink→orange gradient with glowing box-shadow. Cycle progress shown as expanding pills.
